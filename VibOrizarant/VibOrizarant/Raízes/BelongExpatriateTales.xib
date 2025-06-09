@@ -1,0 +1,104 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" id="iN0-l3-epB">
+            <rect key="frame" x="0.0" y="0.0" width="404" height="334"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="59k-wr-jk7">
+                    <rect key="frame" x="12" y="0.0" width="380" height="269"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="269" id="tnh-jb-UtC"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" backgroundImage="festivecklender"/>
+                </button>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="0N2-An-aPg">
+                    <rect key="frame" x="0.0" y="0.0" width="157.66666666666666" height="147"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="147" id="eSl-uC-bLO"/>
+                        <constraint firstAttribute="width" constant="157.80000000000001" id="jwu-RT-8od"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" backgroundImage="heritage"/>
+                </button>
+                <stackView opaque="NO" contentMode="scaleToFill" distribution="equalSpacing" spacing="5" translatesAutoresizingMaskIntoConstraints="NO" id="UUu-14-m6z">
+                    <rect key="frame" x="24" y="189" width="356" height="67"/>
+                    <subviews>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Kto-rh-I4S">
+                            <rect key="frame" x="0.0" y="0.0" width="115.33333333333333" height="67"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" backgroundImage="makingjis"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="LK8-zW-dA4">
+                            <rect key="frame" x="120.33333333333334" y="0.0" width="115.33333333333334" height="67"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="HeritageHub"/>
+                        </button>
+                        <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="MID-FT-IJ4">
+                            <rect key="frame" x="240.66666666666671" y="0.0" width="115.33333333333334" height="67"/>
+                            <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                            <state key="normal" image="HeritageHub"/>
+                        </button>
+                    </subviews>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="67" id="Fnf-tf-rMp"/>
+                        <constraint firstItem="MID-FT-IJ4" firstAttribute="width" secondItem="Kto-rh-I4S" secondAttribute="width" id="MSO-hp-XNm"/>
+                        <constraint firstItem="LK8-zW-dA4" firstAttribute="width" secondItem="Kto-rh-I4S" secondAttribute="width" id="VQG-c0-dAu"/>
+                    </constraints>
+                </stackView>
+                <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="feedBotome9" translatesAutoresizingMaskIntoConstraints="NO" id="4Ty-hb-BdY">
+                    <rect key="frame" x="12" y="282" width="99" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="width" constant="99" id="Xvy-qc-jTV"/>
+                        <constraint firstAttribute="height" constant="32" id="hps-Rg-8kI"/>
+                    </constraints>
+                </imageView>
+                <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="AbZ-UD-jxp">
+                    <rect key="frame" x="331" y="282" width="61" height="32"/>
+                    <constraints>
+                        <constraint firstAttribute="height" constant="32" id="0zp-Sa-7Mc"/>
+                        <constraint firstAttribute="width" constant="61" id="ckN-uC-cZC"/>
+                    </constraints>
+                    <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                    <state key="normal" backgroundImage="SambaPOST"/>
+                </button>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="vUN-kp-3ea"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="4Ty-hb-BdY" firstAttribute="top" secondItem="59k-wr-jk7" secondAttribute="bottom" constant="13" id="3zj-pq-5lz"/>
+                <constraint firstItem="0N2-An-aPg" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="4pB-Lo-2wb"/>
+                <constraint firstItem="4Ty-hb-BdY" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="7ph-of-AtH"/>
+                <constraint firstItem="UUu-14-m6z" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="24" id="HP1-WK-vga"/>
+                <constraint firstItem="59k-wr-jk7" firstAttribute="top" secondItem="iN0-l3-epB" secondAttribute="top" id="M9R-9I-rda"/>
+                <constraint firstItem="59k-wr-jk7" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" constant="12" id="OOP-Ql-ntt"/>
+                <constraint firstItem="AbZ-UD-jxp" firstAttribute="trailing" secondItem="59k-wr-jk7" secondAttribute="trailing" id="YhE-ZZ-SBr"/>
+                <constraint firstItem="UUu-14-m6z" firstAttribute="bottom" secondItem="59k-wr-jk7" secondAttribute="bottom" constant="-13" id="fn8-qj-bSg"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="UUu-14-m6z" secondAttribute="trailing" constant="24" id="grg-kZ-Uhl"/>
+                <constraint firstItem="vUN-kp-3ea" firstAttribute="trailing" secondItem="59k-wr-jk7" secondAttribute="trailing" constant="12" id="hVx-eX-QQv"/>
+                <constraint firstItem="0N2-An-aPg" firstAttribute="leading" secondItem="vUN-kp-3ea" secondAttribute="leading" id="pbQ-RO-jAA"/>
+                <constraint firstItem="AbZ-UD-jxp" firstAttribute="centerY" secondItem="4Ty-hb-BdY" secondAttribute="centerY" id="tfP-4f-js3"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <point key="canvasLocation" x="204.58015267175571" y="-143.66197183098592"/>
+        </view>
+    </objects>
+    <resources>
+        <image name="HeritageHub" width="22" height="22"/>
+        <image name="SambaPOST" width="61" height="32"/>
+        <image name="feedBotome9" width="100" height="36"/>
+        <image name="festivecklender" width="352" height="249"/>
+        <image name="heritage" width="158" height="147"/>
+        <image name="makingjis" width="332" height="52"/>
+    </resources>
+</document>
