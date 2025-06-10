@@ -2,7 +2,7 @@
 //  AzulejoLoadingView.swift
 //  VibOrizarant
 //
-//  Created by mumu on 2025/6/10.
+//  
 //
 
 import UIKit
@@ -77,24 +77,30 @@ class NavegadorStatusView: UIView {
         fatalError("init(coder:) has not been implemented")
     }
     
+    private lazy var integrationLabert: UILabel = {
+        let label = UILabel()
+        label.textColor = .white
+        label.numberOfLines = 0
+        label.text = message
+        
+        label.textAlignment = .center
+        return label
+    }()
+    
     private func beginVoyage() {
         backgroundColor = type == .caravelaSuccess ? UIColor.systemGreen : UIColor.systemBlue
         layer.cornerRadius = 8
         
-        let label = UILabel()
-        label.text = message
-        label.textColor = .white
-        label.numberOfLines = 0
-        label.textAlignment = .center
+      
         
-        addSubview(label)
-        label.translatesAutoresizingMaskIntoConstraints = false
+        addSubview(integrationLabert)
+        integrationLabert.translatesAutoresizingMaskIntoConstraints = false
         
         NSLayoutConstraint.activate([
-            label.topAnchor.constraint(equalTo: topAnchor, constant: 10),
-            label.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
-            label.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
-            label.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
+            integrationLabert.topAnchor.constraint(equalTo: topAnchor, constant: 10),
+            integrationLabert.bottomAnchor.constraint(equalTo: bottomAnchor, constant: -10),
+            integrationLabert.leadingAnchor.constraint(equalTo: leadingAnchor, constant: 20),
+            integrationLabert.trailingAnchor.constraint(equalTo: trailingAnchor, constant: -20)
         ])
     }
     

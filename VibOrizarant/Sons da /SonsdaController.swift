@@ -2,7 +2,7 @@
 //  SonsdaController.swift
 //  VibOrizarant
 //
-//  Created by mumu on 2025/6/9.
+//  2025/6/9.
 //
 
 import UIKit

@@ -2,7 +2,7 @@
 //  OndaLusaController.swift
 //  VibOrizarant
 //
-//  Created by mumu on 2025/6/10.
+//  
 //
 
 import UIKit
@@ -19,7 +19,7 @@ class OndaLusaController: UITabBarController {
                
         lastCulturalTabIndex = 1
     }
-    
+   
     func restoreCulturalContext() {
             
         selectedIndex = lastCulturalTabIndex
@@ -32,12 +32,11 @@ extension OndaLusaController: UITabBarControllerDelegate {
         if viewController == tabBarController.viewControllers?.first {
             if shouldEnterImmersionMode {
      
-                if let navController = viewController as? UINavigationController {
-                    let headphonesVC = LusophoneWebController.init(culturalRoute: .freestyle)
-                    navController.pushViewController(headphonesVC, animated: true)
-                    shouldEnterImmersionMode = false
-                    return false
-                }
+                let headphonesVC = LusophoneWebController.init(culturalRoute: .freestyle)
+                
+                self.navigationController?.pushViewController(headphonesVC, animated: true)
+                shouldEnterImmersionMode = false
+                return false
             }
         } else {
             

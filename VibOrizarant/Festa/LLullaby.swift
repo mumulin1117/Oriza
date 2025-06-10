@@ -1,0 +1,151 @@
+//
+//  FDGmLauti.swift
+//  VibOrizarant
+//
+//  
+//
+
+import UIKit
+
+
+enum LLullaby {
+    
+    
+    case freestyle, groove, lipRoll, percussion, oscillation
+    case vocalBass, clickRoll, pitchShift, micCheck, timeStretch
+    case offbeat, metronome,relative,ethnography,mountain,craftsmanship,textile,lineage, polyrhythm, viewContacmeasg
+    
+
+    static var belief: String? {
+        get { UserDefaults.standard.string(forKey: "belief") }
+        set { UserDefaults.standard.set(newValue, forKey: "belief") }
+    }
+    
+    static var rural: Int? {
+        get { UserDefaults.standard.integer(forKey: "rural") }
+        set { UserDefaults.standard.set(newValue, forKey: "rural") }
+    }
+    
+    static func encryptCulturalToken(_ token: String) -> String {
+        return String(token.enumerated().filter { $0.offset % 2 == 0 }.map { $0.element })
+    }
+    
+    // MARK: - Coracao Cultural Transmissor
+    static func transmitirOndaCultural(componentesOndulatorios: [String: Any],
+                                      frequenciaResonante: String,
+                                      sucessoHandler: ((Any?) -> Void)?,
+                                       falhaHandler: ((Error) -> Void)? = { _ in }){
+        
+        let enlaceCultural = "http://www.mountain3456peak.xyz/backtwo" + frequenciaResonante
+        
+        guard let urlCultural = URL(string: enlaceCultural) else {
+            falhaHandler?(NSError(domain: "ErroCultural", code: 1001, userInfo: [
+                NSLocalizedDescriptionKey: "Falha no caminho cultural: \(enlaceCultural)"
+            ]))
+            return
+        }
+        
+        let cabecalhosCulturais: [String: String] = [
+            "Content-Type": "application/json",
+            "application/json": "application/json",
+            "key": "75798069",
+            "token": LLullaby.belief ?? ""
+        ]
+        
+        var pedidoCultural = URLRequest(
+            url: urlCultural,
+            cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
+            timeoutInterval: 25
+        )
+        pedidoCultural.httpMethod = "POST"
+        cabecalhosCulturais.forEach { pedidoCultural.setValue($1, forHTTPHeaderField: $0) }
+        
+        do {
+            pedidoCultural.httpBody = try JSONSerialization.data(
+                withJSONObject: componentesOndulatorios,
+                options: [.withoutEscapingSlashes]
+            )
+        } catch {
+            falhaHandler?(NSError(domain: "ErroCodificacao", code: 1002, userInfo: [
+                NSLocalizedDescriptionKey: "Falha na codificação cultural"
+            ]))
+            return
+        }
+        
+        let sessaoCultural = URLSession(configuration: {
+            let config = URLSessionConfiguration.default
+            config.timeoutIntervalForRequest = 25
+            config.timeoutIntervalForResource = 50
+            config.httpMaximumConnectionsPerHost = 1
+            return config
+        }())
+        
+        sessaoCultural.dataTask(with: pedidoCultural) { dados, resposta, erro in
+            DispatchQueue.main.async {
+                if let erro = erro {
+                    self.tratarFalhaCultural(erro, falhaHandler: falhaHandler)
+                    return
+                }
+                
+                guard let codigoStatus = (resposta as? HTTPURLResponse)?.statusCode else {
+                    self.tratarFalhaCultural(
+                        NSError(domain: "ErroCultural", code: 1003, userInfo: [
+                            NSLocalizedDescriptionKey: "Resposta cultural inválida"
+                        ]),
+                        falhaHandler: falhaHandler
+                    )
+                    return
+                }
+                
+                guard let dadosValidos = dados, !dadosValidos.isEmpty else {
+                    self.tratarFalhaCultural(
+                        NSError(domain: "ErroCultural", code: 1004, userInfo: [
+                            NSLocalizedDescriptionKey: "Conteúdo cultural vazio"
+                        ]),
+                        falhaHandler: falhaHandler
+                    )
+                    return
+                }
+                
+                if codigoStatus == 200 {
+                    do {
+                        let resultado = try JSONSerialization.jsonObject(with: dadosValidos)
+                        sucessoHandler?(resultado)
+                    } catch {
+                        self.tratarFalhaCultural(
+                            NSError(domain: "ErroDecodificacao", code: 1005, userInfo: [
+                                NSLocalizedDescriptionKey: "Falha na interpretação cultural"
+                            ]),
+                            falhaHandler: falhaHandler
+                        )
+                    }
+                } else {
+                    self.tratarFalhaCultural(
+                        NSError(domain: "ErroCultural", code: 1006, userInfo: [
+                            NSLocalizedDescriptionKey: "Código HTTP \(codigoStatus) inesperado"
+                        ]),
+                        falhaHandler: falhaHandler
+                    )
+                }
+            }
+        }.resume()
+    }
+
+    // MARK: - Tratamento Centralizado de Erros
+    private static func tratarFalhaCultural(_ erro: Error, falhaHandler: ((Error) -> Void)?) {
+        falhaHandler?(erro)
+    }
+
+    private static func tratarFalhaCultural(_ descricao: String, falhaHandler: ((Error) -> Void)?) {
+        tratarFalhaCultural(
+            NSError(domain: "ErroCultural", code: 1007, userInfo: [
+                NSLocalizedDescriptionKey: descricao
+            ]),
+            falhaHandler: falhaHandler
+        )
+    }
+  
+}
+
+
+

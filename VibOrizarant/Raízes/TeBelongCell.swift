@@ -2,16 +2,21 @@
 //  TeBelongCell.swift
 //  VibOrizarant
 //
-//  Created by mumu on 2025/6/9.
+//  2025/6/9.
 //
 
 import UIKit
 
 class TeBelongCell: UITableViewCell {
 
+    @IBOutlet weak var fado: UIView!
     override func awakeFromNib() {
         super.awakeFromNib()
-        // Initialization code
+        self.selectionStyle = .none
+        self.backgroundColor = .clear
+        
+        fado.layer.cornerRadius = 20
+        fado.layer.masksToBounds = true
     }
 
     override func setSelected(_ selected: Bool, animated: Bool) {

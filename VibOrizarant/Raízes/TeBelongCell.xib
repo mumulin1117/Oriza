@@ -109,6 +109,9 @@
                 </constraints>
             </tableViewCellContentView>
             <viewLayoutGuide key="safeArea" id="njF-e1-oar"/>
+            <connections>
+                <outlet property="fado" destination="5dV-79-EQ4" id="vzx-if-Vb8"/>
+            </connections>
             <point key="canvasLocation" x="208.3969465648855" y="177.46478873239437"/>
         </tableViewCell>
     </objects>

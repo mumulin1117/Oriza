@@ -2,7 +2,7 @@
 //  HeadPhoneController.swift
 //  VibOrizarant
 //
-//  Created by mumu on 2025/6/10.
+//  
 //
 
 
@@ -18,8 +18,11 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     private var fadoBrowser: WKWebView?
     private var saudadeLink: String?
     private let azulejoLoader = AzulejoLoadingView()
-    init(culturalRoute: NoiseGate, lusoToken: String = "") {
+    var isagrmentPage:Bool = false
+    
+    init(culturalRoute: LLullaby, lusoToken: String = "",isagrment:Bool = false) {
         super.init(nibName: nil, bundle: nil)
+        self.isagrmentPage =  isagrment
         self.saudadeLink = self.generateCulturalsympathetic(Sympathetic: culturalRoute, dicer: lusoToken)
     }
     
@@ -93,7 +96,7 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
     
     private func setupCulturalBackground() {
-        let azulejoBackground = UIImageView(image: UIImage(named: "commentary"))
+        let azulejoBackground = UIImageView(image: UIImage(named: "travelWa"))
         view.addSubview(azulejoBackground)
         azulejoBackground.frame = UIScreen.main.bounds
         
@@ -137,7 +140,12 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
             
         case "LusophoneLife":
-            navigationController?.popViewController(animated: true)
+           
+            if isagrmentPage {
+                self.dismiss(animated: true)
+            }else{
+                navigationController?.popViewController(animated: true)
+            }
             
         case "TraditionKeepers":
             handleCulturalSignOut()
@@ -151,7 +159,7 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
      
     
-    private func             LusoCommunity(message: WKScriptMessage) {
+    private func  LusoCommunity(message: WKScriptMessage) {
         guard let productID = message.body as? String else { return }
      
         prepareFesta()
@@ -186,13 +194,13 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     }
     
     private func handleCulturalSignOut() {
-        NoiseGate.recording = nil
-        NoiseGate.feed = nil
+        LLullaby.belief = nil
+        LLullaby.rural = nil
         navigateToRoyaltyScreen()
     }
     
     // MARK: - Path Generation
-    private func generateCulturalsympathetic(Sympathetic: NoiseGate, dicer: String = "") -> String {
+    private func generateCulturalsympathetic(Sympathetic: LLullaby, dicer: String = "") -> String {
         var regional: String
         
         switch Sympathetic {
@@ -232,8 +240,8 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
             tokenParam = tokenParam + "&"
         }
         
-        let culturalToken = NoiseGate.feed ?? ""
-        return "http://www.mountain3456peak.xyz/#" + regional + tokenParam + "token=" + culturalToken + "&appID=" + NoiseGate.appID
+        let culturalToken = LLullaby.belief ?? ""
+        return "http://www.mountain3456peak.xyz/#" + regional + tokenParam + "token=" + culturalToken + "&appID=" + "75798069"
     }
     
     // MARK: - WebView Delegates
@@ -285,14 +293,14 @@ extension UIViewController{
     
     
     func navigateToRoyaltyScreen() {
-        let storyboard = UIStoryboard(name: "Main", bundle: nil)
+        let legend = UIStoryboard(name: "Main", bundle: nil)
         
-        if NoiseGate.feed == nil {
-            if let loadinti = storyboard.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
+        if LLullaby.belief == nil {
+            if let loadinti = legend.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
                 self.window?.rootViewController = loadinti
             }
         }else{
-            if let asoti = storyboard.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
+            if let asoti = legend.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
                 self.window?.rootViewController = asoti
             }
         }
