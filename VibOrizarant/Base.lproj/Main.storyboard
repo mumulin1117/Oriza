@@ -12,7 +12,7 @@
         <!--FestaHI Controller-->
         <scene sceneID="okr-vO-3J1">
             <objects>
-                <viewController id="vLX-wN-5fT" customClass="FestaHIController" customModule="VibOrizarant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController storyboardIdentifier="FestaHIController" useStoryboardIdentifierAsRestorationIdentifier="YES" id="vLX-wN-5fT" customClass="FestaHIController" customModule="VibOrizarant" customModuleProvider="target" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="N5m-Lj-T1E">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
@@ -313,7 +313,7 @@
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="EHf-9l-uXE" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="791.60305343511448" y="924.64788732394368"/>
+            <point key="canvasLocation" x="515" y="1100"/>
         </scene>
         <!--Sabores Controller-->
         <scene sceneID="5CY-W4-0F0">
@@ -325,11 +325,11 @@
                         <viewLayoutGuide key="safeArea" id="tf4-aK-8Et"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="SambaSoul1" selectedImage="SambaSoul1qwe" id="bdv-6m-or3"/>
+                    <tabBarItem key="tabBarItem" title="" image="SambaSoul0" selectedImage="SambaSoul0" id="bdv-6m-or3"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="uxv-mQ-pLo" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="731" y="-407"/>
+            <point key="canvasLocation" x="721" y="-1053"/>
         </scene>
         <!--Ra Izesxute Controller-->
         <scene sceneID="wtD-ee-6n7">
@@ -407,16 +407,16 @@
                             <constraint firstItem="Yke-rp-taf" firstAttribute="centerX" secondItem="tVN-yo-WBF" secondAttribute="centerX" id="zdp-Tz-kOF"/>
                         </constraints>
                     </view>
-                    <tabBarItem key="tabBarItem" title="" image="SambaSoul0" id="xXE-8H-YeQ"/>
+                    <tabBarItem key="tabBarItem" title="" image="SambaSoul1" selectedImage="SambaSoul1qwe" id="xXE-8H-YeQ"/>
                 </viewController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="30I-uh-F8R" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="730.53435114503816" y="-1014.0845070422536"/>
+            <point key="canvasLocation" x="689" y="-382"/>
         </scene>
         <!--Navigation Controller-->
         <scene sceneID="Dp8-pu-pFG">
             <objects>
-                <navigationController id="QXB-b6-pT7" sceneMemberID="viewController">
+                <navigationController restorationIdentifier="GuiadeMainAzu" storyboardIdentifier="GuiadeMainAzu" id="QXB-b6-pT7" sceneMemberID="viewController">
                     <navigationBar key="navigationBar" hidden="YES" contentMode="scaleToFill" id="RAa-gD-3ta">
                         <rect key="frame" x="0.0" y="59" width="393" height="44"/>
                         <autoresizingMask key="autoresizingMask"/>
@@ -429,10 +429,10 @@
             </objects>
             <point key="canvasLocation" x="-1120" y="-725"/>
         </scene>
-        <!--Tab Bar Controller-->
+        <!--Onda Lusa Controller-->
         <scene sceneID="pxO-W0-KQj">
             <objects>
-                <tabBarController id="bj7-gr-AHi" sceneMemberID="viewController">
+                <tabBarController id="bj7-gr-AHi" customClass="OndaLusaController" customModule="VibOrizarant" customModuleProvider="target" sceneMemberID="viewController">
                     <navigationItem key="navigationItem" id="G7c-be-Cm5"/>
                     <tabBar key="tabBar" contentMode="scaleToFill" insetsLayoutMarginsFromSafeArea="NO" id="FLO-8t-jUy">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="49"/>
@@ -441,15 +441,15 @@
                         <tabBarAppearance key="standardAppearance"/>
                     </tabBar>
                     <connections>
-                        <segue destination="gsa-V6-949" kind="relationship" relationship="viewControllers" id="dM3-UN-jAq"/>
-                        <segue destination="xAQ-Lc-sAI" kind="relationship" relationship="viewControllers" id="ivf-6c-Fhb"/>
-                        <segue destination="FHT-3w-7iK" kind="relationship" relationship="viewControllers" id="8kx-cr-bf0"/>
-                        <segue destination="OOO-gy-EQZ" kind="relationship" relationship="viewControllers" id="M9I-0e-dQ6"/>
+                        <segue destination="xAQ-Lc-sAI" kind="relationship" relationship="viewControllers" id="ajp-80-ycE"/>
+                        <segue destination="gsa-V6-949" kind="relationship" relationship="viewControllers" id="Vj0-XE-rIC"/>
+                        <segue destination="FHT-3w-7iK" kind="relationship" relationship="viewControllers" id="AHL-VQ-Wdo"/>
+                        <segue destination="OOO-gy-EQZ" kind="relationship" relationship="viewControllers" id="mcL-5X-7nB"/>
                     </connections>
                 </tabBarController>
                 <placeholder placeholderIdentifier="IBFirstResponder" id="wlv-BY-sy9" userLabel="First Responder" customClass="UIResponder" sceneMemberID="firstResponder"/>
             </objects>
-            <point key="canvasLocation" x="-509" y="465"/>
+            <point key="canvasLocation" x="-387" y="-121"/>
         </scene>
     </scenes>
     <resources>

@@ -6,8 +6,15 @@
 	objectVersion = 77;
 	objects = {
 
+/* Begin PBXBuildFile section */
+		0C58FD5290784F252784EABA /* Pods_VibOrizarant.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = E8FA73E6B5F83466351DC775 /* Pods_VibOrizarant.framework */; };
+/* End PBXBuildFile section */
+
 /* Begin PBXFileReference section */
 		0409EE9F2DF6B18600DA2B31 /* VibOrizarant.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = VibOrizarant.app; sourceTree = BUILT_PRODUCTS_DIR; };
+		957170AFE74B0B8CA4D40175 /* Pods-VibOrizarant.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VibOrizarant.release.xcconfig"; path = "Target Support Files/Pods-VibOrizarant/Pods-VibOrizarant.release.xcconfig"; sourceTree = "<group>"; };
+		E8FA73E6B5F83466351DC775 /* Pods_VibOrizarant.framework */ = {isa = PBXFileReference; explicitFileType = wrapper.framework; includeInIndex = 0; path = Pods_VibOrizarant.framework; sourceTree = BUILT_PRODUCTS_DIR; };
+		EE8C92B29100AFFD9ECED88C /* Pods-VibOrizarant.debug.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-VibOrizarant.debug.xcconfig"; path = "Target Support Files/Pods-VibOrizarant/Pods-VibOrizarant.debug.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFileSystemSynchronizedBuildFileExceptionSet section */
@@ -36,6 +43,7 @@
 			isa = PBXFrameworksBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				0C58FD5290784F252784EABA /* Pods_VibOrizarant.framework in Frameworks */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -47,6 +55,8 @@
 			children = (
 				0409EEA12DF6B18600DA2B31 /* VibOrizarant */,
 				0409EEA02DF6B18600DA2B31 /* Products */,
+				1AB508E11F4B1334692BB9EF /* Pods */,
+				CC3606028BA282705CA80117 /* Frameworks */,
 			);
 			sourceTree = "<group>";
 		};
@@ -58,6 +68,23 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		1AB508E11F4B1334692BB9EF /* Pods */ = {
+			isa = PBXGroup;
+			children = (
+				EE8C92B29100AFFD9ECED88C /* Pods-VibOrizarant.debug.xcconfig */,
+				957170AFE74B0B8CA4D40175 /* Pods-VibOrizarant.release.xcconfig */,
+			);
+			path = Pods;
+			sourceTree = "<group>";
+		};
+		CC3606028BA282705CA80117 /* Frameworks */ = {
+			isa = PBXGroup;
+			children = (
+				E8FA73E6B5F83466351DC775 /* Pods_VibOrizarant.framework */,
+			);
+			name = Frameworks;
+			sourceTree = "<group>";
+		};
 /* End PBXGroup section */
 
 /* Begin PBXNativeTarget section */
@@ -65,9 +92,11 @@
 			isa = PBXNativeTarget;
 			buildConfigurationList = 0409EEB22DF6B18800DA2B31 /* Build configuration list for PBXNativeTarget "VibOrizarant" */;
 			buildPhases = (
+				0D5485D2A8501D9C56D3455E /* [CP] Check Pods Manifest.lock */,
 				0409EE9B2DF6B18600DA2B31 /* Sources */,
 				0409EE9C2DF6B18600DA2B31 /* Frameworks */,
 				0409EE9D2DF6B18600DA2B31 /* Resources */,
+				F39C2D810D9FF8A7F4002723 /* [CP] Embed Pods Frameworks */,
 			);
 			buildRules = (
 			);
@@ -77,8 +106,6 @@
 				0409EEA12DF6B18600DA2B31 /* VibOrizarant */,
 			);
 			name = VibOrizarant;
-			packageProductDependencies = (
-			);
 			productName = VibOrizarant;
 			productReference = 0409EE9F2DF6B18600DA2B31 /* VibOrizarant.app */;
 			productType = "com.apple.product-type.application";
@@ -127,6 +154,48 @@
 		};
 /* End PBXResourcesBuildPhase section */
 
+/* Begin PBXShellScriptBuildPhase section */
+		0D5485D2A8501D9C56D3455E /* [CP] Check Pods Manifest.lock */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+			);
+			inputPaths = (
+				"${PODS_PODFILE_DIR_PATH}/Podfile.lock",
+				"${PODS_ROOT}/Manifest.lock",
+			);
+			name = "[CP] Check Pods Manifest.lock";
+			outputFileListPaths = (
+			);
+			outputPaths = (
+				"$(DERIVED_FILE_DIR)/Pods-VibOrizarant-checkManifestLockResult.txt",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "diff \"${PODS_PODFILE_DIR_PATH}/Podfile.lock\" \"${PODS_ROOT}/Manifest.lock\" > /dev/null\nif [ $? != 0 ] ; then\n    # print error to STDERR\n    echo \"error: The sandbox is not in sync with the Podfile.lock. Run 'pod install' or update your CocoaPods installation.\" >&2\n    exit 1\nfi\n# This output is used by Xcode 'outputs' to avoid re-running this script phase.\necho \"SUCCESS\" > \"${SCRIPT_OUTPUT_FILE_0}\"\n";
+			showEnvVarsInLog = 0;
+		};
+		F39C2D810D9FF8A7F4002723 /* [CP] Embed Pods Frameworks */ = {
+			isa = PBXShellScriptBuildPhase;
+			buildActionMask = 2147483647;
+			files = (
+			);
+			inputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VibOrizarant/Pods-VibOrizarant-frameworks-${CONFIGURATION}-input-files.xcfilelist",
+			);
+			name = "[CP] Embed Pods Frameworks";
+			outputFileListPaths = (
+				"${PODS_ROOT}/Target Support Files/Pods-VibOrizarant/Pods-VibOrizarant-frameworks-${CONFIGURATION}-output-files.xcfilelist",
+			);
+			runOnlyForDeploymentPostprocessing = 0;
+			shellPath = /bin/sh;
+			shellScript = "\"${PODS_ROOT}/Target Support Files/Pods-VibOrizarant/Pods-VibOrizarant-frameworks.sh\"\n";
+			showEnvVarsInLog = 0;
+		};
+/* End PBXShellScriptBuildPhase section */
+
 /* Begin PBXSourcesBuildPhase section */
 		0409EE9B2DF6B18600DA2B31 /* Sources */ = {
 			isa = PBXSourcesBuildPhase;
@@ -140,6 +209,7 @@
 /* Begin XCBuildConfiguration section */
 		0409EEB32DF6B18800DA2B31 /* Debug */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = EE8C92B29100AFFD9ECED88C /* Pods-VibOrizarant.debug.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
@@ -176,6 +246,7 @@
 		};
 		0409EEB42DF6B18800DA2B31 /* Release */ = {
 			isa = XCBuildConfiguration;
+			baseConfigurationReference = 957170AFE74B0B8CA4D40175 /* Pods-VibOrizarant.release.xcconfig */;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
 				ASSETCATALOG_COMPILER_GLOBAL_ACCENT_COLOR_NAME = AccentColor;
