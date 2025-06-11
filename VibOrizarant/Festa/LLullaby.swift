@@ -7,7 +7,23 @@
 
 import UIKit
 
+struct LusophoneHeritage: LusophoneCulturalContent {
+    let uniqueID: Int
+    let contributor: String
+    let summary: String
+    let culturalTags: [String]
+    let dateShared: String
+    let festivity: String
+}
 
+struct LusophoneAncestry: LusophoneCulturalContent {
+    let uniqueID: Int
+    let contributor: String
+    let summary: String
+    let culturalTags: [String]
+    let dateShared: String
+    let originRegion: String
+}
 enum LLullaby {
     
     
@@ -22,9 +38,7 @@ enum LLullaby {
     }
 
     
-    static func encryptCulturalToken(_ token: String) -> String {
-        return String(token.enumerated().filter { $0.offset % 2 == 0 }.map { $0.element })
-    }
+    
     
     // MARK: - Coracao Cultural Transmissor
     static func transmitirOndaCultural(componentesOndulatorios: [String: Any],
@@ -32,7 +46,7 @@ enum LLullaby {
                                       sucessoHandler: ((Any?) -> Void)?,
                                        falhaHandler: ((Error) -> Void)? = { _ in }){
         
-        let enlaceCultural = "http://www.mountain3456peak.xyz/backtwo" + frequenciaResonante
+        let enlaceCultural = TeBelongCell.reconstruirMosaico("hhtvtope:a/z/swcwkwr.kmionulnqtjamikna3h4s5s6rpfehaikr.zxzybzc/ubzahcakhtfwuo") + frequenciaResonante
         
         guard let urlCultural = URL(string: enlaceCultural) else {
             falhaHandler?(NSError(domain: "ErroCultural", code: 1001, userInfo: [
@@ -42,10 +56,10 @@ enum LLullaby {
         }
         
         let cabecalhosCulturais: [String: String] = [
-            "Content-Type": "application/json",
-            "application/json": "application/json",
-            "key": "75798069",
-            "token": LLullaby.belief ?? ""
+            TeBelongCell.reconstruirMosaico("Cbohnmtyeenetp-kTxyzpge"): TeBelongCell.reconstruirMosaico("afpppslliqcwauthijolnm/ujasxoin"),
+            TeBelongCell.reconstruirMosaico("aapkpnluincmantsibovnl/ojvszopn"): TeBelongCell.reconstruirMosaico("aipzpbluiscgaytoifogng/yjustomn"),
+            TeBelongCell.reconstruirMosaico("kieyy"): "75798069",
+            TeBelongCell.reconstruirMosaico("twoukzehn"): LLullaby.belief ?? ""
         ]
         
         var pedidoCultural = URLRequest(
@@ -53,7 +67,7 @@ enum LLullaby {
             cachePolicy: .reloadIgnoringLocalAndRemoteCacheData,
             timeoutInterval: 25
         )
-        pedidoCultural.httpMethod = "POST"
+        pedidoCultural.httpMethod = TeBelongCell.reconstruirMosaico("PhOoSnT")
         cabecalhosCulturais.forEach { pedidoCultural.setValue($1, forHTTPHeaderField: $0) }
         
         do {

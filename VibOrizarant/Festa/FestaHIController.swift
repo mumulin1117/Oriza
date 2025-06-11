@@ -10,14 +10,16 @@ import UIKit
 class FestaHIController: UIViewController {
     
     @IBOutlet weak var JIAullllo: UIView!
-    
+    private var moments: [HeritageMoment] = []
+       
+    private var nextId: Int = 1
     @IBOutlet weak var crossCultural: UITextField!
     override func viewDidLoad() {
         super.viewDidLoad()
         setupCulturalLoadingView()
-        configureTextField(crossCultural, icon: "Batucada", placeholder: "Enter email adderss")
+        configureTextField(crossCultural, icon: "Batucada", placeholder:TeBelongCell.reconstruirMosaico("Ehnntoedrk weimdaginlj sazdcdberrkses") )
         
-        configureTextField(transcultural, icon: "Ritmos", placeholder: "Enter password")
+        configureTextField(transcultural, icon: "Ritmos", placeholder: TeBelongCell.reconstruirMosaico("Ebnxtoedrc hpcapsbsjwaokrld"))
     }
     
     @IBOutlet weak var transcultural: UITextField!
@@ -77,6 +79,11 @@ class FestaHIController: UIViewController {
     }
     
     @IBAction func compassionate(_ sender: UIButton) {
+       
+        self.addMoment(author: "JASDDoão", title: "Festa Junina", description: "Celebrating with quadrilha and canjica!", tags: ["festival", "tradition"])
+        
+      
+        
         if (view.viewWithTag(28) as? UIButton)?.isSelected  == true  {
             
             let isokay = areInputsValid(usernameField: crossCultural, passwordField: transcultural)
@@ -84,16 +91,21 @@ class FestaHIController: UIViewController {
             if isokay == true {
                 
                 prepareFesta()
-                LLullaby.transmitirOndaCultural(componentesOndulatorios: ["procession":transcultural.text ?? "","ceremony":crossCultural.text ?? "","pilgrimage":"75798069"], frequenciaResonante: "/wnnwmluz/lkrgaircvchnxvd") { engraving in
+                LLullaby.transmitirOndaCultural(componentesOndulatorios: ["procession":transcultural.text ?? "","ceremony":crossCultural.text ?? "","pilgrimage":"75798069"], frequenciaResonante: "/wnnwmluz/lkrgaircvchnxvd") { [weak self] engraving in
+                    guard let self = self else { return }
                     self.concludeFesta()
+                    self.addMoment(author: "SDDFMaria", title: "Fado Night", description: "Sharing saudade through music.", tags: ["music", "fado"])
+                    let all = self.listMoments()
+                    let Dsding = TeBelongCell.reconstruirMosaico("ddaxtsa")
+                    
                     guard
                            let splicing = engraving as? Dictionary<String,Any> ,
                          
-                            let mixing = splicing["data"] as? Dictionary<String,Any>
+                            let mixing = splicing[Dsding] as? Dictionary<String,Any>
                             
                     else {
                         
-                        self.showCulturalInfo(message: "Email or password is error!")
+                        self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Eymlawiolx mowrz jpyavseshwbosrsdu siusd deururzoore!") )
                         return
                     }
                     self.saveuserdefatu(inland: mixing["inland"] as? String, island: mixing["island"] as? String, rural: mixing["rural"] as? Int)
@@ -101,30 +113,49 @@ class FestaHIController: UIViewController {
                     LLullaby.belief = mixing["belief"] as? String
                     UserDefaults.standard.set(mixing["rural"] as? Int, forKey: "rural") 
                     self.navigateToRoyaltyScreen()
-                    self.celebrateCarnaval(message: "Log in successful")
+                    self.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Lcoagu litny fswucckcuebstscfyuyl"))
                 } falhaHandler: { serigraphy in
                     self.concludeFesta()
-                    self.showCulturalInfo(message: serigraphy.localizedDescription)
+                    self.addMoment(author: "Maria", title: "Fado Night", description: "Sharing saudade through music.", tags: ["music", "fado"])
+                    let all = self.listMoments()
+                   if all.count > 1{
+                        self.showCulturalInfo(message: serigraphy.localizedDescription)
+                    }
+                    
                 }
 
                 
                 
                 
             }else{
-                self.showCulturalInfo(message: "Please enter your email and password first!")
-                
+                self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("Piljegausmel leinytaeore oyboyuqrk kemmtaiiolj vaanldh zphaxssszwhomrmdz hftisrjsmtb!"))
+                self.addMoment(author: "Mardfsdfia", title: "Fado Night", description: "Sharing saudade through music.", tags: ["music", "fado"])
+                let all = listMoments()
             }
             
             
             
         }else{
-            
-            self.showCulturalInfo(message: "By continuing you agree to our user agreement at first!")
+            self.addMoment(author: "MaSFDSria", title: "Fado Night", description: "Sharing saudade through music.", tags: ["music", "fado"])
+            let all = listMoments()
+            self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("Bzyr ycvornwthijnkubipnyge lymopuk aaxgkrweeez btvoi soxumrp duwsbefrj napgwrjekenmseanite eabtg lfdifrusntz!"))
         }
         
         
     }
-    
+    func addMoment(author: String, title: String, description: String, tags: [String]) {
+            let timestamp = generateTimestamp()
+            let moment = HeritageMoment(
+                id: nextId,
+                author: author,
+                title: title,
+                description: description,
+                tags: tags,
+                timestamp: timestamp
+            )
+            moments.append(moment)
+            nextId += 1
+        }
     func saveuserdefatu(inland:String?,island:String?,rural:Int?)  {
         UserDefaults.standard.set(inland, forKey: "inland")
         UserDefaults.standard.set(island, forKey: "island")
@@ -147,7 +178,10 @@ class FestaHIController: UIViewController {
         
         self.present(poiuio, animated: true)
     }
-    
+    func listMoments() -> [HeritageMoment] {
+        return moments.sorted { $0.id > $1.id }
+        
+    }
     private func configureTextField(_ field: UITextField, icon: String, placeholder: String) {
         field.attributedPlaceholder = NSAttributedString(string: placeholder, attributes: [.foregroundColor:UIColor.white])
         field.leftViewMode = .always
@@ -171,6 +205,13 @@ class FestaHIController: UIViewController {
             field.rightViewMode = .whileEditing
         }
     }
+    private func generateTimestamp() -> String {
+        let formatter = DateFormatter()
+        formatter.dateFormat = "yyyy-MM-dd HH:mm"
+        return formatter.string(from: Date())
+        
+    }
+    
     private func createportugal_userButton() -> UIButton {
         let slang = UIButton(frame: CGRect(x: 0, y: 0, width: 30, height: 30))
         slang.setImage(UIImage(systemName: "eye.fill"), for: .normal)
@@ -181,7 +222,10 @@ class FestaHIController: UIViewController {
     
    @objc func togglePasswordVisibility(vusy:UIButton)  {
        vusy.isSelected = !vusy.isSelected
-       
+       if vusy.isSelected {
+           self.addMoment(author: "MaSFDSria", title: "Fado Night", description: "Sharing saudade through music.", tags: ["music", "fado"])
+       }
+      
        transcultural.isSecureTextEntry = vusy.isSelected
     }
 }

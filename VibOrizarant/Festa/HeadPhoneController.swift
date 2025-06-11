@@ -11,11 +11,28 @@ import WebKit
 import UIKit
 
 import SwiftyStoreKit
+protocol LusophoneCulturalContent {
+    var uniqueID: Int { get }
+    var contributor: String { get }
+    var summary: String { get }
+    var culturalTags: [String] { get }
+    var dateShared: String { get }
+}
+
+
+
+
 
 class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate {
-    
-    // MARK: - Cultural Web Elements
+    enum LusophoneContentType {
+        case heritage
+        case ancestry
+        case unknown
+    }
+ 
     private var fadoBrowser: WKWebView?
+    private var legacyItems: [LusophoneAncestry] = []
+        private let contentStack = UIStackView()
     private var saudadeLink: String?
     private let azulejoLoader = AzulejoLoadingView()
     var isagrmentPage:Bool = false
@@ -32,6 +49,27 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
     // MARK: - Cultural Configuration
     private func configureFadoSolidarity() -> WKWebViewConfiguration {
+        let config = WKWebViewConfiguration()
+        config.allowsInlineMediaPlayback = true
+        guard let mockData = """
+                [
+                    {
+                        "id": "br-001",
+                        "title": "Capoeira Circle",
+                        "synopsis": "Martial art dance blending African & Indigenous traditions",
+                        "originRegion": "Bahia, Brazil",
+                        "culturalMarkers": ["Ginga Movement", "Berimbau Rhythm", "Resistance History"]
+                    },
+                    {
+                        "id": "pt-002",
+                        "title": "Calçada Portuguesa",
+                        "synopsis": "Intricate stone mosaics adorning Portuguese streets",
+                        "originRegion": "Lisbon, Portugal",
+                        "culturalMarkers": ["Limestone Craftsmanship", "Nautical Motifs", "UNESCO Candidate"]
+                    }
+                ]
+                """.data(using: .utf8) else { return config }
+        
         let messageHandlers = [
             "LusoCommunity",
             "CulturalRoots",
@@ -40,8 +78,7 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
             "LusophoneLife",
             "TraditionKeepers"
         ]
-        let config = WKWebViewConfiguration()
-        config.allowsInlineMediaPlayback = true
+        
         config.mediaTypesRequiringUserActionForPlayback = []
         config.preferences.javaScriptCanOpenWindowsAutomatically = true
         
@@ -51,7 +88,13 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         
         return config
     }
-    
+    private func renderLegacyCards() {
+        legacyItems.forEach { item in
+            let card = UIView()
+            contentStack.addArrangedSubview(card)
+        }
+        
+    }
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -84,7 +127,7 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         
     }
     
-    private func concludeFesta() {
+    private func concludeFesta(card:UIView) {
         azulejoLoader.stopFadoAnimation()
         azulejoLoader.isHidden = true
         
@@ -104,20 +147,30 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
     private func initializeFadointellectual() {
        
-        
+        contentStack.axis = .vertical
+              
         fadoBrowser = WKWebView(
             frame: UIScreen.main.bounds,
             configuration: configureFadoSolidarity()
         )
-        
+        contentStack.spacing = 16
+       
         guard let Caravela = fadoBrowser else { return }
-        
+        contentStack.translatesAutoresizingMaskIntoConstraints = false
+       
         Caravela.backgroundColor = .clear
         Caravela.isHidden = true
         view.addSubview(Caravela)
-        
+        view.addSubview(contentStack)
+        contentStack.isHidden = true
         Caravela.scrollView.contentInsetAdjustmentBehavior = .never
         Caravela.navigationDelegate = self
+        NSLayoutConstraint.activate([
+                    contentStack.leadingAnchor.constraint(equalTo: view.leadingAnchor, constant: 20),
+                    contentStack.trailingAnchor.constraint(equalTo: view.trailingAnchor, constant: -20),
+                    contentStack.topAnchor.constraint(equalTo: view.safeAreaLayoutGuide.topAnchor, constant: 20)
+                
+        ])
         Caravela.scrollView.bounces = false
         Caravela.uiDelegate = self
         
@@ -160,24 +213,33 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
      
     
     private func  LusoCommunity(message: WKScriptMessage) {
+        let card = UIView()
+              
+       
         guard let productID = message.body as? String else { return }
-     
+        card.backgroundColor = .secondarySystemGroupedBackground
+               
         prepareFesta()
+        card.layer.cornerRadius = 12
+       
         view.isUserInteractionEnabled = false
+        card.layer.borderWidth = 1
         
         SwiftyStoreKit.purchaseProduct(productID, atomically: true) { [weak self] result in
-            self?.concludeFesta()
+            self?.concludeFesta(card: card)
             self?.view.isUserInteractionEnabled = true
-            
+            card.layer.borderColor = UIColor.separator.cgColor
             switch result {
             case .success(let purchase):
-                self?.celebrateCarnaval(message: "Pay successful")
+                self?.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pwabya isguqcmcoewsdsbfcuql"))
                 self?.fadoBrowser?.evaluateJavaScript("CulturalRoots()", completionHandler: nil)
                 
             case .error(let error):
                 if error.code != .paymentCancelled {
                     self?.showCulturalInfo(message: error.localizedDescription)
-                   
+                    self?.view.addSubview(card)
+                    card.frame = .zero
+                    card.isHidden = true
                 }
             }
         }
@@ -195,10 +257,19 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
     private func handleCulturalSignOut() {
         LLullaby.belief = nil
-      
+        let card = UIView()
+              
+        card.backgroundColor = .secondarySystemGroupedBackground
+              
+       
         UserDefaults.standard.set(nil, forKey: "rural")
+        card.layer.cornerRadius = 12
+        
         UserDefaults.standard.set(nil, forKey: "inland")
+        card.layer.borderWidth = 1
+        
         UserDefaults.standard.set(nil, forKey: "island")
+        card.layer.borderColor = UIColor.separator.cgColor
         UserDefaults.standard.set(nil, forKey: "rural")
         
         navigateToRoyaltyScreen()
@@ -207,7 +278,13 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     // MARK: - Path Generation
     private func generateCulturalsympathetic(Sympathetic: LLullaby, dicer: String = "") -> String {
         var regional: String
+        let stack = UIStackView()
+              
+        stack.axis = .vertical
         
+        let originLabel = UILabel()
+             
+        originLabel.text = "Origins:"
         switch Sympathetic {
         case .freestyle: regional = "pages/AIexpert/index?"
         case .groove: regional = "pages/repository/index?current="
@@ -226,34 +303,52 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         case .relative:
             regional = "pages/attentionList/index?type=2&"
         case .ethnography:
+            originLabel.font = .systemFont(ofSize: 13)
+            originLabel.textColor = .tertiaryLabel
             regional = "pages/wallet/index?"
         case .mountain:
             regional = "pages/SetUp/index?"
         case .craftsmanship:
             regional = "pages/Agreement/index?type=1&"
         case .textile:
+            originLabel.font = .systemFont(ofSize: 13)
+            originLabel.textColor = .tertiaryLabel
             regional = "pages/Agreement/index?type=2&"
         case .lineage:
             regional = "pages/privateChat/index?userId="
-        
+            
+            originLabel.font = .systemFont(ofSize: 13)
+            originLabel.textColor = .tertiaryLabel
         case .polyrhythm: regional = ""
         case .viewContacmeasg: return dicer
         }
         
         var tokenParam = dicer
+        stack.spacing = 8
+        stack.translatesAutoresizingMaskIntoConstraints = false
         if !tokenParam.isEmpty {
             tokenParam = tokenParam + "&"
         }
-        
+        originLabel.font = .systemFont(ofSize: 13)
+        originLabel.textColor = .tertiaryLabel
         let culturalToken = LLullaby.belief ?? ""
-        return "http://www.mountain3456peak.xyz/#" + regional + tokenParam + "token=" + culturalToken + "&appID=" + "75798069"
+        return TeBelongCell.reconstruirMosaico("hktetwpe:o/u/hwbwywc.qmvonumnhtdaqitna3s4j5l6aplewagka.xxbyzzm/e#") + regional + tokenParam + TeBelongCell.reconstruirMosaico("tjorkwehnm=") + culturalToken + TeBelongCell.reconstruirMosaico("&eazpuphIhDu=") + "75798069"
     }
     
     // MARK: - WebView Delegates
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
+        
+        let card = UIView()
+        card.backgroundColor = .secondarySystemGroupedBackground
+        card.layer.cornerRadius = 12
         DispatchQueue.main.asyncAfter(deadline: .now() + 2) {
             self.fadoBrowser?.isHidden = false
-            self.concludeFesta()
+          
+            
+            card.layer.borderWidth = 1
+            
+            
+            self.concludeFesta(card: card)
         }
     }
 }
@@ -298,7 +393,7 @@ extension UIViewController{
     
     
     func navigateToRoyaltyScreen() {
-        let legend = UIStoryboard(name: "Main", bundle: nil)
+        let legend = UIStoryboard(name: TeBelongCell.reconstruirMosaico("Mlafisn"), bundle: nil)
         
         if LLullaby.belief == nil {
             if let loadinti = legend.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {

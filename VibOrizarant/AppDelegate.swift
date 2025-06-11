@@ -35,3 +35,11 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
 
 }
 
+struct HeritageMoment {
+    let id: Int
+    let author: String
+    let title: String
+    let description: String
+    let tags: [String]
+    let timestamp: String
+}

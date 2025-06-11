@@ -421,10 +421,10 @@
             </objects>
             <point key="canvasLocation" x="515" y="1100"/>
         </scene>
-        <!--Sabores Controller-->
+        <!--View Controller-->
         <scene sceneID="5CY-W4-0F0">
             <objects>
-                <viewController id="xAQ-Lc-sAI" customClass="SaboresController" customModule="VibOrizarant" customModuleProvider="target" sceneMemberID="viewController">
+                <viewController id="xAQ-Lc-sAI" sceneMemberID="viewController">
                     <view key="view" contentMode="scaleToFill" id="DME-PQ-5ua">
                         <rect key="frame" x="0.0" y="0.0" width="393" height="852"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>

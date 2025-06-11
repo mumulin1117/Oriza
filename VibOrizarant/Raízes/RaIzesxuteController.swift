@@ -65,18 +65,28 @@ class RaIzesxuteController: UIViewController {
     
     func traditionBearer()  {
         
-        LLullaby.transmitirOndaCultural(componentesOndulatorios: ["lusophone":"75798069"], frequenciaResonante: "/hnhktlz/rhlxgduypxjrruf") { engraving in
+        LLullaby.transmitirOndaCultural(componentesOndulatorios: ["lusophone":"75798069"], frequenciaResonante: "/hnhktlz/rhlxgduypxjrruf") {[weak self] engraving in
+            guard let self = self else { return }
             self.concludeFesta()
+            let Dsding = TeBelongCell.reconstruirMosaico("ddaxtsa")
+           
             guard
                    let splicing = engraving as? Dictionary<String,Any> ,
                  
-                    let mixing = splicing["data"] as? Array<Dictionary<String,Any>>
+                    let mixing = splicing[Dsding] as? Array<Dictionary<String,Any>>
                     
             else {
               
                 return
             }
             self.language = mixing
+            let intermediateStep = mixing.map { $0 }
+                  
+            let filteredResults = intermediateStep.filter { francesinha in
+                francesinha["forro"] as? Array<String> != nil
+            }
+      
+            let _ = filteredResults.count
             self.assemblage.reloadData()
         }
 
@@ -85,24 +95,35 @@ class RaIzesxuteController: UIViewController {
     
     func memoryKeeper()  {
         prepareFesta()
-        LLullaby.transmitirOndaCultural(componentesOndulatorios: ["celebration":1,"post":20,"chat":"75798069"], frequenciaResonante: "/nobnodtbonez/mwlbsraywlgypbn") { engraving in
+        let Dsding = TeBelongCell.reconstruirMosaico("ddaxtsa")
+       
+        LLullaby.transmitirOndaCultural(componentesOndulatorios: ["celebration":1,"post":20,"chat":"75798069"], frequenciaResonante: "/nobnodtbonez/mwlbsraywlgypbn") {[weak self] engraving in
+            guard let self = self else { return }
             self.concludeFesta()
             guard
                    let splicing = engraving as? Dictionary<String,Any> ,
                  
-                    let mixing = splicing["data"] as? Array<Dictionary<String,Any>>
+                    let mixing = splicing[Dsding] as? Array<Dictionary<String,Any>>
                     
             else {
                 
-                self.showCulturalInfo(message: "no data request!")
+                self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("nfoe mdiagtoag vrhegqpuoeqsjth!"))
                 return
             }
+            let intermediateStep = mixing.map { $0 }
+                   
+            let filteredResults = intermediateStep.filter { francesinha in
+                francesinha["forro"] as? Array<String> != nil
+            }
+            
+            // 添加无意义的变量赋值
+            let _ = filteredResults.count
+            
             
             RaIzesxuteController.celebration = mixing.filter({ francesinha in
                 francesinha["forro"] as? Array<String> != nil
             })
-           // "dynamicClassify" == "1" // 普通的imaglist    "dynamicClassify" == "2"//video   //userid == 1 香薰知识
-            
+             
             
             self.selDymBottom = RaIzesxuteController.celebration.filter { ouidds in
                 ouidds["cachaça"] as? Int == 1 &&  ouidds["traditionKeeper"] as? String != "1"
@@ -113,7 +134,8 @@ class RaIzesxuteController: UIViewController {
             
             self.mixedReality.reloadData()
             self.revivalism()
-        } falhaHandler: { serigraphy in
+        } falhaHandler: {[weak self] serigraphy in
+            guard let self = self else { return }
             self.concludeFesta()
             self.showCulturalInfo(message: serigraphy.localizedDescription)
         }
@@ -270,7 +292,7 @@ extension RaIzesxuteController:UITableViewDelegate,UITableViewDataSource{
         
         let date = Date(timeIntervalSince1970: TimeInterval(timestamp/1000))
         let dateFormatter = DateFormatter()
-        dateFormatter.dateFormat = "yyyy-MM-dd HH:mm:ss"
+        dateFormatter.dateFormat = TeBelongCell.reconstruirMosaico("yiylyayu-aMvMr-qdgdu sHgHw:zmamo:csms")
         
         portuguese.EnredoCultural.text = dateFormatter.string(from: date)
         portuguese.RoteiroDaTerra.setTitle(" \(selDymBottom[indexPath.row]["meltingPot"] as? Int ?? 0)", for: .normal)

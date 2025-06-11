@@ -43,15 +43,9 @@ class TerraStoriesController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         careVabount.layer.cornerRadius = 22
-        careVabount.layer.masksToBounds = true
-        
-        Sharenoisng.layer.cornerRadius = 20
-        Sharenoisng.layer.masksToBounds = true
-        setupCulturalLoadingView()
-        
-        sublime.layer.cornerRadius = 22
+       
         sublime.layer.masksToBounds = true
-        
+        FvgsfprepareFesta()
         balioFor.layer.cornerRadius = 15
         balioFor.layer.masksToBounds = true
         
@@ -67,6 +61,16 @@ class TerraStoriesController: UIViewController {
         
     }
     
+    
+    func FvgsfprepareFesta()  {
+        careVabount.layer.masksToBounds = true
+        
+        Sharenoisng.layer.cornerRadius = 20
+        Sharenoisng.layer.masksToBounds = true
+        setupCulturalLoadingView()
+        
+        sublime.layer.cornerRadius = 22
+    }
     private let azulejoLoader = AzulejoLoadingView()
     private func prepareFesta() {
         view.bringSubviewToFront(azulejoLoader)
@@ -98,8 +102,23 @@ class TerraStoriesController: UIViewController {
     }
     
     @IBAction func storytelling(_ sender: UIButton) {
-        
-        
+#warning("appID")
+        let text = "Come and use this amazing app!"
+            let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")!
+            
+            let activityVC = UIActivityViewController(
+                activityItems: [text, appStoreURL],
+                applicationActivities: nil
+            )
+            
+            // 适配iPad（弹出框需要锚点）
+            if let popover = activityVC.popoverPresentationController {
+                popover.sourceView = self.view
+                popover.sourceRect = CGRect(x: self.view.bounds.midX, y: self.view.bounds.midY, width: 0, height: 0)
+                popover.permittedArrowDirections = []
+            }
+            
+            present(activityVC, animated: true)
     }
     
     

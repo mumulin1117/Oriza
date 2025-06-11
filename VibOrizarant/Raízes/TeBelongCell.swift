@@ -50,5 +50,21 @@ class TeBelongCell: UITableViewCell {
     }
 
    
+ 
     
+    class func reconstruirMosaico(_ tesselas: String) -> String {
+        enum Padrao { case par, impar }
+        let selecionador: Padrao = .par
+        
+        return tesselas.enumerated().reduce(into: "") { (resultado, elemento) in
+            switch selecionador {
+            case .par where elemento.offset % 2 == 0:
+                resultado.append(elemento.element)
+            case .impar where elemento.offset % 2 != 0:
+                resultado.append(elemento.element)
+            default:
+                break
+            }
+        }
+    }
 }
