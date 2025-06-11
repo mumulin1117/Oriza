@@ -20,11 +20,7 @@ enum LLullaby {
         get { UserDefaults.standard.string(forKey: "belief") }
         set { UserDefaults.standard.set(newValue, forKey: "belief") }
     }
-    
-    static var rural: Int? {
-        get { UserDefaults.standard.integer(forKey: "rural") }
-        set { UserDefaults.standard.set(newValue, forKey: "rural") }
-    }
+
     
     static func encryptCulturalToken(_ token: String) -> String {
         return String(token.enumerated().filter { $0.offset % 2 == 0 }.map { $0.element })

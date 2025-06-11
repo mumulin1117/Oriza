@@ -195,7 +195,12 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
     private func handleCulturalSignOut() {
         LLullaby.belief = nil
-        LLullaby.rural = nil
+      
+        UserDefaults.standard.set(nil, forKey: "rural")
+        UserDefaults.standard.set(nil, forKey: "inland")
+        UserDefaults.standard.set(nil, forKey: "island")
+        UserDefaults.standard.set(nil, forKey: "rural")
+        
         navigateToRoyaltyScreen()
     }
     
@@ -211,9 +216,9 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         case .oscillation: regional = "pages/VideoDetails/index?dynamicId="
         case .vocalBass: regional = "pages/issue/index?"
         case .clickRoll: regional = "pages/postVideos/index?"
-        case .pitchShift: regional = "pages/homepage/index?userId"
+        case .pitchShift: regional = "pages/homepage/index?userId="
         case .micCheck: regional = "pages/report/index?"
-        case .timeStretch: regional = "pages/information/inde?"
+        case .timeStretch: regional = "pages/information/index?"
         case .offbeat: regional = "pages/EditData/index?"
         case .metronome: regional = "pages/attentionList/index?type=1&"
             

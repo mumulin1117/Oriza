@@ -50,6 +50,10 @@
                 <constraint firstItem="2XQ-KW-llW" firstAttribute="top" secondItem="3nl-fw-NVX" secondAttribute="bottom" constant="7" id="nit-Fz-d68"/>
             </constraints>
             <size key="customSize" width="159" height="82"/>
+            <connections>
+                <outlet property="CuscuzTradicional" destination="3nl-fw-NVX" id="Ypm-mG-3Nb"/>
+                <outlet property="RuaCalcetada" destination="2XQ-KW-llW" id="Wd8-ej-h8p"/>
+            </connections>
             <point key="canvasLocation" x="101.5267175572519" y="-81.690140845070431"/>
         </collectionViewCell>
     </objects>

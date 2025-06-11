@@ -10,5 +10,5 @@ target 'VibOrizarant' do
 pod "IQKeyboardManager"
 pod "SwiftyStoreKit"
 
-
+pod "Kingfisher"
 end

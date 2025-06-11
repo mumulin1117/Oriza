@@ -218,6 +218,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VibOrizarant/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Oriza;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Capture vibrant moments of your Lusophone heritage – from festa junina dances to family recipes. Oriza uses your camera to share cultural pride through photos/videos within our community.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record fado melodies, capoeira rhythms, or storytelling in your native dialect. Oriza accesses your microphone for voice chats and audio posts celebrating Lusophone traditions.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Share ancestral photos, handwritten recipes, or festival memories. Oriza needs photo library access to preserve and showcase your cultural legacy with fellow diaspora members.";
@@ -255,6 +256,7 @@
 				ENABLE_USER_SCRIPT_SANDBOXING = NO;
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = VibOrizarant/Info.plist;
+				INFOPLIST_KEY_CFBundleDisplayName = Oriza;
 				INFOPLIST_KEY_NSCameraUsageDescription = "Capture vibrant moments of your Lusophone heritage – from festa junina dances to family recipes. Oriza uses your camera to share cultural pride through photos/videos within our community.";
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record fado melodies, capoeira rhythms, or storytelling in your native dialect. Oriza accesses your microphone for voice chats and audio posts celebrating Lusophone traditions.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Share ancestral photos, handwritten recipes, or festival memories. Oriza needs photo library access to preserve and showcase your cultural legacy with fellow diaspora members.";

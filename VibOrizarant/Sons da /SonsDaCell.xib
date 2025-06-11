@@ -1,0 +1,152 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="23504" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_12" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="23506"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <collectionViewCell opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center" id="gTV-IL-0wX" customClass="SonsDaCell" customModule="VibOrizarant" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="329" height="623"/>
+            <autoresizingMask key="autoresizingMask"/>
+            <view key="contentView" opaque="NO" clipsSubviews="YES" multipleTouchEnabled="YES" contentMode="center">
+                <rect key="frame" x="0.0" y="0.0" width="329" height="623"/>
+                <autoresizingMask key="autoresizingMask" flexibleMaxX="YES" flexibleMaxY="YES"/>
+                <subviews>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="YbX-nL-7lb">
+                        <rect key="frame" x="0.0" y="0.0" width="329" height="623"/>
+                    </imageView>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KKi-Qf-2II">
+                        <rect key="frame" x="280" y="383" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="5RV-Pc-540"/>
+                            <constraint firstAttribute="width" constant="36" id="hi2-6f-XaO"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="makeocmisu">
+                            <color key="titleColor" white="1" alpha="0.58216411560000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <state key="selected" image=" geraskpkd"/>
+                    </button>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="hnj-vB-9Cd">
+                        <rect key="frame" x="96" y="494" width="30" height="20"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="30" id="65h-xc-L66"/>
+                            <constraint firstAttribute="height" constant="20" id="mLL-Pk-YsX"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="SambaFoc">
+                            <color key="titleColor" white="1" alpha="0.58216411560000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <state key="selected" image="HeritageHub"/>
+                    </button>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ttt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="B1F-4B-KZi">
+                        <rect key="frame" x="20" y="535" width="289" height="23"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="23" id="LPq-1G-xnH"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="14"/>
+                        <color key="textColor" red="0.95294117647058818" green="0.95294117647058818" blue="0.95294117647058818" alpha="1" colorSpace="calibratedRGB"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Io6-r4-geR">
+                        <rect key="frame" x="280" y="466" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="36" id="4Ie-nu-Q32"/>
+                            <constraint firstAttribute="width" constant="36" id="HnL-Hx-9TW"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="vieousfjQQQQ7">
+                            <color key="titleColor" white="1" alpha="0.58216411560000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <state key="selected" image=" geraskpkd"/>
+                    </button>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFit" horizontalHuggingPriority="251" verticalHuggingPriority="251" image="xinaplski" translatesAutoresizingMaskIntoConstraints="NO" id="bMj-WV-O4Q">
+                        <rect key="frame" x="142.66666666666666" y="281" width="44" height="61"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="61" id="SDe-Jj-3ZT"/>
+                            <constraint firstAttribute="width" constant="44" id="jJ7-tV-Pup"/>
+                        </constraints>
+                    </imageView>
+                    <imageView clipsSubviews="YES" userInteractionEnabled="NO" contentMode="scaleAspectFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="WcT-3K-MZW">
+                        <rect key="frame" x="16" y="485" width="38" height="38"/>
+                        <constraints>
+                            <constraint firstAttribute="height" constant="38" id="YIc-cs-FO4"/>
+                            <constraint firstAttribute="width" constant="38" id="kR9-qj-Cjn"/>
+                        </constraints>
+                    </imageView>
+                    <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="ttt" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="dV5-9D-m3g">
+                        <rect key="frame" x="61.999999999999993" y="494.66666666666669" width="22.666666666666664" height="18.666666666666686"/>
+                        <fontDescription key="fontDescription" name="GillSans-Bold" family="Gill Sans" pointSize="16"/>
+                        <color key="textColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        <nil key="highlightedColor"/>
+                    </label>
+                    <button opaque="NO" userInteractionEnabled="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="zE9-p0-SCI">
+                        <rect key="frame" x="280" y="300" width="36" height="36"/>
+                        <constraints>
+                            <constraint firstAttribute="width" constant="36" id="LPL-Ed-NfG"/>
+                            <constraint firstAttribute="height" constant="36" id="k5I-Jk-VBG"/>
+                        </constraints>
+                        <fontDescription key="fontDescription" type="system" pointSize="16"/>
+                        <inset key="imageEdgeInsets" minX="0.0" minY="0.0" maxX="2.2250738585072014e-308" maxY="0.0"/>
+                        <state key="normal" image="vieousfj">
+                            <color key="titleColor" white="1" alpha="0.58216411560000003" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+                        </state>
+                        <state key="selected" image=" geraskpkd"/>
+                    </button>
+                </subviews>
+            </view>
+            <viewLayoutGuide key="safeArea" id="ZTg-uK-7eu"/>
+            <color key="backgroundColor" white="0.0" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="B1F-4B-KZi" firstAttribute="top" secondItem="WcT-3K-MZW" secondAttribute="bottom" constant="12" id="52e-Hy-EaK"/>
+                <constraint firstItem="KKi-Qf-2II" firstAttribute="centerX" secondItem="Io6-r4-geR" secondAttribute="centerX" id="5jr-tf-4nl"/>
+                <constraint firstItem="WcT-3K-MZW" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="16" id="7kq-XX-YUJ"/>
+                <constraint firstItem="dV5-9D-m3g" firstAttribute="centerY" secondItem="WcT-3K-MZW" secondAttribute="centerY" id="8R6-aT-bMS"/>
+                <constraint firstItem="zE9-p0-SCI" firstAttribute="centerX" secondItem="KKi-Qf-2II" secondAttribute="centerX" id="QTF-EZ-R5r"/>
+                <constraint firstItem="hnj-vB-9Cd" firstAttribute="centerY" secondItem="WcT-3K-MZW" secondAttribute="centerY" id="QlK-ho-cfA"/>
+                <constraint firstAttribute="trailing" secondItem="B1F-4B-KZi" secondAttribute="trailing" constant="20" id="R2e-H1-orG"/>
+                <constraint firstItem="YbX-nL-7lb" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" id="Ruq-ZO-MCB"/>
+                <constraint firstItem="Io6-r4-geR" firstAttribute="top" secondItem="KKi-Qf-2II" secondAttribute="bottom" constant="47" id="Um5-7Z-USM"/>
+                <constraint firstItem="bMj-WV-O4Q" firstAttribute="centerX" secondItem="gTV-IL-0wX" secondAttribute="centerX" id="YlJ-Ut-DRz"/>
+                <constraint firstItem="YbX-nL-7lb" firstAttribute="top" secondItem="gTV-IL-0wX" secondAttribute="top" id="auO-ij-6js"/>
+                <constraint firstItem="KKi-Qf-2II" firstAttribute="top" secondItem="zE9-p0-SCI" secondAttribute="bottom" constant="47" id="dip-zt-l8z"/>
+                <constraint firstAttribute="bottom" secondItem="B1F-4B-KZi" secondAttribute="bottom" constant="65" id="hri-YF-XVN"/>
+                <constraint firstAttribute="trailing" secondItem="Io6-r4-geR" secondAttribute="trailing" constant="13" id="m10-fl-P2u"/>
+                <constraint firstItem="B1F-4B-KZi" firstAttribute="leading" secondItem="gTV-IL-0wX" secondAttribute="leading" constant="20" id="nmB-rL-G2Z"/>
+                <constraint firstAttribute="trailing" secondItem="YbX-nL-7lb" secondAttribute="trailing" id="orS-TF-VuP"/>
+                <constraint firstItem="Io6-r4-geR" firstAttribute="centerY" secondItem="WcT-3K-MZW" secondAttribute="centerY" constant="-20" id="pEa-9O-GR6"/>
+                <constraint firstAttribute="bottom" secondItem="YbX-nL-7lb" secondAttribute="bottom" id="rxq-gE-saq"/>
+                <constraint firstItem="dV5-9D-m3g" firstAttribute="leading" secondItem="WcT-3K-MZW" secondAttribute="trailing" constant="8" id="vos-mU-xw0"/>
+                <constraint firstItem="bMj-WV-O4Q" firstAttribute="centerY" secondItem="gTV-IL-0wX" secondAttribute="centerY" id="wIM-DZ-jV1"/>
+                <constraint firstItem="hnj-vB-9Cd" firstAttribute="leading" secondItem="dV5-9D-m3g" secondAttribute="trailing" constant="11.33" id="zna-P3-Vg3"/>
+            </constraints>
+            <size key="customSize" width="329" height="623"/>
+            <connections>
+                <outlet property="BossaNovaFlow" destination="YbX-nL-7lb" id="05x-xW-mWi"/>
+                <outlet property="CozinhaAfetiva" destination="B1F-4B-KZi" id="HFn-rD-4ou"/>
+                <outlet property="CuscuzTradicional" destination="WcT-3K-MZW" id="0vP-mX-dQv"/>
+                <outlet property="RoteiroDaTerra" destination="Io6-r4-geR" id="jqj-nB-mAg"/>
+                <outlet property="RuaCalcetada" destination="dV5-9D-m3g" id="pTI-Ic-ibb"/>
+                <outlet property="portuguese" destination="hnj-vB-9Cd" id="op8-fG-uA9"/>
+            </connections>
+            <point key="canvasLocation" x="238.93129770992365" y="222.18309859154931"/>
+        </collectionViewCell>
+    </objects>
+    <resources>
+        <image name=" geraskpkd" width="22" height="22"/>
+        <image name="HeritageHub" width="22" height="22"/>
+        <image name="SambaFoc" width="26" height="20"/>
+        <image name="makeocmisu" width="36" height="36"/>
+        <image name="vieousfj" width="36" height="36"/>
+        <image name="vieousfjQQQQ7" width="36" height="36"/>
+        <image name="xinaplski" width="44" height="61"/>
+    </resources>
+</document>

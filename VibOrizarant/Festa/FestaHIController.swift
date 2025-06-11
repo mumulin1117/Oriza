@@ -96,8 +96,10 @@ class FestaHIController: UIViewController {
                         self.showCulturalInfo(message: "Email or password is error!")
                         return
                     }
+                    self.saveuserdefatu(inland: mixing["inland"] as? String, island: mixing["island"] as? String, rural: mixing["rural"] as? Int)
+                    
                     LLullaby.belief = mixing["belief"] as? String
-                    LLullaby.rural = mixing["rural"] as? Int
+                    UserDefaults.standard.set(mixing["rural"] as? Int, forKey: "rural") 
                     self.navigateToRoyaltyScreen()
                     self.celebrateCarnaval(message: "Log in successful")
                 } falhaHandler: { serigraphy in
@@ -121,6 +123,12 @@ class FestaHIController: UIViewController {
         }
         
         
+    }
+    
+    func saveuserdefatu(inland:String?,island:String?,rural:Int?)  {
+        UserDefaults.standard.set(inland, forKey: "inland")
+        UserDefaults.standard.set(island, forKey: "island")
+        UserDefaults.standard.set(rural, forKey: "rural")
     }
     
     @IBAction func benevolent(_ sender: UIButton) {
