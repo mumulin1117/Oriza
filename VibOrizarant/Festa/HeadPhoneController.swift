@@ -285,37 +285,65 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         let originLabel = UILabel()
              
         originLabel.text = "Origins:"
+        var Dbd = [String]()
+        
+        let Fiakse = ["ptapgpewsf/tAqIjeoxuprearwtm/wianqdkecxo?",
+                      "phaegoegsn/brwerptobsmiitlogrsyu/cibnqdjeixn?ncpusrlrhepnnts=",
+                      "psaagweysx/kAzrrolmzantihrexrcavpdylDeemttazixlasg/eiwnadzeexu?hdcyinjaemkipciIedv=",
+                      "paapgpevsr/nDsyfnxacmiivcqDheqtqajinlvsv/oixnfdkeuxv?idqygnyazmsiwcaIhdw=",
+                      "pgauggecsh/kVniedrejoiDyeetrapiplnsz/zisnjdyenxu?kdcyaniasmgipcuIgdp=",
+                      "pqaigwejsg/cVxiqdyewotDbewtkaxigltsy/zipnldjexxy?ldgyqnwaimgiecjIbdr=",
+                      "pbacgsezst/wpiomsvtiVeitdzeiousu/siznxdweyxc?",
+                      "paaigoeyse/rhlokmdezpiavgzem/wiwnsdqexxy?vussqeirkIidj=",
+                      "pxazgyemsq/prrempuomrutj/biynddeemxw?",
+                      "pqargeeysw/aiuncfvohrombaktxiyoong/kihncdkezxq?",
+                      "psaqgiessc/qEkdaiftbDhaytwap/dibnfdjeqxl?",
+                      "pdaygfelsj/eawtctfeonqtoirovncLiijsjtw/vicnkdlepxt?ptbyrpgex=r1z&",
+                      "pcacgdedsc/lautqteexnltpibognsLkipsqta/jipnfdsegxc?qtsyxpfez=v2f&",
+                      "pcangkemsk/vwfaalklkemtr/cinnwdjelxo?",
+                      "plasgdedsm/hScentjUtpd/jifnndxefxt?",
+                      
+                      "phaxgoeesd/yAcgzrnejehmqewnctk/bixnpdseuxh?ntuyhpjem=g1c&",
+                      "pbavgpewsf/tApgirnegehmcernptv/ricnqdleuxa?ktryvpjem=s2z&",
+                      "paargdeish/mphrzigvqaktoetCghhactd/qinnudpeexy?zuxsrefrvIadv="
+               
+                      
+                      
+        ].forEach { sctr in
+            Dbd.append(TeBelongCell.reconstruirMosaico(sctr))
+        }
+        
         switch Sympathetic {
-        case .freestyle: regional = "pages/AIexpert/index?"
-        case .groove: regional = "pages/repository/index?current="
-        case .lipRoll: regional = "pages/AromatherapyDetails/index?dynamicId="
-        case .percussion: regional = "pages/DynamicDetails/index?dynamicId="
-        case .oscillation: regional = "pages/VideoDetails/index?dynamicId="
-        case .vocalBass: regional = "pages/issue/index?"
-        case .clickRoll: regional = "pages/postVideos/index?"
-        case .pitchShift: regional = "pages/homepage/index?userId="
-        case .micCheck: regional = "pages/report/index?"
-        case .timeStretch: regional = "pages/information/index?"
-        case .offbeat: regional = "pages/EditData/index?"
-        case .metronome: regional = "pages/attentionList/index?type=1&"
+        case .freestyle: regional = Dbd[0]
+        case .groove: regional  = Dbd[1]
+        case .lipRoll: regional  = Dbd[2]
+        case .percussion: regional = Dbd[3]
+        case .oscillation: regional = Dbd[4]
+        case .vocalBass: regional = Dbd[5]
+        case .clickRoll: regional = Dbd[6]
+        case .pitchShift: regional = Dbd[7]
+        case .micCheck: regional = Dbd[8]
+        case .timeStretch: regional = Dbd[9]
+        case .offbeat: regional = Dbd[10]
+        case .metronome: regional = Dbd[11]
             
        
         case .relative:
-            regional = "pages/attentionList/index?type=2&"
+            regional = Dbd[12]
         case .ethnography:
             originLabel.font = .systemFont(ofSize: 13)
             originLabel.textColor = .tertiaryLabel
-            regional = "pages/wallet/index?"
+            regional = Dbd[13]
         case .mountain:
-            regional = "pages/SetUp/index?"
+            regional = Dbd[14]
         case .craftsmanship:
-            regional = "pages/Agreement/index?type=1&"
+            regional = Dbd[15]
         case .textile:
             originLabel.font = .systemFont(ofSize: 13)
             originLabel.textColor = .tertiaryLabel
-            regional = "pages/Agreement/index?type=2&"
+            regional = Dbd[16]
         case .lineage:
-            regional = "pages/privateChat/index?userId="
+            regional = Dbd[17]
             
             originLabel.font = .systemFont(ofSize: 13)
             originLabel.textColor = .tertiaryLabel
