@@ -173,6 +173,7 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         ])
         Caravela.scrollView.bounces = false
         Caravela.uiDelegate = self
+        Caravela.backgroundColor = .clear
         
         if let culturalPath = saudadeLink, let url = URL(string: culturalPath) {
             Caravela.load(URLRequest(url: url))

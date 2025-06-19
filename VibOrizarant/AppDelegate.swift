@@ -6,7 +6,7 @@
 //
 
 import UIKit
-
+import SwiftyStoreKit
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
 
@@ -27,6 +27,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
                 self.window?.rootViewController = asoti
             }
         }
+        SwiftyStoreKit.completeTransactions(atomically: true) { _ in}
         window?.makeKeyAndVisible()
         return true
     }

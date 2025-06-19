@@ -102,9 +102,9 @@ class TerraStoriesController: UIViewController {
     }
     
     @IBAction func storytelling(_ sender: UIButton) {
-#warning("appID")
+
         let text = "Come and use this amazing app!"
-            let appStoreURL = URL(string: "https://apps.apple.com/app/idYOUR_APP_ID")!
+            let appStoreURL = URL(string: "https://apps.apple.com/app/id6747472621")!
             
             let activityVC = UIActivityViewController(
                 activityItems: [text, appStoreURL],

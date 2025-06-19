@@ -116,7 +116,7 @@ class RaIzesxuteController: UIViewController {
                 francesinha["forro"] as? Array<String> != nil
             }
             
-            // 添加无意义的变量赋值
+            
             let _ = filteredResults.count
             
             
@@ -242,7 +242,7 @@ extension RaIzesxuteController:UICollectionViewDelegate,UICollectionViewDataSour
     
     @objc func poseshipChi()  {
         
-        JUsinFaverGo(culturalRoute: LLullaby.vocalBass,lusoToken:"")
+        JUsinFaverGo(culturalRoute: LLullaby.clickRoll,lusoToken:"")
      }
     
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {

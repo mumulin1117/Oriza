@@ -223,7 +223,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record fado melodies, capoeira rhythms, or storytelling in your native dialect. Oriza accesses your microphone for voice chats and audio posts celebrating Lusophone traditions.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Share ancestral photos, handwritten recipes, or festival memories. Oriza needs photo library access to preserve and showcase your cultural legacy with fellow diaspora members.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -233,7 +233,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Lusos.oriza.VibOrizarant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bopaore.oriza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
@@ -261,7 +261,7 @@
 				INFOPLIST_KEY_NSMicrophoneUsageDescription = "Record fado melodies, capoeira rhythms, or storytelling in your native dialect. Oriza accesses your microphone for voice chats and audio posts celebrating Lusophone traditions.";
 				INFOPLIST_KEY_NSPhotoLibraryUsageDescription = "Share ancestral photos, handwritten recipes, or festival memories. Oriza needs photo library access to preserve and showcase your cultural legacy with fellow diaspora members.";
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
-				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen;
+				INFOPLIST_KEY_UILaunchStoryboardName = LaunchScreen.storyboard;
 				INFOPLIST_KEY_UIMainStoryboardFile = "";
 				INFOPLIST_KEY_UISupportedInterfaceOrientations = UIInterfaceOrientationPortrait;
 				INFOPLIST_KEY_UISupportedInterfaceOrientations_iPad = "UIInterfaceOrientationLandscapeLeft UIInterfaceOrientationLandscapeRight UIInterfaceOrientationPortrait UIInterfaceOrientationPortraitUpsideDown";
@@ -271,7 +271,7 @@
 					"@executable_path/Frameworks",
 				);
 				MARKETING_VERSION = 1.0;
-				PRODUCT_BUNDLE_IDENTIFIER = com.Lusos.oriza.VibOrizarant;
+				PRODUCT_BUNDLE_IDENTIFIER = com.bopaore.oriza;
 				PRODUCT_NAME = "$(TARGET_NAME)";
 				SUPPORTED_PLATFORMS = "iphoneos iphonesimulator";
 				SUPPORTS_MACCATALYST = NO;
