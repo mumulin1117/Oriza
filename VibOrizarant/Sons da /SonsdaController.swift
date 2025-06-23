@@ -23,7 +23,7 @@ class SonsdaController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-       
+        mountain.reloadData()
     }
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -40,7 +40,7 @@ class SonsdaController: UIViewController {
             ouidds["ginjinha"] as? String != nil
             
         }
-        mountain.reloadData()
+        
     }
     
     @IBAction func francesinha(_ sender: UIButton) {

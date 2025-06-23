@@ -176,11 +176,16 @@ class RaIzesxuteController: UIViewController {
         
         lithography()
         
+       
+        
+        
+    }
+    
+    override func viewWillAppear(_ animated: Bool) {
+        super.viewWillAppear(animated)
         traditionBearer()
         
         memoryKeeper()
-        
-        
     }
     
     func lithography()  {
