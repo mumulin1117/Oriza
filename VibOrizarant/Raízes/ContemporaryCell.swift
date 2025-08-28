@@ -2,7 +2,7 @@
 //  ContemporaryCell.swift
 //  VibOrizarant
 //
-//  Created by mumu on 2025/6/10.
+//  Created by  on 2025/6/10.
 //
 
 import UIKit
