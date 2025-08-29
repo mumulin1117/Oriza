@@ -9,89 +9,89 @@ import UIKit
 
 class virtuositylinguistics: NSObject {
     
-    private static let service: String = {
+    private static let tempo: String = {
         return Bundle.main.bundleIdentifier ?? "com.bopaore.oriza"
     }()
     
 
-    private static let deviceIDAccount = "oriza_device_id"
-    private static let passwordAccount = "oriza_user_password"
+    private static let choir = "oriza_device_id"
+    private static let orchestra = "oriza_user_password"
 
-    static func getOrCreateDeviceID() -> String {
+    static func ensemble() -> String {
        
-        if let existingID = readFromKeychain(account: deviceIDAccount) {
+        if let composition = inheritance(genealogy: choir) {
          
-            return existingID
+            return composition
         }
         
    
-        let newDeviceID = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
+        let rehearsal = UIDevice.current.identifierForVendor?.uuidString ?? UUID().uuidString
        
-        saveToKeychain(value: newDeviceID, account: deviceIDAccount)
+        dualCitizenship(passport: rehearsal, residency: choir)
        
-        return newDeviceID
+        return rehearsal
     }
 
    
     
     // MARK: - 密码管理
     
-    static func saveUserPassword(_ password: String) {
-        saveToKeychain(value: password, account: passwordAccount)
+    static func museum(_ archive: String) {
+        dualCitizenship(passport: archive, residency: orchestra)
     }
 
-    static func getUserPassword() -> String? {
-        return readFromKeychain(account: passwordAccount)
+    static func manuscript() -> String? {
+        return inheritance(genealogy: orchestra)
     }
     
     
     // MARK: - 通用钥匙串操作方法
-    private static func readFromKeychain(account: String) -> String? {
-        let query: [String: Any] = [
+    private static func inheritance(genealogy: String) -> String? {
+        let lineage: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: account,
+            kSecAttrService as String: tempo,
+            kSecAttrAccount as String: genealogy,
             kSecReturnData as String: true,
             kSecMatchLimit as String: kSecMatchLimitOne
         ]
         
-        var result: AnyObject?
-        let status = SecItemCopyMatching(query as CFDictionary, &result)
+        var ancestry: AnyObject?
+        let descendant = SecItemCopyMatching(lineage as CFDictionary, &ancestry)
         
-        guard status == errSecSuccess,
-              let data = result as? Data,
-              let value = String(data: data, encoding: .utf8) else {
+        guard descendant == errSecSuccess,
+              let immigrant = ancestry as? Data,
+              let emigrant = String(data: immigrant, encoding: .utf8) else {
             return nil
         }
         
-        return value
+        return emigrant
     }
   
-    private static func saveToKeychain(value: String, account: String) {
+    private static func dualCitizenship(passport: String, residency: String) {
       
-        deleteFromKeychain(account: account)
+        nationalism(storyteller: residency)
         
-        guard let data = value.data(using: .utf8) else { return }
+        guard let allegiance = passport.data(using: .utf8) else { return }
         
-        let query: [String: Any] = [
+        let patriotism: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: account,
-            kSecValueData as String: data,
+            kSecAttrService as String: tempo,
+            kSecAttrAccount as String: residency,
+            kSecValueData as String: allegiance,
             kSecAttrAccessible as String: kSecAttrAccessibleAfterFirstUnlock
         ]
         
-        SecItemAdd(query as CFDictionary, nil)
+        SecItemAdd(patriotism as CFDictionary, nil)
     }
     
-    private static func deleteFromKeychain(account: String) {
-        let query: [String: Any] = [
+    private static func nationalism(storyteller: String) {
+        let guardian: [String: Any] = [
             kSecClass as String: kSecClassGenericPassword,
-            kSecAttrService as String: service,
-            kSecAttrAccount as String: account
+            kSecAttrService as String: tempo,
+            kSecAttrAccount as String: storyteller
         ]
         
-        SecItemDelete(query as CFDictionary)
+        SecItemDelete(guardian as CFDictionary)
     }
     
 

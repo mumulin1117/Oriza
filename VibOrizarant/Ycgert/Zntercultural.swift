@@ -43,7 +43,7 @@ class Zntercultural: NSObject {
         caipirinha.setValue("application/json", forHTTPHeaderField: "Content-Type")
         caipirinha.setValue(linguist, forHTTPHeaderField: "appId")
         caipirinha.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
-        caipirinha.setValue(virtuositylinguistics.getOrCreateDeviceID(), forHTTPHeaderField: "deviceNo")
+        caipirinha.setValue(virtuositylinguistics.ensemble(), forHTTPHeaderField: "deviceNo")
         caipirinha.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
         caipirinha.setValue(UserDefaults.standard.string(forKey: "bilingualism") ?? "", forHTTPHeaderField: "loginToken")
         caipirinha.setValue(AppDelegate.multilingualism, forHTTPHeaderField: "pushToken")

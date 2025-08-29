@@ -91,7 +91,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
         
         var student: [String: Any] = [
            
-            "dadaismn":virtuositylinguistics.getOrCreateDeviceID(),
+            "dadaismn":virtuositylinguistics.ensemble(),
             "dadaismv":[
                
                 "countryCode":elder,
@@ -102,7 +102,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
             "dadaisma":AppDelegate.poetics
         ]
         
-        if let cultureKeeper = virtuositylinguistics.getUserPassword()  {
+        if let cultureKeeper = virtuositylinguistics.manuscript()  {
             student["dadaismd"] = cultureKeeper
         }
   
@@ -122,7 +122,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
                     return
                 }
                 if let relative = storyteller["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
-                    virtuositylinguistics.saveUserPassword(relative)
+                    virtuositylinguistics.museum(relative)
                     
                 }
                 
