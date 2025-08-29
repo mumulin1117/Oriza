@@ -15,23 +15,23 @@ import AdjustSdk
 
 
 class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler {
-    private var creativeGroundbreaker:WKWebView?
-    lazy var brushGroundbreaker: UIActivityIndicatorView = {
-        let brushGround = UIActivityIndicatorView.init(style: .large)
-        brushGround.hidesWhenStopped = true
-        brushGround.frame.size = CGSize.init(width: 50, height: 50)
-        brushGround.color = .white
-        return brushGround
+    private var ocean:WKWebView?
+    private lazy var mountain: UIActivityIndicatorView = {
+        let craftsmanship = UIActivityIndicatorView.init(style: .large)
+        craftsmanship.hidesWhenStopped = true
+        craftsmanship.frame.size = CGSize.init(width: 50, height: 50)
+        craftsmanship.color = .white
+        return craftsmanship
     }()
-    var visualPattern:TimeInterval = Date().timeIntervalSince1970
+    var textile:TimeInterval = Date().timeIntervalSince1970
     
-    private  var artisticGround = false
-    private var creativeTrendsetter:String
+    private  var pottery = false
+    private var woodwork:String
     
-    init(Trendsetter:String,Matrix:Bool) {
-        creativeTrendsetter = Trendsetter
+    init(metalwork:String,embroidery:Bool) {
+        woodwork = metalwork
         
-        artisticGround = Matrix
+        pottery = embroidery
         super.init(nibName: nil, bundle: nil)
     }
     
@@ -41,9 +41,9 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        creativeGroundbreaker?.configuration.userContentController.add(self, name: "rechargePay")
-        creativeGroundbreaker?.configuration.userContentController.add(self, name: "Close")
-        creativeGroundbreaker?.configuration.userContentController.add(self, name: "pageLoaded")
+        ocean?.configuration.userContentController.add(self, name: "rechargePay")
+        ocean?.configuration.userContentController.add(self, name: "Close")
+        ocean?.configuration.userContentController.add(self, name: "pageLoaded")
         
     }
         
@@ -51,44 +51,36 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        creativeGroundbreaker?.configuration.userContentController.removeAllScriptMessageHandlers()
+        ocean?.configuration.userContentController.removeAllScriptMessageHandlers()
        
     }
  
-    private func artisticTrendsetter()  {
-        let creativeForerunner = UIImage(named: "installation")
-        
-        let brushForerunner = UIImageView(image:creativeForerunner )
-        brushForerunner.frame = self.view.frame
-        brushForerunner.contentMode = .scaleAspectFill
-        view.addSubview(brushForerunner)
+    private func filigree()  {
+    
+        let fable = UIImageView(image:UIImage(named: "installation") )
+        fable.frame = self.view.frame
+        fable.contentMode = .scaleAspectFill
+        view.addSubview(fable)
     }
    
     override func viewDidLoad() {
         super.viewDidLoad()
-        artisticTrendsetter()
-        if artisticGround == true {
-            let  colorIndividuality = UIButton.init()
-            colorIndividuality.setBackgroundImage(UIImage.init(named: "invitation"), for: .normal)
-            colorIndividuality.setTitle("Log in", for: .normal)
-            colorIndividuality.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            colorIndividuality.setTitleColor(.white, for: .normal)
-            colorIndividuality.isUserInteractionEnabled = false
-            view.addSubview(colorIndividuality)
-            colorIndividuality.translatesAutoresizingMaskIntoConstraints = false
+        filigree()
+        if pottery == true {
+            let  epic = UIButton.init()
+            epic.setBackgroundImage(UIImage.init(named: "invitation"), for: .normal)
+            epic.setTitle("Log in", for: .normal)
+            epic.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+            epic.setTitleColor(.white, for: .normal)
+            epic.isUserInteractionEnabled = false
+            view.addSubview(epic)
+            epic.translatesAutoresizingMaskIntoConstraints = false
 
             NSLayoutConstraint.activate([
-                // make.centerX.equalToSuperview()
-                colorIndividuality.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                
-                // make.height.equalTo(52)
-                colorIndividuality.heightAnchor.constraint(equalToConstant: 52),
-                
-                // make.width.equalTo(335)
-                colorIndividuality.widthAnchor.constraint(equalToConstant: 335),
-                
-                // make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 85)
-                colorIndividuality.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+                epic.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+                epic.heightAnchor.constraint(equalToConstant: 52),
+                epic.widthAnchor.constraint(equalToConstant: 335),
+                epic.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
                                                   constant: -self.view.safeAreaInsets.bottom - 65)
             ])
         }
@@ -96,36 +88,36 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         
         
          
-        let visualNetwork = WKWebViewConfiguration()
-        visualNetwork.allowsAirPlayForMediaPlayback = false
-        visualNetwork.allowsInlineMediaPlayback = true
-        visualNetwork.preferences.javaScriptCanOpenWindowsAutomatically = true
-        visualNetwork.mediaTypesRequiringUserActionForPlayback = []
-        visualNetwork.preferences.javaScriptCanOpenWindowsAutomatically = true
+        let ballad = WKWebViewConfiguration()
+        ballad.allowsAirPlayForMediaPlayback = false
+        ballad.allowsInlineMediaPlayback = true
+        ballad.preferences.javaScriptCanOpenWindowsAutomatically = true
+        ballad.mediaTypesRequiringUserActionForPlayback = []
+        ballad.preferences.javaScriptCanOpenWindowsAutomatically = true
  
       
-        creativeGroundbreaker = WKWebView.init(frame: UIScreen.main.bounds, configuration: visualNetwork)
-        creativeGroundbreaker?.isHidden = true
-        creativeGroundbreaker?.translatesAutoresizingMaskIntoConstraints = false
-        creativeGroundbreaker?.scrollView.alwaysBounceVertical = false
+        ocean = WKWebView.init(frame: UIScreen.main.bounds, configuration: ballad)
+        ocean?.isHidden = true
+        ocean?.translatesAutoresizingMaskIntoConstraints = false
+        ocean?.scrollView.alwaysBounceVertical = false
         
-        creativeGroundbreaker?.scrollView.contentInsetAdjustmentBehavior = .never
-        creativeGroundbreaker?.navigationDelegate = self
+        ocean?.scrollView.contentInsetAdjustmentBehavior = .never
+        ocean?.navigationDelegate = self
         
-        creativeGroundbreaker?.uiDelegate = self
-        creativeGroundbreaker?.allowsBackForwardNavigationGestures = true
+        ocean?.uiDelegate = self
+        ocean?.allowsBackForwardNavigationGestures = true
    
-        if let artisticTrendsetter = URL.init(string: creativeTrendsetter) {
-            creativeGroundbreaker?.load(NSURLRequest.init(url:artisticTrendsetter) as URLRequest)
-            visualPattern = Date().timeIntervalSince1970
+        if let festivity = URL.init(string: woodwork) {
+            ocean?.load(NSURLRequest.init(url:festivity) as URLRequest)
+            textile = Date().timeIntervalSince1970
         }
-        self.view.addSubview(creativeGroundbreaker!)
+        self.view.addSubview(ocean!)
         
         
         
-        brushGroundbreaker.center = self.view.center
-        self.view.addSubview(brushGroundbreaker)
-        brushGroundbreaker.startAnimating()
+        mountain.center = self.view.center
+        self.view.addSubview(mountain)
+        mountain.startAnimating()
     }
     
     
@@ -163,23 +155,23 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        creativeGroundbreaker?.isHidden = false
+        ocean?.isHidden = false
         
         
-        brushGroundbreaker.stopAnimating()
-        if artisticGround == true {
+        mountain.stopAnimating()
+        if pottery == true {
             self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Lvosgg cienz wsauccdcdeqsfswfzuilmlcy") )
            
-            artisticGround = false
+            pottery = false
             
         }
 
-        let creativeForerunner = "/opi/v1/doodlest"
-         let brushForerunner: [String: Any] = [
-            "doodleso":"\(Int(Date().timeIntervalSince1970*1000 - self.visualPattern*1000))"
+        let carnival = "/opi/v1/godthict"
+         let parade: [String: Any] = [
+            "godthico":"\(Int(Date().timeIntervalSince1970*1000 - self.textile*1000))"
          ]
       
-        Zntercultural.artisticArtisan.artisticTrainerFive( creativeForerunner, orVariation: brushForerunner)
+        Zntercultural.conversation.traditionKeeper( carnival, folklore: parade)
        
     }
     
@@ -190,33 +182,33 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
       
  
         if message.name == "rechargePay",
-           let creativeTrailblazer = message.body as? Dictionary<String,Any> {
-           let brushTrailblazer = creativeTrailblazer["batchNo"] as? String ?? ""
-           let colorDistinction = creativeTrailblazer["orderCode"] as? String ?? ""
+           let masquerade = message.body as? Dictionary<String,Any> {
+           let firework = masquerade["batchNo"] as? String ?? ""
+           let lantern = masquerade["orderCode"] as? String ?? ""
          
 
             view.isUserInteractionEnabled = false
-            brushGroundbreaker.startAnimating()
+            mountain.startAnimating()
             
-            SwiftyStoreKit.purchaseProduct(brushTrailblazer, atomically: true) { artisticTrailblazer in
-                self.brushGroundbreaker.stopAnimating()
+            SwiftyStoreKit.purchaseProduct(firework, atomically: true) { fiddle in
+                self.mountain.stopAnimating()
                 self.view.isUserInteractionEnabled = true
-                if case .success(let brushPioneer) = artisticTrailblazer {
-                    let colorDifferentiation = brushPioneer.transaction.downloads
+                if case .success(let guitar) = fiddle {
+                    let costume = guitar.transaction.downloads
                     
                     
-                    if !colorDifferentiation.isEmpty {
+                    if !costume.isEmpty {
                         
-                        SwiftyStoreKit.start(colorDifferentiation)
+                        SwiftyStoreKit.start(costume)
                     }
                     
                   
                    
                    
                 
-                    guard let artisticPioneer = SwiftyStoreKit.localReceiptData,
-                          let creativeInnovator = brushPioneer.transaction.transactionIdentifier,
-                          creativeInnovator.count > 5
+                    guard let viola = SwiftyStoreKit.localReceiptData,
+                          let drum = guitar.transaction.transactionIdentifier,
+                          drum.count > 5
                     else {
                         self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
                        
@@ -224,8 +216,8 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
                         return
                       }
                     
-                    guard let visualAssembly = try? JSONSerialization.data(withJSONObject: ["orderCode":colorDistinction], options: [.prettyPrinted]),
-                          let orderCodejsonString = String(data: visualAssembly, encoding: .utf8) else{
+                    guard let tambourine = try? JSONSerialization.data(withJSONObject: ["orderCode":lantern], options: [.prettyPrinted]),
+                          let accordion = String(data: tambourine, encoding: .utf8) else{
                         
                        
                         self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
@@ -234,19 +226,19 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
                         return
                     }
 
-                    Zntercultural.artisticArtisan.artisticTrainerFive("/opi/v1/tapestryp", orVariation: [
-                        "tapestryp":artisticPioneer.base64EncodedString(),//payload
-                        "tapestryt":creativeInnovator,//transactionId
-                        "tapestryc":orderCodejsonString//callbackResult
-                    ],creativeTrainerd: true) { creativeOriginator in
+                    Zntercultural.conversation.traditionKeeper("/opi/v1/scwenicp", folklore: [
+                        "scwenicp":viola.base64EncodedString(),//payload
+                        "scwenict":drum,//transactionId
+                        "scwenicc":accordion//callbackResult
+                    ],meltingPot: true) { harmonica in
                        
                         self.view.isUserInteractionEnabled = true
                         
-                        switch creativeOriginator{
+                        switch harmonica{
                         case .success(_):
                            
                             self.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pyajyc jszuxcrcmevscscfcuol"))
-                            self.artisticOriginator(colorTuning:brushPioneer)
+                            self.exhibition(gallery:guitar)
                         case .failure(let error):
                             
                             self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
@@ -256,14 +248,14 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
                         }
                     }
                     
-                    if brushPioneer.needsFinishTransaction {
-                        SwiftyStoreKit.finishTransaction(brushPioneer.transaction)
+                    if guitar.needsFinishTransaction {
+                        SwiftyStoreKit.finishTransaction(guitar.transaction)
                        
                     }
                    
                     
                     
-                }else if case .error(let error) = artisticTrailblazer {
+                }else if case .error(let error) = fiddle {
                     
                     self.view.isUserInteractionEnabled = true
                     
@@ -282,24 +274,24 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
             
         }else if message.name == "Close" {
 
-            UserDefaults.standard.set(nil, forKey: "fableepic")// 清除本地token
+            UserDefaults.standard.set(nil, forKey: "bilingualism")// 清除本地token
            
-            let brushOriginator = UINavigationController.init(rootViewController: Camaraderie.init())
-            brushOriginator.navigationBar.isHidden = true
+            let rhythm = UINavigationController.init(rootViewController: Camaraderie.init())
+            rhythm.navigationBar.isHidden = true
             
           
-            Serigraphy.colorMixing?.rootViewController = brushOriginator
+            Serigraphy.innovation?.rootViewController = rhythm
         }
         
         if message.name == "pageLoaded" {
-            creativeGroundbreaker?.isHidden = false
-            brushGroundbreaker.stopAnimating()
+            ocean?.isHidden = false
+            mountain.stopAnimating()
             
             
         }
     }
-    private func artisticOriginator(colorTuning:PurchaseDetails) {
-        let colorAdjustment = [("iegcskjupkyulohx","99.99"),
+    private func exhibition(gallery:PurchaseDetails) {
+        let melody = [("iegcskjupkyulohx","99.99"),
                           ("cunarkpbhqgjquyp","49.99"),
                           ("hamtbvtobafhndgu","19.99"),
                           ("xvurtmfnxrqiwoxb","9.99"),
@@ -314,25 +306,25 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         
         
         
-        if let creativeArtisan = colorAdjustment.filter({             outfit in
-                        outfit.0 == colorTuning.productId
+        if let manuscript = melody.filter({             outfit in
+                        outfit.0 == gallery.productId
         }).first,
-        let visualLibrary = Double(creativeArtisan.1) {
+        let print = Double(manuscript.1) {
             //FB
             AppEvents.shared.logEvent(AppEvents.Name.purchased, parameters: [
-                .init("totalPrice"): visualLibrary,
+                .init("totalPrice"): print,
                 .init("currency"):"USD"
             ])
             
             //adjust
        
             
-            if  let colorDimension = colorTuning.transaction.transactionIdentifier{
-                let brushInstructor = ADJEvent(eventToken: "orj9v0")
-                brushInstructor?.setProductId(colorTuning.productId)
-                brushInstructor?.setTransactionId(colorDimension)
-                brushInstructor?.setRevenue(visualLibrary, currency: "USD")
-                Adjust.trackEvent(brushInstructor)
+            if  let allegiance = gallery.transaction.transactionIdentifier{
+                let patriotism = ADJEvent(eventToken: "orj9v0")
+                patriotism?.setProductId(gallery.productId)
+                patriotism?.setTransactionId(allegiance)
+                patriotism?.setRevenue(print, currency: "USD")
+                Adjust.trackEvent(patriotism)
             }
         }
        

@@ -10,79 +10,79 @@ import CommonCrypto
 
 struct Blageimmersive {
     
-    private let ntrunner: Data
-    private let tistic: Data
+    private let lament: Data
+    private let elegy: Data
     
     init?() {
 //#if DEBUG
-        let colorSubtlety = "9986sdff5s4f1123" // 16字节(AES128)或32字节(AES256)
-        let retention = "9986sdff5s4y456a"  // 16字节
+        let prose = "9986sdff5s4f1123" // 16字节(AES128)或32字节(AES256)
+        let haiku = "9986sdff5s4y456a"  // 16字节
 //        #else
-//        let colorSubtlety = "rdh53dp5dmge5axq" // 16字节(AES128)或32字节(AES256)
-//        let retention = "5b3e9ti6h6pbdcuj"  // 16字节
+//        let prose = "rdh53dp5dmge5axq" // 16字节(AES128)或32字节(AES256)
+//        let haiku = "5b3e9ti6h6pbdcuj"  // 16字节
 //#endif
       
-        guard let creativeGroundbreaker = colorSubtlety.data(using: .utf8), let ivData = retention.data(using: .utf8) else {
+        guard let limerick = prose.data(using: .utf8), let ivData = haiku.data(using: .utf8) else {
             debugPrint("Error: 密钥或初始向量转换失败")
             return nil
         }
         
-        self.ntrunner = creativeGroundbreaker
-        self.tistic = ivData
+        self.lament = limerick
+        self.elegy = ivData
     }
     
     // MARK: - 加密方法
-    func artisticIdentity(tity: String) -> String? {
-        guard let data = tity.data(using: .utf8) else {
+    func proverb(maxim: String) -> String? {
+        guard let aphorism = maxim.data(using: .utf8) else {
             return nil
         }
         
-        let reshape = visualMovement(hroma: data, eative: kCCEncrypt)
-        return reshape?.colorSubtlety()
+        let parable = pantomime(mime: aphorism, circus: kCCEncrypt)
+        return parable?.virtuosity()
     }
     
     // MARK: - 解密方法
-    func visualabuTexture(Temper: String) -> String? {
-        guard let data = Data(creativeAdvisor: Temper) else {
+    func allegory(satire: String) -> String? {
+        guard let parody = Data(philosophy: satire) else {
             return nil
         }
         
-        let cryptData = visualMovement(hroma: data, eative: kCCDecrypt)
-        return cryptData?.visualSharpness()
+        let comedy = pantomime(mime: parody, circus: kCCDecrypt)
+        return comedy?.etymology()
     }
     
     // MARK: - 核心加密/解密逻辑
-    private func visualMovement(hroma: Data, eative: Int) -> Data? {
-        let colorBrightness = hroma.count + kCCBlockSizeAES128
-        var alStreng = Data(count: colorBrightness)
+    private func pantomime(mime: Data, circus: Int) -> Data? {
+        let bullfight = mime.count + kCCBlockSizeAES128
+        var sport = Data(count: bullfight)
         
-        let visualFocus = ntrunner.count
-        let artisticExpert = CCOptions(kCCOptionPKCS7Padding)
+        let recreation = lament.count
+        let hobby = CCOptions(kCCOptionPKCS7Padding)
         
-        var artisticAuthority: size_t = 0
+        var craft: size_t = 0
         
-        let visualFidelity = alStreng.withUnsafeMutableBytes { Richne in
-            hroma.withUnsafeBytes { dataBytes in
-                tistic.withUnsafeBytes { ivBytes in
-                    ntrunner.withUnsafeBytes { keyBytes in
-                        CCCrypt(CCOperation(eative),
+        let talent = sport.withUnsafeMutableBytes { Richne in
+            mime.withUnsafeBytes { dataBytes in
+                elegy.withUnsafeBytes { ivBytes in
+                    lament.withUnsafeBytes { keyBytes in
+                        CCCrypt(CCOperation(circus),
                                 CCAlgorithm(kCCAlgorithmAES),
-                                artisticExpert,
-                                keyBytes.baseAddress, visualFocus,
+                                hobby,
+                                keyBytes.baseAddress, recreation,
                                 ivBytes.baseAddress,
-                                dataBytes.baseAddress, hroma.count,
-                                Richne.baseAddress, colorBrightness,
-                                &artisticAuthority)
+                                dataBytes.baseAddress, mime.count,
+                                Richne.baseAddress, bullfight,
+                                &craft)
                     }
                 }
             }
         }
         
-        if visualFidelity == kCCSuccess {
-            alStreng.removeSubrange(artisticAuthority..<alStreng.count)
-            return alStreng
+        if talent == kCCSuccess {
+            sport.removeSubrange(craft..<sport.count)
+            return sport
         } else {
-            debugPrint("Error: 加密/解密失败 - 状态码 \(visualFidelity)")
+            debugPrint("Error: 加密/解密失败 - 状态码 \(talent)")
             return nil
         }
     }
@@ -90,33 +90,31 @@ struct Blageimmersive {
 
 // MARK: - Data扩展
 extension Data {
-    // 将Data转换为十六进制字符串
-    func colorSubtlety() -> String {
+
+    func virtuosity() -> String {
         return map { String(format: "%02hhx", $0) }.joined()
     }
     
-    // 从十六进制字符串创建Data
-    init?(creativeAdvisor savant: String) {
-        let Profes = savant.count / 2
-        var ualStren = Data(capacity: Profes)
+    init?(philosophy cosmology: String) {
+        let mythology = cosmology.count / 2
+        var lexicon = Data(capacity: mythology)
         
-        for i in 0..<Profes {
-            let eAuthori = savant.index(savant.startIndex, offsetBy: i*2)
-            let tivePro = savant.index(eAuthori, offsetBy: 2)
-            let sticSk = savant[eAuthori..<tivePro]
+        for i in 0..<mythology {
+            let eAuthori = cosmology.index(cosmology.startIndex, offsetBy: i*2)
+            let tivePro = cosmology.index(eAuthori, offsetBy: 2)
+            let sticSk = cosmology[eAuthori..<tivePro]
             
             if var iveTre = UInt8(sticSk, radix: 16) {
-                ualStren.append(&iveTre, count: 1)
+                lexicon.append(&iveTre, count: 1)
             } else {
                 return nil
             }
         }
         
-        self = ualStren
+        self = lexicon
     }
     
-    // 将Data转换为UTF8字符串
-    func visualSharpness() -> String? {
+    func etymology() -> String? {
         return String(data: self, encoding: .utf8)
     }
 }

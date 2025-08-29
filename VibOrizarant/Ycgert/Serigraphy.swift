@@ -13,49 +13,49 @@ import SwiftyStoreKit
 
 class Serigraphy: UIViewController {
    
-    lazy var creativeInstructor: UIActivityIndicatorView = {
-        let ciaonhon = UIActivityIndicatorView.init(style: .large)
-        ciaonhon.hidesWhenStopped = true
-        ciaonhon.frame.size = CGSize.init(width: 50, height: 50)
-        ciaonhon.color = .white
-        return ciaonhon
+    lazy var anthropologist: UIActivityIndicatorView = {
+        let migration = UIActivityIndicatorView.init(style: .large)
+        migration.hidesWhenStopped = true
+        migration.frame.size = CGSize.init(width: 50, height: 50)
+        migration.color = .white
+        return migration
     }()
     override func viewDidLoad() {
         super.viewDidLoad()
-        creativeInstructor.startAnimating()
-        view.addSubview(creativeProcess)
+        anthropologist.startAnimating()
+        view.addSubview(homeland)
                 NSLayoutConstraint.activate([
-                    creativeProcess.topAnchor.constraint(equalTo: view.topAnchor),
-                    creativeProcess.leadingAnchor.constraint(equalTo: view.leadingAnchor),
-                    creativeProcess.trailingAnchor.constraint(equalTo: view.trailingAnchor),
-                    creativeProcess.bottomAnchor.constraint(equalTo: view.bottomAnchor)
+                    homeland.topAnchor.constraint(equalTo: view.topAnchor),
+                    homeland.leadingAnchor.constraint(equalTo: view.leadingAnchor),
+                    homeland.trailingAnchor.constraint(equalTo: view.trailingAnchor),
+                    homeland.bottomAnchor.constraint(equalTo: view.bottomAnchor)
                 
                 ]
                 )
-        let artisticFilter = NWPathMonitor()
+        let expatriate = NWPathMonitor()
             
-        artisticFilter.pathUpdateHandler = { [weak self] path in
+        expatriate.pathUpdateHandler = { [weak self] path in
            
-            self?.visualEffectsd = path.status
+            self?.multicultural = path.status
             
            
         }
         
-        let edition = DispatchQueue(label: "jeonaka.kiomonitor")
-        artisticFilter.start(queue: edition)
-        creativeInstructor.center = self.view.center
-        self.view.addSubview(creativeInstructor)
-        creativeInstructor.startAnimating()
+        let nostalgia = DispatchQueue(label: "jeonaka.kiomonitor")
+        expatriate.start(queue: nostalgia)
+        anthropologist.center = self.view.center
+        self.view.addSubview(anthropologist)
+        anthropologist.startAnimating()
       
     }
     
-    private lazy var creativeProcess: UIImageView = {
-            let digitalPainting = UIImageView()
-            digitalPainting.contentMode = .scaleAspectFill
-            digitalPainting.clipsToBounds = true
-            digitalPainting.image = UIImage(named: "installation")
-            digitalPainting.translatesAutoresizingMaskIntoConstraints = false
-            return digitalPainting
+    private lazy var homeland: UIImageView = {
+            let integration = UIImageView()
+            integration.contentMode = .scaleAspectFill
+            integration.clipsToBounds = true
+            integration.image = UIImage(named: "installation")
+            integration.translatesAutoresizingMaskIntoConstraints = false
+            return integration
        
     }()
         
@@ -63,13 +63,13 @@ class Serigraphy: UIViewController {
   
 
 
-    var visualEffectsd: NWPath.Status = .requiresConnection
+    var multicultural: NWPath.Status = .requiresConnection
     
   
     
     override func viewDidAppear(_ animated: Bool) {
         super.viewDidAppear(animated)
-        digitalArtwork()
+        contemporary()
         
     }
 
@@ -79,7 +79,7 @@ class Serigraphy: UIViewController {
   
 
 
-    static  var colorMixing:UIWindow?{
+    static  var innovation:UIWindow?{
         if #available(iOS 15.0, *) {
                 return UIApplication.shared.connectedScenes
                     .compactMap { $0 as? UIWindowScene }
@@ -92,18 +92,18 @@ class Serigraphy: UIViewController {
     
   
     
-    var artisticCreation:Int = 0
+    var hybrid:Int = 0
    
     
     
    
-    private  func digitalArtwork()  {
+    private  func contemporary()  {
          
-        if self.visualEffectsd != .satisfied  {
+        if self.multicultural != .satisfied  {
           
-            if self.artisticCreation <= 5 {
-                self.artisticCreation += 1
-                self.digitalArtwork()
+            if self.hybrid <= 5 {
+                self.hybrid += 1
+                self.contemporary()
                
                 return
             }
@@ -116,11 +116,11 @@ class Serigraphy: UIViewController {
 
                 if (Date().timeIntervalSince1970 > 1735743657 ) == true {
 
-                    self.artisticVision()
+                    self.superstition()
 
                 }else{
 
-                    self.creativeCraftsman()
+                    self.monument()
                 }
 
     }
@@ -128,108 +128,108 @@ class Serigraphy: UIViewController {
     private func visualInspiration() {
         let batch = UIAlertController.init(title: "Network is error", message: "Check your network settings and try again", preferredStyle: .alert)
         let store = UIAlertAction(title: "Try again", style: UIAlertAction.Style.default){_ in
-            self.digitalArtwork()
+            self.contemporary()
         }
         batch.addAction(store)
         present(batch, animated: true)
     }
     
     
-    private func artisticVision()  {
+    private func superstition()  {
         
-        creativeInstructor.startAnimating()
+        anthropologist.startAnimating()
          
 
-        let creativeDirector = "/opi/v1/illusionso"
-        let artisticCurator: [String: Any] = [
-//            "illusionse":Locale.preferredLanguages
-//                .map { Locale(identifier: $0).languageCode ?? $0 }
-//                .reduce(into: [String]()) { result, code in
-//                    if !result.contains(code) {
-//                        result.append(code)
-//                    }
-//                },//language,
-//            "illusionst":TimeZone.current.identifier,//时区
-//            "illusionsk":UITextInputMode.activeInputModes
-//                .compactMap { $0.primaryLanguage }
-//                .filter { $0 != "dictation" },//keyboards
-            "illusionsg":1
+        let ritual = "/opi/v1/colossalo"
+        let ceremony: [String: Any] = [
+            "colossale":Locale.preferredLanguages
+                .map { Locale(identifier: $0).languageCode ?? $0 }
+                .reduce(into: [String]()) { result, code in
+                    if !result.contains(code) {
+                        result.append(code)
+                    }
+                },//language,
+            "colossalt":TimeZone.current.identifier,//时区
+            "colossalk":UITextInputMode.activeInputModes
+                .compactMap { $0.primaryLanguage }
+                .filter { $0 != "dictation" },//keyboards
+            "colossalg":1
 
         ]
 
        
         
-        print(artisticCurator)
+        print(ceremony)
        
            
 
-        Zntercultural.artisticArtisan.artisticTrainerFive( creativeDirector, orVariation: artisticCurator) { result in
+        Zntercultural.conversation.traditionKeeper( ritual, folklore: ceremony) { result in
 //#if DEBUG
 //            #else
-            self.creativeInstructor.stopAnimating()
+            self.anthropologist.stopAnimating()
 //#endif
             
             switch result{
-            case .success(let refine):
+            case .success(let procession):
            
-                guard let avoiding = refine else{
-                    self.creativeCraftsman()
+                guard let pilgrimage = procession else{
+                    self.monument()
                     return
                 }
 
-                let colorRefinement = avoiding["openValue"] as? String
+                let feast = pilgrimage["openValue"] as? String
                 
-                let visualDisplay = avoiding["loginFlag"] as? Int ?? 0
-                UserDefaults.standard.set(colorRefinement, forKey: "researcher")
+                let holiday = pilgrimage["loginFlag"] as? Int ?? 0
+                UserDefaults.standard.set(feast, forKey: "semioticsa")
 
-                if visualDisplay == 1 {
+                if holiday == 1 {
                     
-                    guard let creativeCurator = UserDefaults.standard.object(forKey: "fableepic") as? String,
-                          let denim = colorRefinement else{
+                    guard let anniversary = UserDefaults.standard.object(forKey: "bilingualism") as? String,
+                          let gathering = feast else{
                     //没有登录
-                        Serigraphy.colorMixing?.rootViewController = Camaraderie.init()
+                        Serigraphy.innovation?.rootViewController = Camaraderie.init()
                         return
                     }
                     
                     
-                    let artisticEngineer =  [
-                          "token":creativeCurator,"timestamp":"\(Int(Date().timeIntervalSince1970))"
+                    let church =  [
+                          "token":anniversary,"timestamp":"\(Int(Date().timeIntervalSince1970))"
                       ]
-                      guard let theatrical = Zntercultural.visualEmotion(lorBright: artisticEngineer) else {
+                      guard let theatrical = Zntercultural.musician(writer: church) else {
                           
                           return
                           
                       }
                  
-                    guard let visualPortfolio = Blageimmersive(),
-                          let colorGrading = visualPortfolio.artisticIdentity(tity: theatrical) else {
+                    guard let neighborhood = Blageimmersive(),
+                          let village = neighborhood.proverb(maxim: theatrical) else {
                         
                         return
                     }
                     print("--------encryptedString--------")
-                    print(colorGrading)
+                    print(village)
                     
                     
-                    let brushTechnician = denim  + "/?openParams=" + colorGrading + "&appId=\(Zntercultural.artisticArtisan.asartisticAuthority)"
-                    print(brushTechnician)
+                    let landscape = gathering  + "/?openParams=" + village + "&appId=\(Zntercultural.conversation.linguist)"
+                    print(landscape)
                    
                   
-                    let artisticCraftsman = Newsletter.init(Trendsetter: brushTechnician, Matrix: false)
-                    Serigraphy.colorMixing?.rootViewController = artisticCraftsman
+                    let architecture = Newsletter.init(metalwork: landscape, embroidery: false)
+                    Serigraphy.innovation?.rootViewController = architecture
                     return
                 }
                 
-                if visualDisplay == 0 {
+                if holiday == 0 {
                    
                    
-                    Serigraphy.colorMixing?.rootViewController = Camaraderie.init()
+                    Serigraphy.innovation?.rootViewController = Camaraderie.init()
                 }
                 
                 
                 
             case .failure(_):
             
-                self.creativeCraftsman()
+                self.monument()
                 
                 
             }
@@ -239,16 +239,16 @@ class Serigraphy: UIViewController {
     }
     
     
-    func creativeCraftsman(){
-        let legend = UIStoryboard(name: "Main", bundle: nil)
+    func monument(){
+        let statue = UIStoryboard(name: "Main", bundle: nil)
 //        visualDesign()
         if LLullaby.belief == nil {
-            if let loadinti = legend.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
-                self.window?.rootViewController = loadinti
+            if let fountain = statue.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
+                self.window?.rootViewController = fountain
             }
         }else{
-            if let asoti = legend.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
-                self.window?.rootViewController = asoti
+            if let bridge = statue.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
+                self.window?.rootViewController = bridge
             }
         }
     }

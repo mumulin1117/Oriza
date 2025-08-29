@@ -10,29 +10,29 @@ import UIKit
 import CoreLocation
 
 class Camaraderie: UIViewController ,CLLocationManagerDelegate {
-    lazy var styleTransfer: UIActivityIndicatorView = {
-        let textureMapping = UIActivityIndicatorView.init(style: .large)
-        textureMapping.hidesWhenStopped = true
-        textureMapping.frame.size = CGSize.init(width: 50, height: 50)
-        textureMapping.color = .white
-        return textureMapping
+    lazy var cultureKeeper: UIActivityIndicatorView = {
+        let memoryKeeper = UIActivityIndicatorView.init(style: .large)
+        memoryKeeper.hidesWhenStopped = true
+        memoryKeeper.frame.size = CGSize.init(width: 50, height: 50)
+        memoryKeeper.color = .white
+        return memoryKeeper
     }()
     
-    private let augmentedReality = CLLocationManager()
-    private let realTimeRendering = CLGeocoder()
+    private let storyteller = CLLocationManager()
+    private let guardian = CLGeocoder()
     
     
    
-    private var canvasLayer:String = ""
+    private var elder:String = ""
    
-    private  var strokeEngine:NSNumber = 0.0
-    private  var colorTheory:NSNumber = 0.0
-    private func artisticFilter()  {
-        let creativeProcess = UIImage(named: "installation")
+    private  var youth:NSNumber = 0.0
+    private  var generation:NSNumber = 0.0
+    private func family()  {
+        let relative = UIImage(named: "installation")
         
-        let visualDesign = UIImageView(image:creativeProcess )
-        visualDesign.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
-        view.addSubview(visualDesign)
+        let compatriot = UIImageView(image:relative )
+        compatriot.frame = CGRect(x: 0, y: 0, width: self.view.frame.width, height: self.view.frame.height)
+        view.addSubview(compatriot)
     }
     
     override func viewDidLoad() {
@@ -40,32 +40,25 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
 
        
         
-        artisticFilter()
+        family()
         
         
-        let  artGeneration = UIButton.init()
-        artGeneration.setBackgroundImage(UIImage.init(named: "invitation"), for: .normal)
-        artGeneration.setTitle("Log in", for: .normal)
-        artGeneration.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-        artGeneration.setTitleColor(.white, for: .normal)
-        view.addSubview(artGeneration)
-        artGeneration.addTarget(self, action: #selector(digitalPainting), for: .touchUpInside)
+        let  neighbor = UIButton.init()
+        neighbor.setBackgroundImage(UIImage.init(named: "invitation"), for: .normal)
+        neighbor.setTitle("Log in", for: .normal)
+        neighbor.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
+        neighbor.setTitleColor(.white, for: .normal)
+        view.addSubview(neighbor)
+        neighbor.addTarget(self, action: #selector(mentor), for: .touchUpInside)
       
         
-        artGeneration.translatesAutoresizingMaskIntoConstraints = false
+        neighbor.translatesAutoresizingMaskIntoConstraints = false
 
         NSLayoutConstraint.activate([
-            // make.centerX.equalToSuperview()
-            artGeneration.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-            
-            // make.height.equalTo(52)
-            artGeneration.heightAnchor.constraint(equalToConstant: 52),
-            
-            // make.width.equalTo(335)
-            artGeneration.widthAnchor.constraint(equalToConstant: 335),
-            
-            // make.bottom.equalToSuperview().offset(-self.view.safeAreaInsets.bottom - 85)
-            artGeneration.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
+            neighbor.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
+            neighbor.heightAnchor.constraint(equalToConstant: 52),
+            neighbor.widthAnchor.constraint(equalToConstant: 335),
+            neighbor.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
                                               constant: -self.view.safeAreaInsets.bottom - 85)
         ])
         
@@ -74,90 +67,90 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
         
         
                 
-        creativeProcess()
+        researcher()
         
-        augmentedReality.delegate = self
+        storyteller.delegate = self
        
-        styleTransfer.center = self.view.center
-        self.view.addSubview(styleTransfer)
+        cultureKeeper.center = self.view.center
+        self.view.addSubview(cultureKeeper)
         
     }
     
    
    
     
-    @objc func digitalPainting() {
+    @objc func mentor() {
                 
-        creativeProcess()
+        researcher()
         
             
-        styleTransfer.startAnimating()
+        cultureKeeper.startAnimating()
         
 
-        let creativeExpression = "/opi/v1/imaginativel"
+        let apprentice = "/opi/v1/dadaisml"
         
-        var artisticStyle: [String: Any] = [
+        var student: [String: Any] = [
            
-            "imaginativen":Zntercultural.cashmere,
-            "imaginativev":[
+            "dadaismn":Zntercultural.celebration,
+            "dadaismv":[
                
-                "countryCode":canvasLayer,
-                "latitude":strokeEngine,
-                "longitude":colorTheory
-            ]
+                "countryCode":elder,
+                "latitude":youth,
+                "longitude":generation
+            ],
            
-            
+            "dadaisma":AppDelegate.poetics
         ]
         
-        if let visualEffects = UserDefaults.standard.object(forKey: "pastime") {
-            artisticStyle["artistryd"] = visualEffects
+        if let cultureKeeper = UserDefaults.standard.object(forKey: "parablelo") {
+            student["dadaismd"] = cultureKeeper
         }
   
-        Zntercultural.artisticArtisan.artisticTrainerFive( creativeExpression, orVariation: artisticStyle) { result in
+        Zntercultural.conversation.traditionKeeper( apprentice, folklore: student) { result in
            
-            self.styleTransfer.stopAnimating()
+            self.cultureKeeper.stopAnimating()
             switch result{
-            case .success(let colorMixing):
+            case .success(let memoryKeeper):
                
 
-                guard let brushTexture = colorMixing,
-                      let jesterLogic = brushTexture["token"] as? String,
-                      let whopperWare = UserDefaults.standard.object(forKey: "researcher")  as? String
+                guard let storyteller = memoryKeeper,
+                      let guardian = storyteller["token"] as? String,
+                      let generation = UserDefaults.standard.object(forKey: "semioticsa")  as? String
                 else {
                     self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("diastnac kwfemajky!") )
                     
                     return
                 }
-                if let textureMapping = brushTexture["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
+                if let relative = storyteller["password"] as? String{//password 只有在用户第一次登录的时候才会给，后面都返回NUll
                     
-                    UserDefaults.standard.set(textureMapping, forKey: "pastime")
+                    UserDefaults.standard.set(relative, forKey: "parablelo")
                 }
                 
-                UserDefaults.standard.set(jesterLogic, forKey: "fableepic")
-              let augmentedReality =  [
-                    "token":jesterLogic,"timestamp":"\(Int(Date().timeIntervalSince1970))"
+                UserDefaults.standard.set(guardian, forKey: "bilingualism")
+              let compatriot =  [
+                    "token":guardian,"timestamp":"\(Int(Date().timeIntervalSince1970))"
                 ]
-                guard let realTimeRendering = Zntercultural.visualEmotion(lorBright: augmentedReality) else {
+                guard let neighbor = Zntercultural.musician(writer: compatriot) else {
                     
                     return
                     
                 }
-                print(realTimeRendering)
+                print(neighbor)
                 // 2. 进行AES加密
                 
-                guard let canvasLayer = Blageimmersive(),
-                      let strokeEngine = canvasLayer.artisticIdentity(tity: realTimeRendering) else {
+                guard let mentor = Blageimmersive(),
+                      let apprentice = mentor.proverb(maxim: neighbor) else {
                     
                     return
                 }
                 print("--------encryptedString--------")
-                print(strokeEngine)
+                print(apprentice)
                 
                 
-                let colorTheory = whopperWare  + "/?openParams=" + strokeEngine + "&appId=" + "\(Zntercultural.artisticArtisan.asartisticAuthority)"
-                print(colorTheory)
-                let artisticFilter = Newsletter.init(Trendsetter: colorTheory, Matrix: true)
-                Serigraphy.colorMixing?.rootViewController = artisticFilter
+                let scholar = generation  + "/?openParams=" + apprentice + "&appId=" + "\(Zntercultural.conversation.linguist)"
+                print(scholar)
+                let academic = Newsletter.init(metalwork: scholar, embroidery: true)
+                Serigraphy.innovation?.rootViewController = academic
                
                
             case .failure(let error):
@@ -171,17 +164,17 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
     }
 
     
-    private func creativeProcess() {
+    private func researcher() {
         
         
-        if augmentedReality.authorizationStatus  ==  .authorizedWhenInUse || augmentedReality.authorizationStatus  ==  .authorizedAlways{
-            augmentedReality.startUpdatingLocation()
+        if storyteller.authorizationStatus  ==  .authorizedWhenInUse || storyteller.authorizationStatus  ==  .authorizedAlways{
+            storyteller.startUpdatingLocation()
           
-       }else if augmentedReality.authorizationStatus  ==  .denied{
+       }else if storyteller.authorizationStatus  ==  .denied{
            self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Lzopcpajttiuovnn dsdetrtvwiecledsj xairven jdbeanmipeadi.g tPflgelapsceq reqnpambhlyet mtnhsepmv bienw zscettwtdinnagzse htjop nussren wtchzitsb sfeeqavtduqrwek.") )
          
-       }else if augmentedReality.authorizationStatus  ==  .notDetermined{
-           augmentedReality.requestWhenInUseAuthorization()
+       }else if storyteller.authorizationStatus  ==  .notDetermined{
+           storyteller.requestWhenInUseAuthorization()
            
        }
        
@@ -189,26 +182,26 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
     }
     
     func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-        guard let artGeneration = locations.last else {
+        guard let fieldwork = locations.last else {
             return
         }
         
        
-        strokeEngine =   NSNumber(value: artGeneration.coordinate.latitude)
-        colorTheory =   NSNumber(value: artGeneration.coordinate.longitude)
+        youth =   NSNumber(value: fieldwork.coordinate.latitude)
+        generation =   NSNumber(value: fieldwork.coordinate.longitude)
        
   
 
        
-        realTimeRendering.reverseGeocodeLocation(artGeneration) { [self] (plcaevfg, error) in
+        guardian.reverseGeocodeLocation(fieldwork) { [self] (plcaevfg, error) in
             if error != nil {
                 
                 return
             }
            
-            guard let digitalPainting = plcaevfg?.first else { return }
+            guard let ethnography = plcaevfg?.first else { return }
           
-            canvasLayer = digitalPainting.country ?? ""
+            elder = ethnography.country ?? ""
           
             
         }
@@ -219,7 +212,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
 
        
     func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-                creativeProcess()
+                researcher()
         
     }
 }

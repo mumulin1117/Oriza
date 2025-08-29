@@ -11,16 +11,16 @@ import AdjustSdk
 import AppTrackingTransparency
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static var tensorCoresx:String = ""
-    static var edgeComputingD:String = ""
+    static var multilingualism:String = ""
+    static var poetics:String = ""
 
 
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
         window = UIWindow.init(frame: UIScreen.main.bounds)
-        completreayu()
-        digitalCanvas()
+        lusophone()
+        spiritpride()
         sketchPad()
         
 //        let legend = UIStoryboard(name: "Main", bundle: nil)
@@ -53,14 +53,14 @@ struct HeritageMoment {
 }
 extension AppDelegate{
     
-    func completreayu()  {
-        SwiftyStoreKit.completeTransactions(atomically: true) { DIOV in
+    func lusophone()  {
+        SwiftyStoreKit.completeTransactions(atomically: true) { culturalIdentity in
            
-            for purchase in DIOV {
-                let astatus = purchase.transaction.transactionState
+            for purchase in culturalIdentity {
+                let connection = purchase.transaction.transactionState
               
                 
-                if (astatus ==  .purchased || astatus ==  .restored) {
+                if (connection ==  .purchased || connection ==  .restored) {
 
                     let downloads = purchase.transaction.downloads
                     if !downloads.isEmpty {
@@ -77,14 +77,14 @@ extension AppDelegate{
             
         }
     }
-    private func digitalCanvas() {
-        let colorPalette = ADJConfig(
+    private func spiritpride() {
+        let tradition = ADJConfig(
                appToken: "83b46o5b4agw",
                environment: ADJEnvironmentProduction
            )
-        colorPalette?.logLevel = .verbose
-        colorPalette?.enableSendingInBackground()
-        Adjust.initSdk(colorPalette)
+        tradition?.logLevel = .verbose
+        tradition?.enableSendingInBackground()
+        Adjust.initSdk(tradition)
         Adjust.attribution() { attribution in
             let initVD = ADJEvent.init(eventToken: "51a5qc")
             Adjust.trackEvent(initVD)
@@ -115,7 +115,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
     
     internal func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let artisticExpression = deviceToken.map { String(format: "%02.2hhx", $0) }.joined()
-        AppDelegate.tensorCoresx = artisticExpression
+        AppDelegate.multilingualism = artisticExpression
     }
 }
 extension AppDelegate{
@@ -156,7 +156,7 @@ extension AppDelegate{
                     Adjust.adid { portraitMode in
                         DispatchQueue.main.async {
                             if let updates = portraitMode {
-                                AppDelegate.edgeComputingD = updates
+                                AppDelegate.poetics = updates
                             }
                         }
                     }
@@ -168,7 +168,7 @@ extension AppDelegate{
             Adjust.adid { portraitMode in
                 DispatchQueue.main.async {
                     if let location = portraitMode {
-                        AppDelegate.edgeComputingD = location
+                        AppDelegate.poetics = location
                     }
                 }
             }

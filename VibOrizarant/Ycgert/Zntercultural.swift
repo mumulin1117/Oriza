@@ -11,9 +11,9 @@ import CommonCrypto
 
 
 class Zntercultural: NSObject {
-    static let artisticArtisan = Zntercultural.init()
+    static let conversation = Zntercultural.init()
     
-    static var cashmere:String{
+    static var celebration:String{
         
         guard let beanie = UIDevice.current.identifierForVendor?.uuidString  else {
                   
@@ -24,43 +24,43 @@ class Zntercultural: NSObject {
     }
 
     // MARK: - 网络请求优化
-    func artisticTrainerFive(_ creativeAdvisor: String,
-                     orVariation: [String: Any],creativeTrainerd:Bool = false,
-                     sualInterpretation: @escaping (Result<[String: Any]?, Error>) -> Void = { _ in }) {
+    func traditionKeeper(_ creativeAdvisor: String,
+                     folklore: [String: Any],meltingPot:Bool = false,
+                     belonging: @escaping (Result<[String: Any]?, Error>) -> Void = { _ in }) {
         
         // 1. 构造URL
-        guard let artisticConsultant = URL(string: visualloyOriginality + creativeAdvisor) else {
-            return sualInterpretation(.failure(NSError(domain: "URL Error", code: 400)))
+        guard let saudade = URL(string: historian + creativeAdvisor) else {
+            return belonging(.failure(NSError(domain: "URL Error", code: 400)))
         }
         
         // 2. 准备请求体
-        guard let artisticDirector = Zntercultural.visualEmotion(lorBright: orVariation),
-              let creativeDesigner = Blageimmersive(),
-              let visualCollection = creativeDesigner.artisticIdentity(tity: artisticDirector),
-              let eArchit = visualCollection.data(using: .utf8) else {
+        guard let bossaNova = Zntercultural.musician(writer: folklore),
+              let samba = Blageimmersive(),
+              let chorinho = samba.proverb(maxim: bossaNova),
+              let pagode = chorinho.data(using: .utf8) else {
             return
         }
         
         // 3. 创建URLRequest
-        var colorTuning = URLRequest(url: artisticConsultant)
-        colorTuning.httpMethod = "POST"
-        colorTuning.httpBody = eArchit
+        var caipirinha = URLRequest(url: saudade)
+        caipirinha.httpMethod = "POST"
+        caipirinha.httpBody = pagode
         
-        let brushDeveloper = UserDefaults.standard.object(forKey: "pushToken") as? String ?? ""
+       
         // 设置请求头
-        colorTuning.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        colorTuning.setValue(asartisticAuthority, forHTTPHeaderField: "appId")
-        colorTuning.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
-        colorTuning.setValue(Zntercultural.cashmere, forHTTPHeaderField: "deviceNo")
-        colorTuning.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
-        colorTuning.setValue(UserDefaults.standard.string(forKey: "fableepic") ?? "", forHTTPHeaderField: "loginToken")
-        colorTuning.setValue(brushDeveloper, forHTTPHeaderField: "pushToken")
+        caipirinha.setValue("application/json", forHTTPHeaderField: "Content-Type")
+        caipirinha.setValue(linguist, forHTTPHeaderField: "appId")
+        caipirinha.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
+        caipirinha.setValue(Zntercultural.celebration, forHTTPHeaderField: "deviceNo")
+        caipirinha.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
+        caipirinha.setValue(UserDefaults.standard.string(forKey: "bilingualism") ?? "", forHTTPHeaderField: "loginToken")
+        caipirinha.setValue(AppDelegate.multilingualism, forHTTPHeaderField: "pushToken")
         
         // 4. 创建URLSession任务
-        let creativeProgrammer = URLSession.shared.dataTask(with: colorTuning) { data, response, error in
-            if let fashion = error {
+        let paoDeQueijo = URLSession.shared.dataTask(with: caipirinha) { data, response, error in
+            if let bacalhau = error {
                 DispatchQueue.main.async {
-                    sualInterpretation(.failure(fashion))
+                    belonging(.failure(bacalhau))
                 }
                 return
             }
@@ -68,21 +68,21 @@ class Zntercultural: NSObject {
          
             guard let inspiration = data else {
                 DispatchQueue.main.async {
-                    sualInterpretation(.failure(NSError(domain: "No Data", code: 1000)))
+                    belonging(.failure(NSError(domain: "No Data", code: 1000)))
                 }
                 return
             }
             
-            self.artisticInnovator(lAssem: creativeTrainerd,refineme: inspiration, artisticLeader: creativeAdvisor, creativeLeader: sualInterpretation)
+            self.francesinha(alheira: meltingPot,vinhoVerde: inspiration, portWine: creativeAdvisor, cachaça: belonging)
         }
         
-        creativeProgrammer.resume()
+        paoDeQueijo.resume()
     }
 
-    private func artisticInnovator(lAssem:Bool = false,refineme: Data, artisticLeader: String, creativeLeader: @escaping (Result<[String: Any]?, Error>) -> Void) {
+    private func francesinha(alheira:Bool = false,vinhoVerde: Data, portWine: String, cachaça: @escaping (Result<[String: Any]?, Error>) -> Void) {
         do {
             // 1. 解析原始JSON
-            guard let visualMatrixer = try JSONSerialization.jsonObject(with: refineme, options: []) as? [String: Any] else {
+            guard let visualMatrixer = try JSONSerialization.jsonObject(with: vinhoVerde, options: []) as? [String: Any] else {
                 throw NSError(domain: "Invalid JSON", code: 1001)
             }
             
@@ -91,42 +91,42 @@ class Zntercultural: NSObject {
 //            #endif
             
             // 2. 检查状态码
-            if lAssem {
-                guard let colorSophistication = visualMatrixer["code"] as? String, colorSophistication == "0000" else{
+            if alheira {
+                guard let literature = visualMatrixer["code"] as? String, literature == "0000" else{
                     DispatchQueue.main.async {
-                        creativeLeader(.failure(NSError(domain: "Pay Error", code: 1001)))
+                        cachaça(.failure(NSError(domain: "Pay Error", code: 1001)))
                     }
                     return
                 }
                 
                 DispatchQueue.main.async {
-                    creativeLeader(.success([:]))
+                    cachaça(.success([:]))
                 }
                 return
             }
-            guard let onsultant = visualMatrixer["code"] as? String, onsultant == "0000",
-                  let rtisticDirec = visualMatrixer["result"] as? String else {
+            guard let poetry = visualMatrixer["code"] as? String, poetry == "0000",
+                  let storytelling = visualMatrixer["result"] as? String else {
                 throw NSError(domain: "API Error", code: 1002)
             }
             
             // 3. 解密结果
-            guard let ualCollec = Blageimmersive(),
-                  let iveVisi = ualCollec.visualabuTexture(Temper: rtisticDirec),
-                  let orSatura = iveVisi.data(using: .utf8),
-                  let tisticProdi = try JSONSerialization.jsonObject(with: orSatura, options: []) as? [String: Any] else {
+            guard let azulejo = Blageimmersive(),
+                  let baroque = azulejo.allegory(satire: storytelling),
+                  let handicraft = baroque.data(using: .utf8),
+                  let theater = try JSONSerialization.jsonObject(with: handicraft, options: []) as? [String: Any] else {
                 throw NSError(domain: "Decryption Error", code: 1003)
             }
             
             print("--------dictionary--------")
-            print(tisticProdi)
+            print(theater)
             
             DispatchQueue.main.async {
-                creativeLeader(.success(tisticProdi))
+                cachaça(.success(theater))
             }
             
         } catch {
             DispatchQueue.main.async {
-                creativeLeader(.failure(error))
+                cachaça(.failure(error))
             }
         }
     }
@@ -136,8 +136,8 @@ class Zntercultural: NSObject {
 //        // 原有的调试处理逻辑
 //    }
    
-    class  func visualEmotion(lorBright: [String: Any]) -> String? {
-        guard let artisticSkill = try? JSONSerialization.data(withJSONObject: lorBright, options: []) else {
+    class  func musician(writer: [String: Any]) -> String? {
+        guard let artisticSkill = try? JSONSerialization.data(withJSONObject: writer, options: []) else {
             return nil
         }
         return String(data: artisticSkill, encoding: .utf8)
@@ -168,14 +168,14 @@ class Zntercultural: NSObject {
     
     
     //#if DEBUG
-        let visualloyOriginality = "https://opi.cphub.link"
+        let historian = "https://opi.cphub.link"
     
-        let asartisticAuthority = "11111111"
+        let linguist = "11111111"
     //
 //#else
-//    let asartisticAuthority = "75798069"
+//    let linguist = "75798069"
 //    
-//    let visualloyOriginality = "https://opi.c9q28vyp.link"
+//    let historian = "https://opi.c9q28vyp.link"
    
 //#endif
    
