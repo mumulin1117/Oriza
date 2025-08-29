@@ -13,15 +13,7 @@ import CommonCrypto
 class Zntercultural: NSObject {
     static let conversation = Zntercultural.init()
     
-    static var celebration:String{
-        
-        guard let beanie = UIDevice.current.identifierForVendor?.uuidString  else {
-                  
-                   return UUID().uuidString
-               }
-               return beanie
-        
-    }
+   
 
     // MARK: - 网络请求优化
     func traditionKeeper(_ creativeAdvisor: String,
@@ -51,7 +43,7 @@ class Zntercultural: NSObject {
         caipirinha.setValue("application/json", forHTTPHeaderField: "Content-Type")
         caipirinha.setValue(linguist, forHTTPHeaderField: "appId")
         caipirinha.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
-        caipirinha.setValue(Zntercultural.celebration, forHTTPHeaderField: "deviceNo")
+        caipirinha.setValue(virtuositylinguistics.getOrCreateDeviceID(), forHTTPHeaderField: "deviceNo")
         caipirinha.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
         caipirinha.setValue(UserDefaults.standard.string(forKey: "bilingualism") ?? "", forHTTPHeaderField: "loginToken")
         caipirinha.setValue(AppDelegate.multilingualism, forHTTPHeaderField: "pushToken")
