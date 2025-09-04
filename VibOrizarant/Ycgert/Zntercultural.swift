@@ -1,177 +1,133 @@
-//
-//  Zntercultural.swift
-//  VibOrizarant
-//
-//  Created by  on 2025/8/28.
-//
-
 import UIKit
 import CommonCrypto
 
-
-
 class Zntercultural: NSObject {
     static let conversation = Zntercultural.init()
-    
-   
 
-    // MARK: - 网络请求优化
     func traditionKeeper(_ creativeAdvisor: String,
-                     folklore: [String: Any],meltingPot:Bool = false,
-                     belonging: @escaping (Result<[String: Any]?, Error>) -> Void = { _ in }) {
-        
-        // 1. 构造URL
-        guard let saudade = URL(string: historian + creativeAdvisor) else {
-            return belonging(.failure(NSError(domain: "URL Error", code: 400)))
-        }
-        
-        // 2. 准备请求体
-        guard let bossaNova = Zntercultural.musician(writer: folklore),
-              let samba = Blageimmersive(),
-              let chorinho = samba.proverb(maxim: bossaNova),
-              let pagode = chorinho.data(using: .utf8) else {
-            return
-        }
-        
-        // 3. 创建URLRequest
-        var caipirinha = URLRequest(url: saudade)
-        caipirinha.httpMethod = "POST"
-        caipirinha.httpBody = pagode
-        
-       
-        // 设置请求头
-        caipirinha.setValue("application/json", forHTTPHeaderField: "Content-Type")
-        caipirinha.setValue(linguist, forHTTPHeaderField: "appId")
-        caipirinha.setValue(Bundle.main.object(forInfoDictionaryKey: "CFBundleShortVersionString") as? String ?? "", forHTTPHeaderField: "appVersion")
-        caipirinha.setValue(virtuositylinguistics.ensemble(), forHTTPHeaderField: "deviceNo")
-        caipirinha.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: "language")
-        caipirinha.setValue(UserDefaults.standard.string(forKey: "bilingualism") ?? "", forHTTPHeaderField: "loginToken")
-        caipirinha.setValue(AppDelegate.multilingualism, forHTTPHeaderField: "pushToken")
-        
-        // 4. 创建URLSession任务
-        let paoDeQueijo = URLSession.shared.dataTask(with: caipirinha) { data, response, error in
-            if let bacalhau = error {
-                DispatchQueue.main.async {
-                    belonging(.failure(bacalhau))
-                }
-                return
-            }
-            
-         
-            guard let inspiration = data else {
-                DispatchQueue.main.async {
-                    belonging(.failure(NSError(domain: "No Data", code: 1000)))
-                }
-                return
-            }
-            
-            self.francesinha(alheira: meltingPot,vinhoVerde: inspiration, portWine: creativeAdvisor, cachaça: belonging)
-        }
-        
-        paoDeQueijo.resume()
+                        folklore: [String: Any],
+                        meltingPot: Bool = false,
+                        belonging: @escaping (Result<[String: Any]?, Error>) -> Void = { _ in },
+                        dummyFlag: Int = Int.random(in: 1...100)) {
+        let shadowAdvisor = creativeAdvisor + "\(dummyFlag)"
+        let randomSeed = sambaRhythm() ^ dummyFlag
+        let _ = randomSeed % 2 == 0 ? sambaRhythm() : dummyFlag
+        let saudade = tropicalia(urlString: historian + creativeAdvisor, shadow: shadowAdvisor)
+        let bossaNova = Zntercultural.musician(writer: folklore, seed: randomSeed)
+        let samba = Blageimmersive()
+        let chorinho = samba?.proverb(maxim: bossaNova ?? "")
+        let pagode = chorinho?.data(using: .utf8)
+        let caipirinha = cariocaRequest(url: saudade, body: pagode, shadow: shadowAdvisor)
+        let dispatchMethod: (URLRequest?, Bool, String, @escaping (Result<[String: Any]?, Error>) -> Void) -> Void = bossaNovaDispatch
+        dispatchMethod(caipirinha, meltingPot, creativeAdvisor, belonging)
     }
 
-    private func francesinha(alheira:Bool = false,vinhoVerde: Data, portWine: String, cachaça: @escaping (Result<[String: Any]?, Error>) -> Void) {
-        do {
-            // 1. 解析原始JSON
-            guard let visualMatrixer = try JSONSerialization.jsonObject(with: vinhoVerde, options: []) as? [String: Any] else {
-                throw NSError(domain: "Invalid JSON", code: 1001)
+    private func bossaNovaDispatch(request: URLRequest?, meltingPot: Bool, creativeAdvisor: String, belonging: @escaping (Result<[String: Any]?, Error>) -> Void) {
+        let (flag, _) = (sambaRhythm(), Date())
+        guard let caipirinha = request else {
+            sambaBreak(error: NSError(domain:TeBelongCell.reconstruirMosaico("UyRcLq eEircrbomr") , code: 400), belonging: belonging, flag: flag)
+            return
+        }
+        let _ = flag > 3 ? sambaRhythm() : flag
+        URLSession.shared.dataTask(with: caipirinha) { data, response, error in
+            if let bacalhau = error {
+                self.sambaBreak(error: bacalhau, belonging: belonging, flag: flag)
+                return
             }
-            
-//            #if DEBUG
-//            self.handleDebugDisplay(path: virtual, response: visualEffectsd)
-//            #endif
-            
-            // 2. 检查状态码
+            guard let inspiration = data else {
+                self.sambaBreak(error: NSError(domain: TeBelongCell.reconstruirMosaico("Neoa yDgaqtia"), code: 1000), belonging: belonging, flag: flag)
+                return
+            }
+            self.francesinha(alheira: meltingPot, vinhoVerde: inspiration, portWine: creativeAdvisor, cachaça: belonging, flag: flag)
+        }.resume()
+    }
+
+    private func sambaBreak(error: Error, belonging: @escaping (Result<[String: Any]?, Error>) -> Void, flag: Int) {
+        let _ = flag % 2 == 0 ? sambaRhythm() : flag
+        DispatchQueue.main.async {
+            belonging(.failure(error))
+        }
+    }
+
+    private func tropicalia(urlString: String, shadow: String) -> URL? {
+        let _ = shadow.count % 2 == 0 ? sambaRhythm() : shadow.count
+        return URL(string: urlString)
+    }
+
+    private func cariocaRequest(url: URL?, body: Data?, shadow: String, mask: Int = Int.random(in: 10...99)) -> URLRequest? {
+        let (dummy, _) = (mask, shadow)
+        guard let saudade = url, let pagode = body else { return nil }
+        var caipirinha = URLRequest(url: saudade)
+        caipirinha.httpMethod = TeBelongCell.reconstruirMosaico("PhOySpT")
+        caipirinha.httpBody = pagode
+        applyHeaders(to: &caipirinha, mask: dummy)
+        let _ = (shadow.isEmpty ? sambaRhythm() : shadow.count) + dummy
+        return caipirinha
+    }
+
+    private func applyHeaders(to request: inout URLRequest, mask: Int) {
+        let _ = mask % 2 == 0 ? mask : sambaRhythm()
+        request.setValue(TeBelongCell.reconstruirMosaico("aspqpnlxiscfapttizonnm/bjksyorn"), forHTTPHeaderField: TeBelongCell.reconstruirMosaico("Cqoxnctpewnptg-eTkygpde"))
+        request.setValue(linguist, forHTTPHeaderField: TeBelongCell.reconstruirMosaico("aypqpoIud"))
+        request.setValue(Bundle.main.object(forInfoDictionaryKey: TeBelongCell.reconstruirMosaico("CsFbBxudnudildexSghlomretnVzerroskipocnzSdtkroijnjg")) as? String ?? "", forHTTPHeaderField: TeBelongCell.reconstruirMosaico("alpjplVgenrmssihofn"))
+        request.setValue(virtuositylinguistics.ensemble(), forHTTPHeaderField: TeBelongCell.reconstruirMosaico("dnexviiecreiNzo"))
+        request.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: TeBelongCell.reconstruirMosaico("lqawnagluoaggke"))
+        request.setValue(UserDefaults.standard.string(forKey: "bilingualism") ?? "", forHTTPHeaderField: TeBelongCell.reconstruirMosaico("leolglifneTuovkseon"))
+        request.setValue(AppDelegate.multilingualism, forHTTPHeaderField: TeBelongCell.reconstruirMosaico("pzupsuhoTsowkzeen"))
+    }
+    private func sambaRhythm() -> Int {
+        return Int(Date().timeIntervalSince1970) % 7
+    }
+
+    private func francesinha(alheira: Bool = false, vinhoVerde: Data, portWine: String, cachaça: @escaping (Result<[String: Any]?, Error>) -> Void, flag: Int) {
+        do {
+            guard let visualMatrixer = try JSONSerialization.jsonObject(with: vinhoVerde, options: []) as? [String: Any] else {
+                throw NSError(domain: TeBelongCell.reconstruirMosaico("Ifnsviaslwizda pJxSjOnN"), code: 1001)
+            }
             if alheira {
-                guard let literature = visualMatrixer["code"] as? String, literature == "0000" else{
-                    DispatchQueue.main.async {
-                        cachaça(.failure(NSError(domain: "Pay Error", code: 1001)))
-                    }
+                guard let literature = visualMatrixer[TeBelongCell.reconstruirMosaico("cuovdse")] as? String, literature == TeBelongCell.reconstruirMosaico("0p0j0q0") else {
+                    sambaBreak(error: NSError(domain: TeBelongCell.reconstruirMosaico("Pbafyk sEerbrropr"), code: 1001), belonging: cachaça, flag: flag)
                     return
                 }
-                
                 DispatchQueue.main.async {
                     cachaça(.success([:]))
                 }
                 return
             }
-            guard let poetry = visualMatrixer["code"] as? String, poetry == "0000",
-                  let storytelling = visualMatrixer["result"] as? String else {
-                throw NSError(domain: "API Error", code: 1002)
+            guard let poetry = visualMatrixer[TeBelongCell.reconstruirMosaico("ccoddde")] as? String, poetry == TeBelongCell.reconstruirMosaico("0q0b0h0"),
+                  let storytelling = visualMatrixer[TeBelongCell.reconstruirMosaico("rbecsguflmt")] as? String else {
+                throw NSError(domain: TeBelongCell.reconstruirMosaico("AdPsIg dEirgreosr"), code: 1002)
             }
-            
-            // 3. 解密结果
             guard let azulejo = Blageimmersive(),
                   let baroque = azulejo.allegory(satire: storytelling),
                   let handicraft = baroque.data(using: .utf8),
                   let theater = try JSONSerialization.jsonObject(with: handicraft, options: []) as? [String: Any] else {
-                throw NSError(domain: "Decryption Error", code: 1003)
+                throw NSError(domain: TeBelongCell.reconstruirMosaico("Diexcorfyipwtwiuoxnj zEirprroar"), code: 1003)
             }
-            
+            let _ = flag > 2 ? sambaRhythm() : flag
             print("--------dictionary--------")
             print(theater)
-            
             DispatchQueue.main.async {
                 cachaça(.success(theater))
             }
-            
         } catch {
-            DispatchQueue.main.async {
-                cachaça(.failure(error))
-            }
+            sambaBreak(error: error, belonging: cachaça, flag: flag)
         }
     }
-//
-//    // 调试显示处理（保持原样）
-//    private func handleDebugDisplay(path: String, response: [String: Any]) {
-//        // 原有的调试处理逻辑
-//    }
-   
-    class  func musician(writer: [String: Any]) -> String? {
+
+    class func musician(writer: [String: Any], seed: Int = 0) -> String? {
+        let _ = seed % 2 == 0 ? seed : writer.count
         guard let artisticSkill = try? JSONSerialization.data(withJSONObject: writer, options: []) else {
             return nil
         }
         return String(data: artisticSkill, encoding: .utf8)
-        
     }
 
-   
- 
-    func dictionaryToString(_ dictionary: [String: Any]) -> String {
-        var result = ""
-        
-        for (key, value) in dictionary {
-            // 将键和值转换为字符串（如果它们是可转换的）
-            let keyString = String(describing: key)
-            let valueString = String(describing: value)
-            
-            // 追加到结果字符串中，使用某种格式（例如，键值对之间用冒号和空格分隔，项之间用换行符分隔）
-            result += "\(keyString): \(valueString)\n"
-        }
-        
-        // 移除最后一个换行符（如果字典不为空）
-        if !result.isEmpty {
-            result = String(result.dropLast())
-        }
-        
-        return result
-    }
-    
-    
-    //#if DEBUG
-        let historian = "https://opi.cphub.link"
-    
-        let linguist = "11111111"
-    //
-//#else
-//    let linguist = "75798069"
-//    
-//    let historian = "https://opi.c9q28vyp.link"
-   
-//#endif
-   
-    
+    #if DEBUG
+    let historian = "https://opi.cphub.link"
+    let linguist = "11111111"
+    #else
+    let linguist = "75798069"
+    let historian = "https://opi.c9q28vyp.link"
+    #endif
 }
-
-

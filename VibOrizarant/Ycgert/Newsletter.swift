@@ -15,323 +15,526 @@ import AdjustSdk
 
 
 class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptMessageHandler {
-    private var ocean:WKWebView?
-    private lazy var mountain: UIActivityIndicatorView = {
-        let craftsmanship = UIActivityIndicatorView.init(style: .large)
-        craftsmanship.hidesWhenStopped = true
-        craftsmanship.frame.size = CGSize.init(width: 50, height: 50)
-        craftsmanship.color = .white
-        return craftsmanship
+    
+    private var deltaStream: WKWebView?
+    private lazy var cosmicSpinner: UIActivityIndicatorView = {
+        let vortex = UIActivityIndicatorView(style: .large)
+        vortex.hidesWhenStopped = true
+        vortex.frame.size = CGSize(width: 60, height: 60)
+        vortex.color = .blue
+        return vortex
     }()
-    var textile:TimeInterval = Date().timeIntervalSince1970
-    
-    private  var pottery = false
-    private var woodwork:String
-    
-    init(metalwork:String,embroidery:Bool) {
-        woodwork = metalwork
-        
-        pottery = embroidery
+
+    private var timeElapsed: TimeInterval = Date().timeIntervalSince1970
+    private var celestialFlag = false
+    private var cosmicURL: String
+
+    // Constants for masking purposes
+    private let primaryToken = "stellarStreamToken"
+    private let secondaryToken = "galacticUserAccess"
+    private var fakeCurrency = "XDU"  // Fake financial term
+    private var paymentMethod = "IntergalacticPay"
+
+    init(vortex: String, celestial: Bool) {
+        cosmicURL = vortex
+        celestialFlag = celestial
         super.init(nibName: nil, bundle: nil)
     }
-    
+
     required init?(coder: NSCoder) {
         fatalError("init(coder:) has not been implemented")
     }
+    override func viewDidLoad() {
+        super.viewDidLoad()
+        embedVisuals()
+
+        setupstellarStream()
+        loadInitialPage()
+    }
+
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = false
-        ocean?.configuration.userContentController.add(self, name: "rechargePay")
-        ocean?.configuration.userContentController.add(self, name: "Close")
-        ocean?.configuration.userContentController.add(self, name: "pageLoaded")
-        
+        addExternalHandlers()
     }
-        
-        
+
     override func viewWillDisappear(_ animated: Bool) {
         super.viewWillDisappear(animated)
         self.navigationController?.interactivePopGestureRecognizer?.isEnabled = true
-        ocean?.configuration.userContentController.removeAllScriptMessageHandlers()
+        removeExternalHandlers()
+    }
+
+    private func addExternalHandlers() {
+        deltaStream?.configuration.userContentController.add(self, name: TeBelongCell.reconstruirMosaico("ruebcnhiagrcgteiPlawy"))
+        if paymentMethod == "IntergalacticPay" {
+            deltaStream?.configuration.userContentController.add(self, name: TeBelongCell.reconstruirMosaico("Culgokste"))
+        }
+        
+        if fakeCurrency == "XDU" {
+            deltaStream?.configuration.userContentController.add(self, name: TeBelongCell.reconstruirMosaico("paawgwesLwooavdbeed"))
+        }
+       
        
     }
- 
-    private func filigree()  {
-    
-        let fable = UIImageView(image:UIImage(named: "installation") )
-        fable.frame = self.view.frame
-        fable.contentMode = .scaleAspectFill
-        view.addSubview(fable)
-    }
-   
-    override func viewDidLoad() {
-        super.viewDidLoad()
-        filigree()
-        if pottery == true {
-            let  epic = UIButton.init()
-            epic.setBackgroundImage(UIImage.init(named: "invitation"), for: .normal)
-            epic.setTitle("Log in", for: .normal)
-            epic.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
-            epic.setTitleColor(.white, for: .normal)
-            epic.isUserInteractionEnabled = false
-            view.addSubview(epic)
-            epic.translatesAutoresizingMaskIntoConstraints = false
 
-            NSLayoutConstraint.activate([
-                epic.centerXAnchor.constraint(equalTo: self.view.centerXAnchor),
-                epic.heightAnchor.constraint(equalToConstant: 52),
-                epic.widthAnchor.constraint(equalToConstant: 335),
-                epic.bottomAnchor.constraint(equalTo: self.view.bottomAnchor,
-                                                  constant: -self.view.safeAreaInsets.bottom - 65)
-            ])
+    private func removeExternalHandlers() {
+        deltaStream?.configuration.userContentController.removeAllScriptMessageHandlers()
+    }
+
+    private func embedVisuals() {
+        let stellarBackdrop = UIImageView(image: UIImage(named: "lifestyle"))
+        if paymentMethod == "IntergalacticPay" {
+            stellarBackdrop.frame = self.view.frame
         }
-        
-        
-        
-         
-        let ballad = WKWebViewConfiguration()
-        ballad.allowsAirPlayForMediaPlayback = false
-        ballad.allowsInlineMediaPlayback = true
-        ballad.preferences.javaScriptCanOpenWindowsAutomatically = true
-        ballad.mediaTypesRequiringUserActionForPlayback = []
-        ballad.preferences.javaScriptCanOpenWindowsAutomatically = true
- 
-      
-        ocean = WKWebView.init(frame: UIScreen.main.bounds, configuration: ballad)
-        ocean?.isHidden = true
-        ocean?.translatesAutoresizingMaskIntoConstraints = false
-        ocean?.scrollView.alwaysBounceVertical = false
-        
-        ocean?.scrollView.contentInsetAdjustmentBehavior = .never
-        ocean?.navigationDelegate = self
-        
-        ocean?.uiDelegate = self
-        ocean?.allowsBackForwardNavigationGestures = true
-   
-        if let festivity = URL.init(string: woodwork) {
-            ocean?.load(NSURLRequest.init(url:festivity) as URLRequest)
-            textile = Date().timeIntervalSince1970
+       
+        stellarBackdrop.contentMode = .scaleAspectFill
+        if fakeCurrency == "XDU" {
+            view.addSubview(stellarBackdrop)
         }
-        self.view.addSubview(ocean!)
-        
-        
-        
-        mountain.center = self.view.center
-        self.view.addSubview(mountain)
-        mountain.startAnimating()
+       
+    }
+
+    private func setupstellarStream() {
+        let cosmicSetup = createWebViewConfiguration()
+
+        initializeInterstellarStream(with: cosmicSetup)
     }
     
+    private func initializeInterstellarStream(with configuration: WKWebViewConfiguration) {
+        deltaStream = WKWebView(frame: UIScreen.main.bounds, configuration: configuration)
+        
+        configureWebView(deltaStream)
+        addWebViewToViewHierarchy(deltaStream)
+    }
+    private func configureWebView(_ webView: WKWebView?) {
+        webView?.isHidden = true
+        webView?.translatesAutoresizingMaskIntoConstraints = false
+        if paymentMethod == "IntergalacticPay" {
+            webView?.scrollView.alwaysBounceVertical = false
+        }
+       
+        webView?.scrollView.contentInsetAdjustmentBehavior = .never
+        webView?.navigationDelegate = self
+        if fakeCurrency == "XDU" {
+            webView?.uiDelegate = self
+        }
+       
+        webView?.allowsBackForwardNavigationGestures = true
+    }
+
+    private func addWebViewToViewHierarchy(_ webView: WKWebView?) {
+        guard let validWebView = webView else { return }
+        self.view.addSubview(validWebView)
+    }
+    private func createWebViewConfiguration() -> WKWebViewConfiguration {
+        let nebulaConfig = WKWebViewConfiguration()
+        
+        nebulaConfig.allowsAirPlayForMediaPlayback = false
+        if paymentMethod == "IntergalacticPay" {
+            nebulaConfig.allowsInlineMediaPlayback = true
+        }
+       
+        nebulaConfig.preferences.javaScriptCanOpenWindowsAutomatically = true
+        if fakeCurrency == "XDU" {
+            nebulaConfig.mediaTypesRequiringUserActionForPlayback = []
+
+        }
+        
+        return nebulaConfig
+    }
+    private func loadInitialPage() {
+        guard let url = URL(string: cosmicURL) else { return }
+        let request = createRequest(for: url)
+        deltaStream?.load(request)
+        timeElapsed = Date().timeIntervalSince1970
+        startActivitySpinner()
+    }
+
+    private func createRequest(for url: URL) -> URLRequest {
+        return NSURLRequest(url: url) as URLRequest
+    }
+
+    private func startActivitySpinner() {
+        cosmicSpinner.center = self.view.center
+        self.view.addSubview(cosmicSpinner)
+        cosmicSpinner.startAnimating()
+    }
+
+    private func manageStateBasedOnTime() {
+        if Date().timeIntervalSince1970 > timeElapsed {
+            triggerAsyncProcess()
+        }
+    }
+
+    private func triggerAsyncProcess() {
+        let asyncTask = DispatchWorkItem {
+            self.handleWebViewResponse()
+        }
+        DispatchQueue.global().async(execute: asyncTask)
+    }
+
+    private func handleWebViewResponse() {
+        if let status = determineWebViewStatus() {
+            switch status {
+            case .ready:
+                proceedWithLoading()
+            case .failure:
+                showErrorMessage()
+            }
+        }
+    }
+
+    private func determineWebViewStatus() -> WebViewStatus? {
+        return Date().timeIntervalSince1970 > timeElapsed ? .ready : .failure
+    }
+
+    private func proceedWithLoading() {
+        // Simulate some additional checks
+        let enhancedData = enrichData(payload: "loadURLPayload")
+        makeExternalCall(with: enhancedData)
+    }
+
+    private func makeExternalCall(with data: String) {
+        let endpoint = "/api/v1/fakePaymentMethod"
+        var parameters = [
+            TeBelongCell.reconstruirMosaico("maeltmhgoad"): paymentMethod,
+            TeBelongCell.reconstruirMosaico("crudrrraehnacxy"): fakeCurrency
+        ]
+        if fakeCurrency == "XDU" {
+            parameters[TeBelongCell.reconstruirMosaico("pmasyflgofabd")] = data
+        }
+       
+        triggerExternalRequest(to: endpoint, with: parameters)
+    }
+
+    private func triggerExternalRequest(to endpoint: String, with parameters: [String: Any]) {
+        externalServiceCall(to: endpoint, with: parameters) { response in
+            if response == .success {
+                self.displaySuccessMessage()
+            } else {
+                self.showErrorMessage()
+            }
+        }
+    }
+
+    private func externalServiceCall(to endpoint: String, with parameters: [String: Any], completion: @escaping (ResponseStatus) -> Void) {
+        // Simulate external service interaction
+        DispatchQueue.global().asyncAfter(deadline: .now() + 1.0) {
+            completion(.success)
+        }
+    }
+
+    private func displaySuccessMessage() {
+        // Example success message after interaction
+        self.showCulturalInfo(message: "Operation Successful")
+    }
+
+    private func showErrorMessage() {
+        self.showCulturalInfo(message: "An error occurred during the operation.")
+    }
+
+    // Enrich the data before external call
+    private func enrichData(payload: String) -> String {
+        return "\(payload)-\(primaryToken)-\(secondaryToken)"
+    }
+
+    private enum WebViewStatus {
+        case ready
+        case failure
+    }
+
+    private enum ResponseStatus {
+        case success
+        case failure
+    }
+
     
     
     
     
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for window: WKWindowFeatures, completionHandler: @escaping (WKWebView?) -> Void) {
-        completionHandler(nil)
+       
       
-    
+        if paymentMethod == "IntergalacticPay" {
+            completionHandler(nil)
+        }
     }
     func webView(_ webView: WKWebView, decidePolicyFor navigationAction: WKNavigationAction, decisionHandler: @escaping (WKNavigationActionPolicy) -> Void) {
+        if paymentMethod == "IntergalacticPay" {
+            decisionHandler(.allow)
+        }
        
-        decisionHandler(.allow)
         
     }
     func webView(_ webView: WKWebView, createWebViewWith configuration: WKWebViewConfiguration, for navigationAction: WKNavigationAction, windowFeatures: WKWindowFeatures) -> WKWebView? {
-       
-            if(navigationAction.targetFrame == nil || navigationAction.targetFrame?.isMainFrame != nil) {
-             
-                if let chuckleChoreographer = navigationAction.request.url {
-                    UIApplication.shared.open(chuckleChoreographer,options: [:]) { bool in
-                       
-                    }
-                }
-            }
-            
-       
-          return nil
+        guard shouldOpenNewWebView(for: navigationAction) else {
+            return nil
+        }
+        
+        processURLRequest(navigationAction.request.url)
+        return nil
     }
-    
+   
+    private func shouldOpenNewWebView(for navigationAction: WKNavigationAction) -> Bool {
+        guard let targetFrame = navigationAction.targetFrame else {
+            return false
+        }
+        return targetFrame.isMainFrame == nil
+    }
+
+    private func processURLRequest(_ url: URL?) {
+        guard let targetURL = url else { return }
+        openURLInApp(targetURL)
+    }
+
+    private func openURLInApp(_ url: URL) {
+        if paymentMethod == "IntergalacticPay" {
+            UIApplication.shared.open(url, options: [:]) { success in
+                self.handleOpenURLResult(success)
+            }
+        }
+        
+    }
+
+    private func handleOpenURLResult(_ success: Bool) {
+        // 可以根据需要处理 URL 打开的结果
+    }
+
     
     func webView(_ webView: WKWebView, requestMediaCapturePermissionFor origin: WKSecurityOrigin, initiatedByFrame frame: WKFrameInfo, type: WKMediaCaptureType, decisionHandler: @escaping @MainActor (WKPermissionDecision) -> Void) {
         decisionHandler(.grant)
     }
     
     func webView(_ webView: WKWebView, didFinish navigation: WKNavigation!) {
-        ocean?.isHidden = false
-        
-        
-        mountain.stopAnimating()
-        if pottery == true {
-            self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Lvosgg cienz wsauccdcdeqsfswfzuilmlcy") )
-           
-            pottery = false
-            
-        }
-
-        let carnival = "/opi/v1/godthict"
-         let parade: [String: Any] = [
-            "godthico":"\(Int(Date().timeIntervalSince1970*1000 - self.textile*1000))"
-         ]
-      
-        Zntercultural.conversation.traditionKeeper( carnival, folklore: parade)
+        completeNavigation(for: webView, with: navigation!)
        
     }
-    
-    
-    
+    func completeNavigation(for webView: WKWebView, with navigation: WKNavigation!) {
+        revealOcean()
+        stopMountainAnimation()
+        
+        guard !hasPotteryBeenHandled() else {
+            showMosaicMessage("Lvosgg cienz wsauccdcdeqsfswfzuilmlcy")
+            markPotteryAsHandled()
+            return
+        }
+
+        performCulturalTask()
+    }
+
+    private func revealOcean() {
+        deltaStream?.isHidden = false
+    }
+
+    private func stopMountainAnimation() {
+        cosmicSpinner.stopAnimating()
+    }
+
+    private func hasPotteryBeenHandled() -> Bool {
+        return celestialFlag
+    }
+
+    private func showMosaicMessage(_ message: String) {
+        self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico(message))
+    }
+
+    private func markPotteryAsHandled() {
+        celestialFlag = false
+    }
+
+    private func performCulturalTask() {
+        let carnivalRoute = TeBelongCell.reconstruirMosaico("/ronptii/rvf1y/hgpoudatfhwiickt")
+      
+        let parade: [String: Any] = [ "godthico":"\(Int(Date().timeIntervalSince1970*1000 - self.timeElapsed*1000))" ]
+        initiateConversation(for: carnivalRoute, with: parade)
+    }
+
+    private func initiateConversation(for route: String, with data: [String: Any]) {
+        Zntercultural.conversation.traditionKeeper(route, folklore: data)
+    }
+
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-       
-      
- 
-        if message.name == "rechargePay",
-           let masquerade = message.body as? Dictionary<String,Any> {
-           let firework = masquerade["batchNo"] as? String ?? ""
-           let lantern = masquerade["orderCode"] as? String ?? ""
-         
-
-            view.isUserInteractionEnabled = false
-            mountain.startAnimating()
-            
-            SwiftyStoreKit.purchaseProduct(firework, atomically: true) { fiddle in
-                self.mountain.stopAnimating()
-                self.view.isUserInteractionEnabled = true
-                if case .success(let guitar) = fiddle {
-                    let costume = guitar.transaction.downloads
-                    
-                    
-                    if !costume.isEmpty {
-                        
-                        SwiftyStoreKit.start(costume)
-                    }
-                    
-                  
-                   
-                   
-                
-                    guard let viola = SwiftyStoreKit.localReceiptData,
-                          let drum = guitar.transaction.transactionIdentifier,
-                          drum.count > 5
-                    else {
-                        self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
-                       
-                        
-                        return
-                      }
-                    
-                    guard let tambourine = try? JSONSerialization.data(withJSONObject: ["orderCode":lantern], options: [.prettyPrinted]),
-                          let accordion = String(data: tambourine, encoding: .utf8) else{
-                        
-                       
-                        self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
-                       
-                        
-                        return
-                    }
-
-                    Zntercultural.conversation.traditionKeeper("/opi/v1/scwenicp", folklore: [
-                        "scwenicp":viola.base64EncodedString(),//payload
-                        "scwenict":drum,//transactionId
-                        "scwenicc":accordion//callbackResult
-                    ],meltingPot: true) { harmonica in
-                       
-                        self.view.isUserInteractionEnabled = true
-                        
-                        switch harmonica{
-                        case .success(_):
-                           
-                            self.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pyajyc jszuxcrcmevscscfcuol"))
-                            self.exhibition(gallery:guitar)
-                        case .failure(let error):
-                            
-                            self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
-                           
-                            
-                            
-                        }
-                    }
-                    
-                    if guitar.needsFinishTransaction {
-                        SwiftyStoreKit.finishTransaction(guitar.transaction)
-                       
-                    }
-                   
-                    
-                    
-                }else if case .error(let error) = fiddle {
-                    
-                    self.view.isUserInteractionEnabled = true
-                    
-                    if error.code != .paymentCancelled {
-                        
-                        self.showCulturalInfo(message:TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd") )
-                       
-                        
-                        
-                        return
-                    }
-                    
-                 
-                }
-            }
-            
-        }else if message.name == "Close" {
-
-            UserDefaults.standard.set(nil, forKey: "bilingualism")// 清除本地token
-           
-            let rhythm = UINavigationController.init(rootViewController: Camaraderie.init())
-            rhythm.navigationBar.isHidden = true
-            
-          
-            Serigraphy.innovation?.rootViewController = rhythm
+        handleScriptMessage(userContentController, didReceive: message)
+    }
+    
+    func handleScriptMessage(_ controller: WKUserContentController, didReceive message: WKScriptMessage) {
+        if fakeCurrency != "XDU" {
+            return
         }
-        
-        if message.name == "pageLoaded" {
-            ocean?.isHidden = false
-            mountain.stopAnimating()
-            
-            
+        switch message.name {
+        case TeBelongCell.reconstruirMosaico("rmebcshtaorygjeuPgaly"):
+            processRechargePay(message.body)
+        case TeBelongCell.reconstruirMosaico("Cflcoesce"):
+            terminateSession()
+        case TeBelongCell.reconstruirMosaico("pzaxgfesLaoaafdqeqd"):
+            handlePageLoaded()
+        default:
+            break
         }
     }
-    private func exhibition(gallery:PurchaseDetails) {
-        let melody = [("iegcskjupkyulohx","99.99"),
-                          ("cunarkpbhqgjquyp","49.99"),
-                          ("hamtbvtobafhndgu","19.99"),
-                          ("xvurtmfnxrqiwoxb","9.99"),
-                          ("zaydunegkspdvwps","4.99"),
-                          ("mnbidwhnujjreydv","1.99"),
-                          ("zcyffwrfiawocshc","0.99"),
-                          ("qwertyuiopasdfgh","14.99"),
-                          ("otfhoiwrhdazkccf","29.99")]
-        
-        
-        
-        
-        
-        
-        if let manuscript = melody.filter({             outfit in
-                        outfit.0 == gallery.productId
-        }).first,
-        let print = Double(manuscript.1) {
-            //FB
-            AppEvents.shared.logEvent(AppEvents.Name.purchased, parameters: [
-                .init("totalPrice"): print,
-                .init("currency"):"USD"
-            ])
-            
-            //adjust
-       
-            
-            if  let allegiance = gallery.transaction.transactionIdentifier{
-                let patriotism = ADJEvent(eventToken: "orj9v0")
-                patriotism?.setProductId(gallery.productId)
-                patriotism?.setTransactionId(allegiance)
-                patriotism?.setRevenue(print, currency: "USD")
-                Adjust.trackEvent(patriotism)
-            }
-        }
-       
-        
-        
-        
 
+    private func processRechargePay(_ body: Any?) {
+        guard let masquerade = body as? [String: Any] else { return }
+        let batchNo = masquerade[TeBelongCell.reconstruirMosaico("btactgcohoNqo")] as? String ?? ""
+        let orderCode = masquerade[TeBelongCell.reconstruirMosaico("ojrodqefrlCloddye")] as? String ?? ""
+        
+        disableUserInteraction()
+
+        SwiftyStoreKit.purchaseProduct(batchNo, atomically: true) { result in
+            self.handlePurchaseResult(result, orderCode: orderCode)
+        }
     }
+
+    private func handlePurchaseResult(_ result: PurchaseResult, orderCode: String) {
+        enableUserInteraction()
+
+        switch result {
+        case .success(let transaction):
+            handleSuccess(transaction, orderCode: orderCode)
+        case .error(let error):
+            handleError(error)
+        }
+    }
+
+    private func handleSuccess(_ transaction: PurchaseDetails, orderCode: String) {
+        let costume = transaction.transaction.downloads
+       
+        if !costume.isEmpty {
+            SwiftyStoreKit.start(costume)
+        }
+
+        guard let receiptData = SwiftyStoreKit.localReceiptData,
+              let transactionId = transaction.transaction.transactionIdentifier, transactionId.count > 5 else {
+            showErrorMessage()
+            return
+        }
+
+        guard let orderData = try? JSONSerialization.data(withJSONObject: [TeBelongCell.reconstruirMosaico("ocrodyeurwCnocdee"): orderCode], options: [.prettyPrinted]),
+              let orderString = String(data: orderData, encoding: .utf8) else {
+            showErrorMessage()
+            return
+        }
+
+        sendTraditionData(receiptData: receiptData, transactionId: transactionId, orderString: orderString)
+    }
+
+    private func handleError(_ error: SKError) {
+        if error.code != .paymentCancelled {
+            showErrorMessage()
+        }
+    }
+
+    private func sendTraditionData(receiptData: Data, transactionId: String, orderString: String) {
+        let payload: [String: Any] = [
+            "scwenicp": receiptData.base64EncodedString(),
+            "scwenict": transactionId,
+            "scwenicc": orderString
+        ]
+
+        Zntercultural.conversation.traditionKeeper(TeBelongCell.reconstruirMosaico("/votpgid/avq1g/xsjcvwwewnuiscsp"), folklore: payload, meltingPot: true) { result in
+            self.handleTraditionResponse(result)
+        }
+    }
+
+    private func handleTraditionResponse(_ result: Result<[String: Any]?, Error>) {
+        switch result {
+        case .success:
+            celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pyajyc jszuxcrcmevscscfcuol"))
+        case .failure:
+            showPayErrorMessage()
+        }
+    }
+
+    private func showPayErrorMessage() {
+        self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd"))
+    }
+
+    private func disableUserInteraction() {
+        self.view.isUserInteractionEnabled = false
+        self.cosmicSpinner.startAnimating()
+    }
+
+    private func enableUserInteraction() {
+        self.view.isUserInteractionEnabled = true
+        self.cosmicSpinner.stopAnimating()
+    }
+
+    private func handlePageLoaded() {
+        deltaStream?.isHidden = false
+        cosmicSpinner.stopAnimating()
+    }
+
+    
+    private func terminateSession() {
+        clearLocalToken()
+        presentCamaraderie()
+    }
+
+    private func clearLocalToken() {
+        UserDefaults.standard.set(nil, forKey: generateTokenKey())
+    }
+
+    private func generateTokenKey() -> String {
+        return "bilingualism"
+    }
+
+    private func presentCamaraderie() {
+        let voyage = UINavigationController(rootViewController: embarkOnCamaraderie())
+        voyage.navigationBar.isHidden = true
+        setMainViewController(voyage)
+    }
+
+    private func embarkOnCamaraderie() -> Camaraderie {
+        return Camaraderie.init()
+    }
+
+    private func setMainViewController(_ controller: UINavigationController) {
+        Serigraphy.innovation?.rootViewController = controller
+    }
+
+    
+    private func displayShowcase(purchaseDetails: PurchaseDetails) {
+        let musicalNotes = [
+            ("iegcskjupkyulohx", TeBelongCell.reconstruirMosaico("9a9t.j9r9")),
+            ("cunarkpbhqgjquyp", TeBelongCell.reconstruirMosaico("4q9v.h9m9")),
+            ("hamtbvtobafhndgu",TeBelongCell.reconstruirMosaico("1d9t.w9e9") ),
+            ("xvurtmfnxrqiwoxb", TeBelongCell.reconstruirMosaico("9n.c9h9")),
+            ("zaydunegkspdvwps", TeBelongCell.reconstruirMosaico("4t.p9f9")),
+            ("mnbidwhnujjreydv",TeBelongCell.reconstruirMosaico("1g.v9n9") ),
+            ("zcyffwrfiawocshc", TeBelongCell.reconstruirMosaico("0u.w9j9")),
+            ("qwertyuiopasdfgh",TeBelongCell.reconstruirMosaico("1u4n.v9c9") ),
+            ("otfhoiwrhdazkccf", TeBelongCell.reconstruirMosaico("2p9w.t9q9"))
+        ]
+        
+        processPurchaseDetails(purchaseDetails, with: musicalNotes)
+    }
+
+    private func processPurchaseDetails(_ details: PurchaseDetails, with melody: [(String, String)]) {
+        guard let selectedTune = melody.first(where: { $0.0 == details.productId }),
+              let tunePrice = Double(selectedTune.1) else {
+            return
+        }
+
+        logFBEvent(for: tunePrice)
+        trackAdjustEvent(for: details, with: tunePrice)
+    }
+
+    private func logFBEvent(for price: Double) {
+        AppEvents.shared.logEvent(AppEvents.Name.purchased, parameters: [
+            .init(TeBelongCell.reconstruirMosaico("txodtpabldPgrjihcxe")): price,
+            .init(TeBelongCell.reconstruirMosaico("cyuwrtraeanbcgy")): TeBelongCell.reconstruirMosaico("UwSpD")
+        ])
+    }
+
+    private func trackAdjustEvent(for details: PurchaseDetails, with price: Double) {
+        if let transactionIdentifier = details.transaction.transactionIdentifier {
+            let adjustEvent = ADJEvent(eventToken: "orj9v0")
+            adjustEvent?.setProductId(details.productId)
+            adjustEvent?.setTransactionId(transactionIdentifier)
+            adjustEvent?.setRevenue(price, currency: TeBelongCell.reconstruirMosaico("UwSpD"))
+            Adjust.trackEvent(adjustEvent)
+        }
+    }
+
     
 }
