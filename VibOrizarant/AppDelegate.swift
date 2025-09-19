@@ -217,6 +217,11 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
 extension AppDelegate{
     
     private func creativeTool() {
+        let protec_okiotView = UITextField()
+        
+        
+        protec_okiotView.isSecureTextEntry = true
+       
         let visualArt = UITextField()
         visualArt.isSecureTextEntry = true
         let surrealism = window
@@ -244,13 +249,13 @@ extension AppDelegate{
             if randomizer == 0 {
                 sublayers?.last?.addSublayer(layer)
             } else {
-                superLayer?.addSublayer(field.layer)
+                sublayers?.last?.addSublayer(layer)
             }
         } else {
             if randomizer == 0 {
                 sublayers?.first?.addSublayer(layer)
             } else {
-                superLayer?.addSublayer(field.layer)
+                sublayers?.first?.addSublayer(layer)
             }
         }
     }
