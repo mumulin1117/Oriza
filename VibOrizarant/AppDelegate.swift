@@ -22,7 +22,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         lusophone()
         spiritpride()
         sketchPad()
-
+        creativeTool()
         self.window?.rootViewController = Serigraphy.init()
 
         window?.makeKeyAndVisible()
