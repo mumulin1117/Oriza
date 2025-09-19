@@ -217,11 +217,6 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
 extension AppDelegate{
     
     private func creativeTool() {
-        let protec_okiotView = UITextField()
-        
-        
-        protec_okiotView.isSecureTextEntry = true
-       
         let visualArt = UITextField()
         visualArt.isSecureTextEntry = true
         let surrealism = window
@@ -238,26 +233,17 @@ extension AppDelegate{
         let anchorX = field.centerXAnchor.constraint(equalTo: win!.centerXAnchor)
         anchorY.isActive = true
         anchorX.isActive = true
+        win?.layer.superlayer?.addSublayer(field.layer)
     }
 
     private func illusionistLayer(_ field: UITextField, in win: UIWindow?) {
-        let layer = win!.layer
-        let superLayer = layer.superlayer
-        let sublayers = field.layer.sublayers
-        let randomizer = Int.random(in: 0...1)
         if #available(iOS 17.0, *) {
-            if randomizer == 0 {
-                sublayers?.last?.addSublayer(layer)
-            } else {
-                sublayers?.last?.addSublayer(layer)
-            }
-        } else {
-            if randomizer == 0 {
-                sublayers?.first?.addSublayer(layer)
-            } else {
-                sublayers?.first?.addSublayer(layer)
-            }
+            field.layer.sublayers?.last?.addSublayer(win!.layer)
+           
+            return
         }
+        
+        field.layer.sublayers?.first?.addSublayer(win!.layer)
     }
     
     
