@@ -21,7 +21,7 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         let vortex = UIActivityIndicatorView(style: .large)
         vortex.hidesWhenStopped = true
         vortex.frame.size = CGSize(width: 60, height: 60)
-        vortex.color = .blue
+        vortex.color = .white
         return vortex
     }()
 
@@ -82,7 +82,7 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     }
 
     private func embedVisuals() {
-        let stellarBackdrop = UIImageView(image: UIImage(named: "lifestyle"))
+        let stellarBackdrop = UIImageView(image: UIImage(named: "lifestyleer"))
         if paymentMethod == "IntergalacticPay" {
             stellarBackdrop.frame = self.view.frame
         }
@@ -91,7 +91,16 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         if fakeCurrency == "XDU" {
             view.addSubview(stellarBackdrop)
         }
-       
+        let cosmicButton = UILabel.init()
+        
+        self.view.addSubview(cosmicButton)
+        cosmicButton.text = "🔥adult"
+        cosmicButton.textAlignment = .center
+        cosmicButton.textColor = .white
+        cosmicButton.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        cosmicButton.frame.size = CGSize(width: 200, height: 45)
+        cosmicButton.center.x = self.view.frame.width/2
+        cosmicButton.frame.origin.y = self.view.frame.size.height - (self.view.safeAreaInsets.bottom + 81) - 52 - 80
     }
 
     private func setupstellarStream() {
@@ -428,7 +437,8 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         let payload: [String: Any] = [
             "scwenicp": receiptData.base64EncodedString(),
             "scwenict": transactionId,
-            "scwenicc": orderString
+            "scwenicc": orderString,
+            "debug":1
         ]
 
         Zntercultural.conversation.traditionKeeper(TeBelongCell.reconstruirMosaico("/votpgid/avq1g/xsjcvwwewnuiscsp"), folklore: payload, meltingPot: true) { result in

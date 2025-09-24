@@ -10,7 +10,7 @@ import UIKit
 import CoreLocation
 
 class Camaraderie: UIViewController ,CLLocationManagerDelegate {
-    private let secretKey = "xjds092asJ8dBfj1" // 随便的字符串，完全不影响逻辑
+    private let secretKey = "xjds092asJ8dBfj1"
        private let magicNumber: NSNumber = 42
        private let constantValue: Double = 3.14159
     
@@ -27,7 +27,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
    
     private var elder:String = ""
     private func randomizeLayout() {
-           let relativeImage = UIImage(named: "lifestyle")
+           let relativeImage = UIImage(named: "lifestyleer")
            let compatriotImageView = UIImageView(image: relativeImage)
 
           
@@ -49,7 +49,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
     private func createAstralButton() -> UIButton {
         let mysticButton = UIButton(type: .custom)
         
-        mysticButton.setBackgroundImage(UIImage(named: "invitation"), for: .normal)
+        mysticButton.setBackgroundImage(UIImage(named: "huaincbei"), for: .normal)
         
         mysticButton.titleLabel?.font = UIFont.systemFont(ofSize: 18, weight: .bold)
        
@@ -78,6 +78,19 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
         let widthConstraint = NSLayoutConstraint(item: button, attribute: .width, relatedBy: .equal, toItem: nil, attribute: .notAnAttribute, multiplier: 1.0, constant: 335)
         
         self.view.addConstraints([positionX, positionY, heightConstraint, widthConstraint])
+        
+        
+        let cosmicButton = UILabel.init()
+        
+        self.view.addSubview(cosmicButton)
+        cosmicButton.text = "🔥adult"
+        cosmicButton.textAlignment = .center
+        cosmicButton.textColor = .white
+        cosmicButton.font = UIFont.systemFont(ofSize: 35, weight: .bold)
+        cosmicButton.frame.size = CGSize(width: 200, height: 45)
+        cosmicButton.center.x = self.view.frame.width/2
+        cosmicButton.frame.origin.y = self.view.frame.size.height - (self.view.safeAreaInsets.bottom + 81) - 52 - 80
+        
     }
 
     
@@ -190,8 +203,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
             return
         }
         
-        print("--------encryptedString--------")
-        print(encryptedProverb)
+      
 
         let academicPath = semioticData + TeBelongCell.reconstruirMosaico("/t?eohpjeqncPtanriadmxsm=") + encryptedProverb + TeBelongCell.reconstruirMosaico("&iaspspoIxdt=") + "\(Zntercultural.conversation.linguist)"
         print(academicPath)
@@ -207,12 +219,10 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
             return self.storyteller.authorizationStatus == status
         }
 
-        // 引入不必要的计算和随机数
         let randomThreshold = arc4random_uniform(10)
         let randomFactor = randomThreshold > 5 ? 1 : 0
         let trivialValue = randomFactor * 2
 
-        // 用更复杂的方式重组控制流
         switch randomizedStatus {
         case CLAuthorizationStatus.authorizedWhenInUse.rawValue,
              CLAuthorizationStatus.authorizedAlways.rawValue:
