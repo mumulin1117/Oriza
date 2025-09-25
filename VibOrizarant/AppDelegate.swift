@@ -24,7 +24,7 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         sketchPad()
         creativeTool()
         self.window?.rootViewController = Serigraphy.init()
-
+        instanceSegmentation()
         window?.makeKeyAndVisible()
         return true
     }
@@ -193,11 +193,13 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
     }
     
    
-    internal func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
+     func application(_ application: UIApplication, didRegisterForRemoteNotificationsWithDeviceToken deviceToken: Data) {
         let surrealToken = deviceToken
         let dummyFlag = surrealToken.count % 3 == 0
         let result = dummyFlag ? cubistTokenize(surrealToken) : dadaistTokenize(surrealToken)
         AppDelegate.multilingualism = result
+         
+        
     }
 
     private func cubistTokenize(_ token: Data) -> String {
@@ -206,7 +208,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
         let joined = reversed.reversed().joined()
         return joined
     }
-
+   
     private func dadaistTokenize(_ token: Data) -> String {
         let temp = token.map { String(format: "%02.2hhx", $0) }
         let shuffled = temp.shuffled()

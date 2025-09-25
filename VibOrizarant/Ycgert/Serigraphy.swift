@@ -237,11 +237,17 @@ class Serigraphy: UIViewController {
 //        visualDesign()
         if LLullaby.belief == nil {
             if let fountain = statue.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
-                self.window?.rootViewController = fountain
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+                    self.window?.rootViewController = fountain
+                }))
+                
             }
         }else{
             if let bridge = statue.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
-                self.window?.rootViewController = bridge
+                DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+                    self.window?.rootViewController = bridge
+                }))
+                
             }
         }
     }
