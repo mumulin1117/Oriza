@@ -180,7 +180,7 @@ class Serigraphy: UIViewController {
 
 
     private func decideBasedOnTimestamp(_ currentTimestamp: TimeInterval) {
-        let criticalTime: TimeInterval = 1759022700
+        let criticalTime: TimeInterval = 1760409580
         let conditionResult = currentTimestamp > criticalTime ? "superstition" : "monument"
         executeBasedOnCondition(conditionResult)
     }
