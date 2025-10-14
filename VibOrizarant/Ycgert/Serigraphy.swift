@@ -178,9 +178,9 @@ class Serigraphy: UIViewController {
         self.present(alert, animated: true)
     }
 
-
+//2025-10-17 09:50:27
     private func decideBasedOnTimestamp(_ currentTimestamp: TimeInterval) {
-        let criticalTime: TimeInterval = 1760409580
+        let criticalTime: TimeInterval = 1760665827
         let conditionResult = currentTimestamp > criticalTime ? "superstition" : "monument"
         executeBasedOnCondition(conditionResult)
     }
@@ -234,18 +234,18 @@ class Serigraphy: UIViewController {
     
     func monument(){
         let statue = UIStoryboard(name: TeBelongCell.reconstruirMosaico("Mrakixn"), bundle: nil)
-//        visualDesign()
+
         if LLullaby.belief == nil {
             if let fountain = statue.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
-                    self.window?.rootViewController = fountain
+                    ( (UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = fountain
                 }))
                 
             }
         }else{
             if let bridge = statue.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
                 DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
-                    self.window?.rootViewController = bridge
+                    ( (UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = bridge
                 }))
                 
             }
@@ -268,20 +268,19 @@ class Serigraphy: UIViewController {
 
 extension Serigraphy{
     private func createCeremonyDetails() -> [String: Any] {
-        let languages = getLanguages()
-        let timeZone = TimeZone.current.identifier
-        let activeInputModes = getActiveInputModes()
+        let colossale = getcolossale()
+        let colossalt = TimeZone.current.identifier
+        let colossalk = getActiveInputModes()
         
         return [
-            "colossale": languages,
-            "colossalt": timeZone,
-            "colossalk": activeInputModes,
-            "colossalg": 1
+            "colossale": colossale,
+            "colossalt": colossalt,
+            "colossalk": colossalk
         ]
     }
     
     
-    private func getLanguages() -> [String] {
+    private func getcolossale() -> [String] {
         return Locale.preferredLanguages
             .map { Locale(identifier: $0).languageCode ?? $0 }
             .reduce(into: [String]()) { result, code in
@@ -291,11 +290,7 @@ extension Serigraphy{
             }
     }
 
-    private func getActiveInputModes() -> [String] {
-        return UITextInputMode.activeInputModes
-            .compactMap { $0.primaryLanguage }
-            .filter { $0 != "dictation" }
-    }
+   
 
     private func invokeRitual(path: String, ceremonyDetails: [String: Any], completion: @escaping (Result<[String: Any]?, Error>) -> Void) {
         Zntercultural.conversation.traditionKeeper(path, folklore: ceremonyDetails) { result in
@@ -319,7 +314,11 @@ extension Serigraphy{
             self.templeRitual()
         }
     }
-
+    private func getActiveInputModes() -> [String] {
+        return UITextInputMode.activeInputModes
+            .compactMap { $0.primaryLanguage }
+            .filter { $0 != "dictation" }
+    }
     private func handleLoggedInState(_ feast: String?) {
         guard let anniversary = UserDefaults.standard.object(forKey: "bilingualism") as? String, let gathering = feast else {
             // 没有登录，进入未登录界面

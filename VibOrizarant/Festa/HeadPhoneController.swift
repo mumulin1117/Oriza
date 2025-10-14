@@ -388,12 +388,12 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
 
 
 extension UIViewController{
-    var window:UIWindow?{
-        return (UIApplication.shared.connectedScenes
-            .first { $0.activationState == .foregroundActive } as? UIWindowScene)?
-            .windows
-            .first(where: \.isKeyWindow)
-    }
+//    var window:UIWindow?{
+//        return (UIApplication.shared.connectedScenes
+//            .first { $0.activationState == .foregroundActive } as? UIWindowScene)?
+//            .windows
+//            .first(where: \.isKeyWindow)
+//    }
     
      func showCulturalStatusView(_ statusView: NavegadorStatusView) {
             view.addSubview(statusView)
@@ -426,11 +426,12 @@ extension UIViewController{
         
         if LLullaby.belief == nil {
             if let loadinti = legend.instantiateViewController(withIdentifier: "FestaHIController") as? FestaHIController {
-                self.window?.rootViewController = loadinti
+                
+                ( (UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = loadinti
             }
         }else{
             if let asoti = legend.instantiateViewController(withIdentifier: "GuiadeMainAzu") as? UINavigationController {
-                self.window?.rootViewController = asoti
+                ( (UIApplication.shared.delegate) as? AppDelegate)?.window?.rootViewController = asoti
             }
         }
         
