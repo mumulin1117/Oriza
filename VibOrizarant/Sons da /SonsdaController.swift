@@ -62,11 +62,11 @@ extension SonsdaController:UICollectionViewDelegate,UICollectionViewDataSource{
         let portuguese = collectionView.dequeueReusableCell(withReuseIdentifier: "SonsDaCell", for: indexPath) as! SonsDaCell
         
         if let smail = selDymBottom[indexPath.row]["roots"] as? String{
-            portuguese.CuscuzTradicional.kf.setImage(with: URL(string: smail))
+            portuguese.CuscuzTradicional.selDymBottom(smail)//.kf.setImage(with: URL(string: smail))
         }
         
         if let smail = selDymBottom[indexPath.row]["ginjinha"] as? String {
-            portuguese.BossaNovaFlow.kf.setImage(with: URL(string: smail))
+            portuguese.BossaNovaFlow.selDymBottom(smail)
         }
         
       
@@ -97,4 +97,40 @@ extension SonsdaController:UICollectionViewDelegate,UICollectionViewDataSource{
     }
     
     
+}
+
+
+extension UIImageView {
+    func selDymBottom(_ urorizal: String) {
+       
+        guard let laoatpath = URL(string: urorizal) else { return }
+       
+        URLSession.shared.dataTask(with: laoatpath) { data, _, error in
+            guard let orizadata = data, error == nil,
+                  let orizaImage = UIImage(data: orizadata) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.image = orizaImage
+            }
+        }.resume()
+    }
+}
+
+
+extension UIButton {
+    func orizaImage(_ urorizal: String) {
+       
+        guard let laoatpath = URL(string: urorizal) else { return }
+       
+        URLSession.shared.dataTask(with: laoatpath) { data, _, error in
+            guard let orizadata = data, error == nil,
+                  let orizaImage = UIImage(data: orizadata) else {
+                return
+            }
+            DispatchQueue.main.async {
+                self.setBackgroundImage(orizaImage, for: .normal)
+            }
+        }.resume()
+    }
 }

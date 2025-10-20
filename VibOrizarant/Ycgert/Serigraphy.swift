@@ -9,7 +9,7 @@ import UIKit
 import AdjustSdk
 import FBSDKCoreKit
 import UIKit
-import SwiftyStoreKit
+//import SwiftyStoreKit
 
 class Serigraphy: UIViewController {
    

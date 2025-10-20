@@ -54,7 +54,7 @@ class TerraStoriesController: UIViewController {
         
         lifestyle.layer.masksToBounds = true
         if let smail = UserDefaults.standard.object(forKey: "inland") as? String{
-            lifestyle.kf.setImage(with: URL(string: smail))
+            lifestyle.selDymBottom( smail)
         }
         nostalgia.text = UserDefaults.standard.object(forKey: "island") as? String
         memory.text = "UID:\(UserDefaults.standard.object(forKey: "rural") as? Int ?? 111)"

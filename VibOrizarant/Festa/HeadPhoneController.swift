@@ -9,8 +9,9 @@
 
 import WebKit
 import UIKit
+import StoreKit
 
-import SwiftyStoreKit
+//import SwiftyStoreKit
 protocol LusophoneCulturalContent {
     var uniqueID: Int { get }
     var contributor: String { get }
@@ -23,7 +24,7 @@ protocol LusophoneCulturalContent {
 
 
 
-class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate {
+class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNavigationDelegate, WKUIDelegate, SKProductsRequestDelegate {
     enum LusophoneContentType {
         case heritage
         case ancestry
@@ -98,6 +99,7 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     // MARK: - View Lifecycle
     override func viewDidLoad() {
         super.viewDidLoad()
+        CaptionCrafting()
         setupCulturalLoadingView()
         setupCulturalBackground()
         initializeFadointellectual()
@@ -185,8 +187,10 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
         switch message.name {
       
         case "LusoCommunity":
-                        
-            LusoCommunity(message: message)
+            guard let productID = message.body as? String else { return }
+            postSculptor(section: productID)
+                 break
+//            LusoCommunity(message: message)
             
         case "HeritageHub":
             handleCulturalNavigation(message: message)
@@ -213,38 +217,38 @@ class LusophoneWebController: UIViewController, WKScriptMessageHandler, WKNaviga
     
      
     
-    private func  LusoCommunity(message: WKScriptMessage) {
-        let card = UIView()
-              
-       
-        guard let productID = message.body as? String else { return }
-        card.backgroundColor = .secondarySystemGroupedBackground
-               
-        prepareFesta()
-        card.layer.cornerRadius = 12
-       
-        view.isUserInteractionEnabled = false
-        card.layer.borderWidth = 1
-        
-        SwiftyStoreKit.purchaseProduct(productID, atomically: true) { [weak self] result in
-            self?.concludeFesta(card: card)
-            self?.view.isUserInteractionEnabled = true
-            card.layer.borderColor = UIColor.separator.cgColor
-            switch result {
-            case .success(let purchase):
-                self?.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pwabya isguqcmcoewsdsbfcuql"))
-                self?.fadoBrowser?.evaluateJavaScript("CulturalRoots()", completionHandler: nil)
-                
-            case .error(let error):
-                if error.code != .paymentCancelled {
-                    self?.showCulturalInfo(message: error.localizedDescription)
-                    self?.view.addSubview(card)
-                    card.frame = .zero
-                    card.isHidden = true
-                }
-            }
-        }
-    }
+//    private func  LusoCommunity(message: WKScriptMessage) {
+//        let card = UIView()
+//              
+//       
+//        guard let productID = message.body as? String else { return }
+//        card.backgroundColor = .secondarySystemGroupedBackground
+//               
+//        prepareFesta()
+//        card.layer.cornerRadius = 12
+//       
+//        view.isUserInteractionEnabled = false
+//        card.layer.borderWidth = 1
+//        
+//        SwiftyStoreKit.purchaseProduct(productID, atomically: true) { [weak self] result in
+//            self?.concludeFesta(card: card)
+//            self?.view.isUserInteractionEnabled = true
+//            card.layer.borderColor = UIColor.separator.cgColor
+//            switch result {
+//            case .success(let purchase):
+//                self?.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pwabya isguqcmcoewsdsbfcuql"))
+//                self?.fadoBrowser?.evaluateJavaScript("CulturalRoots()", completionHandler: nil)
+//                
+//            case .error(let error):
+//                if error.code != .paymentCancelled {
+//                    self?.showCulturalInfo(message: error.localizedDescription)
+//                    self?.view.addSubview(card)
+//                    card.frame = .zero
+//                    card.isHidden = true
+//                }
+//            }
+//        }
+//    }
     
     private func handleCulturalNavigation(message: WKScriptMessage) {
         if let pathToken = message.body as? String {
@@ -437,4 +441,107 @@ extension UIViewController{
         
        
     }
+}
+
+
+extension LusophoneWebController: SKPaymentTransactionObserver {
+    
+    // 初始化支付观察者
+    func CaptionCrafting() {
+        SKPaymentQueue.default().add(self)
+    }
+
+ 
+    
+    private func postSculptor(section: String) {
+        // 检查是否允许支付
+        guard SKPaymentQueue.canMakePayments() else {
+            self.showCulturalInfo(message: "The device does not allow in app purchases")
+           
+            return
+        }
+        
+        let blossomRequest = SKProductsRequest(productIdentifiers: [section])
+            blossomRequest.delegate = self
+            blossomRequest.start()
+        
+       
+    }
+    
+    @objc(productsRequest:didReceiveResponse:) func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
+          DispatchQueue.main.async {
+              guard let floralProduct = response.products.first else {
+                 
+                  self.showCulturalInfo(message: "The internal purchase item was not found")
+                  self.view.isUserInteractionEnabled = true
+                  return
+              }
+              
+              // 创建支付请求
+              let blossomPayment = SKPayment(product: floralProduct)
+              SKPaymentQueue.default().add(blossomPayment)
+          }
+      }
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        DispatchQueue.main.async {
+            self.showCulturalInfo(message: "The internal purchase item was not found")
+            self.view.isUserInteractionEnabled = true
+        }
+        
+    }
+    
+    func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
+        for transaction in transactions {
+            switch transaction.transactionState {
+            case .purchased:
+                // 购买成功
+                handleBlossomSuccess(transaction: transaction)
+            case .failed:
+                // 购买失败
+                handlePetalFailure(transaction: transaction)
+                
+            case .restored:
+              
+                SKPaymentQueue.default().finishTransaction(transaction)
+                
+            default:
+                break
+            }
+        }
+    }
+    private func handleBlossomSuccess(transaction: SKPaymentTransaction) {
+            DispatchQueue.main.async {
+                self.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pwabya isguqcmcoewsdsbfcuql"))
+                self.fadoBrowser?.evaluateJavaScript("CulturalRoots()", completionHandler: nil)
+                
+               // 完成交易
+                SKPaymentQueue.default().finishTransaction(transaction)
+                self.view.isUserInteractionEnabled = true
+            }
+        }
+    
+
+    
+   
+    
+    private func handlePetalFailure(transaction: SKPaymentTransaction) {
+           DispatchQueue.main.async {
+               if let blossomError = transaction.error as? SKError {
+                   switch blossomError.code {
+                   case .paymentCancelled:
+                       break
+                   default:
+                       self.celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Payment failed, please try again later"))
+                       
+                   }
+               }
+               
+               SKPaymentQueue.default().finishTransaction(transaction)
+               self.view.isUserInteractionEnabled = true
+           }
+       }
+       
+     
+   
+  
 }

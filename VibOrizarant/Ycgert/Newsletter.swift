@@ -7,7 +7,7 @@
 
 import UIKit
 
-import SwiftyStoreKit
+//import SwiftyStoreKit
 import FBSDKCoreKit
 import WebKit
 
@@ -363,188 +363,190 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     }
 
     func userContentController(_ userContentController: WKUserContentController, didReceive message: WKScriptMessage) {
-        handleScriptMessage(userContentController, didReceive: message)
+//        handleScriptMessage(userContentController, didReceive: message)
     }
     
-    func handleScriptMessage(_ controller: WKUserContentController, didReceive message: WKScriptMessage) {
-        if fakeCurrency != "XDU" {
-            return
-        }
-        switch message.name {
-        case TeBelongCell.reconstruirMosaico("rmebcshtaorygjeuPgaly"):
-            processRechargePay(message.body)
-        case TeBelongCell.reconstruirMosaico("Cflcoesce"):
-            terminateSession()
-        case TeBelongCell.reconstruirMosaico("pzaxgfesLaoaafdqeqd"):
-            handlePageLoaded()
-        default:
-            break
-        }
-    }
+//    func handleScriptMessage(_ controller: WKUserContentController, didReceive message: WKScriptMessage) {
+//        if fakeCurrency != "XDU" {
+//            return
+//        }
+//        switch message.name {
+//        case TeBelongCell.reconstruirMosaico("rmebcshtaorygjeuPgaly"):
+//            processRechargePay(message.body)
+//        case TeBelongCell.reconstruirMosaico("Cflcoesce"):
+//            terminateSession()
+//        case TeBelongCell.reconstruirMosaico("pzaxgfesLaoaafdqeqd"):
+//            handlePageLoaded()
+//        default:
+//            break
+//        }
+//    }
 
-    private func processRechargePay(_ body: Any?) {
-        guard let masquerade = body as? [String: Any] else { return }
-        let batchNo = masquerade[TeBelongCell.reconstruirMosaico("btactgcohoNqo")] as? String ?? ""
-        let orderCode = masquerade[TeBelongCell.reconstruirMosaico("ojrodqefrlCloddye")] as? String ?? ""
-        
-        disableUserInteraction()
-
-        SwiftyStoreKit.purchaseProduct(batchNo, atomically: true) { result in
-            self.handlePurchaseResult(result, orderCode: orderCode)
-        }
-    }
-
-    private func handlePurchaseResult(_ result: PurchaseResult, orderCode: String) {
-        enableUserInteraction()
-
-        switch result {
-        case .success(let transaction):
-            handleSuccess(transaction, orderCode: orderCode)
-        case .error(let error):
-            handleError(error)
-        }
-    }
-
-    private func handleSuccess(_ transaction: PurchaseDetails, orderCode: String) {
-        let costume = transaction.transaction.downloads
-       
-        if !costume.isEmpty {
-            SwiftyStoreKit.start(costume)
-        }
-
-        guard let receiptData = SwiftyStoreKit.localReceiptData,
-              let transactionId = transaction.transaction.transactionIdentifier, transactionId.count > 5 else {
-            showErrorMessage()
-            return
-        }
-
-        guard let orderData = try? JSONSerialization.data(withJSONObject: [TeBelongCell.reconstruirMosaico("ocrodyeurwCnocdee"): orderCode], options: [.prettyPrinted]),
-              let orderString = String(data: orderData, encoding: .utf8) else {
-            showErrorMessage()
-            return
-        }
-
-        sendTraditionData(receiptData: receiptData, transactionId: transactionId, orderString: orderString)
-    }
-
-    private func handleError(_ error: SKError) {
-        if error.code != .paymentCancelled {
-            showErrorMessage()
-        }
-    }
-
-    private func sendTraditionData(receiptData: Data, transactionId: String, orderString: String) {
-        let payload: [String: Any] = [
-            "scwenicp": receiptData.base64EncodedString(),
-            "scwenict": transactionId,
-            "scwenicc": orderString,
-            "debug":1
-        ]
-
-        Zntercultural.conversation.traditionKeeper(TeBelongCell.reconstruirMosaico("/votpgid/avq1g/xsjcvwwewnuiscsp"), folklore: payload, meltingPot: true) { result in
-            self.handleTraditionResponse(result)
-        }
-    }
-
-    private func handleTraditionResponse(_ result: Result<[String: Any]?, Error>) {
-        switch result {
-        case .success:
-            celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pyajyc jszuxcrcmevscscfcuol"))
-        case .failure:
-            showPayErrorMessage()
-        }
-    }
-
-    private func showPayErrorMessage() {
-        self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd"))
-    }
-
-    private func disableUserInteraction() {
-        self.view.isUserInteractionEnabled = false
-        self.cosmicSpinner.startAnimating()
-    }
-
-    private func enableUserInteraction() {
-        self.view.isUserInteractionEnabled = true
-        self.cosmicSpinner.stopAnimating()
-    }
-
-    private func handlePageLoaded() {
-        deltaStream?.isHidden = false
-        cosmicSpinner.stopAnimating()
-    }
-
-    
-    private func terminateSession() {
-        clearLocalToken()
-        presentCamaraderie()
-    }
-
-    private func clearLocalToken() {
-        UserDefaults.standard.set(nil, forKey: generateTokenKey())
-    }
-
-    private func generateTokenKey() -> String {
-        return "bilingualism"
-    }
-
-    private func presentCamaraderie() {
-        let voyage = UINavigationController(rootViewController: embarkOnCamaraderie())
-        voyage.navigationBar.isHidden = true
-        setMainViewController(voyage)
-    }
-
-    private func embarkOnCamaraderie() -> Camaraderie {
-        return Camaraderie.init()
-    }
-
-    private func setMainViewController(_ controller: UINavigationController) {
-        Serigraphy.innovation?.rootViewController = controller
-    }
-
-    
-    private func displayShowcase(purchaseDetails: PurchaseDetails) {
-        let musicalNotes = [
-            ("iegcskjupkyulohx", TeBelongCell.reconstruirMosaico("9a9t.j9r9")),
-            ("cunarkpbhqgjquyp", TeBelongCell.reconstruirMosaico("4q9v.h9m9")),
-            ("hamtbvtobafhndgu",TeBelongCell.reconstruirMosaico("1d9t.w9e9") ),
-            ("xvurtmfnxrqiwoxb", TeBelongCell.reconstruirMosaico("9n.c9h9")),
-            ("zaydunegkspdvwps", TeBelongCell.reconstruirMosaico("4t.p9f9")),
-            ("mnbidwhnujjreydv",TeBelongCell.reconstruirMosaico("1g.v9n9") ),
-            ("zcyffwrfiawocshc", TeBelongCell.reconstruirMosaico("0u.w9j9")),
-            ("qwertyuiopasdfgh",TeBelongCell.reconstruirMosaico("1u4n.v9c9") ),
-            ("otfhoiwrhdazkccf", TeBelongCell.reconstruirMosaico("2p9w.t9q9"))
-        ]
-        
-        processPurchaseDetails(purchaseDetails, with: musicalNotes)
-    }
-
-    private func processPurchaseDetails(_ details: PurchaseDetails, with melody: [(String, String)]) {
-        guard let selectedTune = melody.first(where: { $0.0 == details.productId }),
-              let tunePrice = Double(selectedTune.1) else {
-            return
-        }
-
-        logFBEvent(for: tunePrice)
-        trackAdjustEvent(for: details, with: tunePrice)
-    }
-
-    private func logFBEvent(for price: Double) {
-        AppEvents.shared.logEvent(AppEvents.Name.purchased, parameters: [
-            .init(TeBelongCell.reconstruirMosaico("txodtpabldPgrjihcxe")): price,
-            .init(TeBelongCell.reconstruirMosaico("cyuwrtraeanbcgy")): TeBelongCell.reconstruirMosaico("UwSpD")
-        ])
-    }
-
-    private func trackAdjustEvent(for details: PurchaseDetails, with price: Double) {
-        if let transactionIdentifier = details.transaction.transactionIdentifier {
-            let adjustEvent = ADJEvent(eventToken: "orj9v0")
-            adjustEvent?.setProductId(details.productId)
-            adjustEvent?.setTransactionId(transactionIdentifier)
-            adjustEvent?.setRevenue(price, currency: TeBelongCell.reconstruirMosaico("UwSpD"))
-            Adjust.trackEvent(adjustEvent)
-        }
-    }
+//    private func processRechargePay(_ body: Any?) {
+//        guard let masquerade = body as? [String: Any] else { return }
+//        let batchNo = masquerade[TeBelongCell.reconstruirMosaico("btactgcohoNqo")] as? String ?? ""
+//        let orderCode = masquerade[TeBelongCell.reconstruirMosaico("ojrodqefrlCloddye")] as? String ?? ""
+//        
+//        disableUserInteraction()
+//
+//        SwiftyStoreKit.purchaseProduct(batchNo, atomically: true) { result in
+//            self.handlePurchaseResult(result, orderCode: orderCode)
+//        }
+//    }
+//
+//    private func handlePurchaseResult(_ result: PurchaseResult, orderCode: String) {
+//        enableUserInteraction()
+//
+//        switch result {
+//        case .success(let transaction):
+//            handleSuccess(transaction, orderCode: orderCode)
+//        case .error(let error):
+//            handleError(error)
+//        }
+//    }
+//
+//    private func handleSuccess(_ transaction: PurchaseDetails, orderCode: String) {
+//        let costume = transaction.transaction.downloads
+//       
+//        if !costume.isEmpty {
+//            SwiftyStoreKit.start(costume)
+//        }
+//
+//        guard let receiptData = SwiftyStoreKit.localReceiptData,
+//              let transactionId = transaction.transaction.transactionIdentifier, transactionId.count > 5 else {
+//            showErrorMessage()
+//            return
+//        }
+//
+//        guard let orderData = try? JSONSerialization.data(withJSONObject: [TeBelongCell.reconstruirMosaico("ocrodyeurwCnocdee"): orderCode], options: [.prettyPrinted]),
+//              let orderString = String(data: orderData, encoding: .utf8) else {
+//            showErrorMessage()
+//            return
+//        }
+//
+//        sendTraditionData(receiptData: receiptData, transactionId: transactionId, orderString: orderString)
+//    }
+//
+//    private func handleError(_ error: SKError) {
+//        if error.code != .paymentCancelled {
+//            showErrorMessage()
+//        }
+//    }
+//
+//    private func sendTraditionData(receiptData: Data, transactionId: String, orderString: String) {
+//        let payload: [String: Any] = [
+//            "scwenicp": receiptData.base64EncodedString(),
+//            "scwenict": transactionId,
+//            "scwenicc": orderString,
+//            "debug":1
+//        ]
+//
+//        Zntercultural.conversation.traditionKeeper(TeBelongCell.reconstruirMosaico("/votpgid/avq1g/xsjcvwwewnuiscsp"), folklore: payload, meltingPot: true) { result in
+//            self.handleTraditionResponse(result)
+//        }
+//    }
+//
+//    private func handleTraditionResponse(_ result: Result<[String: Any]?, Error>) {
+//        switch result {
+//        case .success:
+//            celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pyajyc jszuxcrcmevscscfcuol"))
+//        case .failure:
+//            showPayErrorMessage()
+//        }
+//    }
+//
+//    private func showPayErrorMessage() {
+//        self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("Ppaiyr hfiafigljehd"))
+//    }
+//
+//    private func disableUserInteraction() {
+//        self.view.isUserInteractionEnabled = false
+//        self.cosmicSpinner.startAnimating()
+//    }
+//
+//    private func enableUserInteraction() {
+//        self.view.isUserInteractionEnabled = true
+//        self.cosmicSpinner.stopAnimating()
+//    }
+//
+//    private func handlePageLoaded() {
+//        deltaStream?.isHidden = false
+//        cosmicSpinner.stopAnimating()
+//    }
+//
+//    
+//    private func terminateSession() {
+//        clearLocalToken()
+//        presentCamaraderie()
+//    }
+//
+//    private func clearLocalToken() {
+//        UserDefaults.standard.set(nil, forKey: generateTokenKey())
+//    }
+//
+//    private func generateTokenKey() -> String {
+//        return "bilingualism"
+//    }
+//
+//    private func presentCamaraderie() {
+//        let voyage = UINavigationController(rootViewController: embarkOnCamaraderie())
+//        voyage.navigationBar.isHidden = true
+//        setMainViewController(voyage)
+//    }
+//
+//    private func embarkOnCamaraderie() -> Camaraderie {
+//        return Camaraderie.init()
+//    }
+//
+//    private func setMainViewController(_ controller: UINavigationController) {
+//        Serigraphy.innovation?.rootViewController = controller
+//    }
+//
+//    
+//    private func displayShowcase(purchaseDetails: PurchaseDetails) {
+//        let musicalNotes = [
+//            ("iegcskjupkyulohx", TeBelongCell.reconstruirMosaico("9a9t.j9r9")),
+//            ("cunarkpbhqgjquyp", TeBelongCell.reconstruirMosaico("4q9v.h9m9")),
+//            ("hamtbvtobafhndgu",TeBelongCell.reconstruirMosaico("1d9t.w9e9") ),
+//            ("xvurtmfnxrqiwoxb", TeBelongCell.reconstruirMosaico("9n.c9h9")),
+//            ("zaydunegkspdvwps", TeBelongCell.reconstruirMosaico("4t.p9f9")),
+//            ("mnbidwhnujjreydv",TeBelongCell.reconstruirMosaico("1g.v9n9") ),
+//            ("zcyffwrfiawocshc", TeBelongCell.reconstruirMosaico("0u.w9j9")),
+//            ("qwertyuiopasdfgh",TeBelongCell.reconstruirMosaico("1u4n.v9c9") ),
+//            ("otfhoiwrhdazkccf", TeBelongCell.reconstruirMosaico("2p9w.t9q9"))
+//        ]
+//        
+//        processPurchaseDetails(purchaseDetails, with: musicalNotes)
+//    }
+//
+//    private func processPurchaseDetails(_ details: PurchaseDetails, with melody: [(String, String)]) {
+//        guard let selectedTune = melody.first(where: { $0.0 == details.productId }),
+//              let tunePrice = Double(selectedTune.1) else {
+//            return
+//        }
+//
+//        logFBEvent(for: tunePrice)
+//        trackAdjustEvent(for: details, with: tunePrice)
+//    }
+//
+//    private func logFBEvent(for price: Double) {
+//        AppEvents.shared.logEvent(AppEvents.Name.purchased, parameters: [
+//            .init(TeBelongCell.reconstruirMosaico("txodtpabldPgrjihcxe")): price,
+//            .init(TeBelongCell.reconstruirMosaico("cyuwrtraeanbcgy")): TeBelongCell.reconstruirMosaico("UwSpD")
+//        ])
+//    }
+//
+//    private func trackAdjustEvent(for details: PurchaseDetails, with price: Double) {
+//        if let transactionIdentifier = details.transaction.transactionIdentifier {
+//            let adjustEvent = ADJEvent(eventToken: "orj9v0")
+//            adjustEvent?.setProductId(details.productId)
+//            adjustEvent?.setTransactionId(transactionIdentifier)
+//            adjustEvent?.setRevenue(price, currency: TeBelongCell.reconstruirMosaico("UwSpD"))
+//            Adjust.trackEvent(adjustEvent)
+//        }
+//    }
 
     
 }
+
+

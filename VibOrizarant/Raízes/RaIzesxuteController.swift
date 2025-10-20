@@ -6,7 +6,7 @@
 //
 
 import UIKit
-import Kingfisher
+//import Kingfisher
 class RaIzesxuteController: UIViewController {
     private var language:Array<Dictionary<String,Any>>  = Array<Dictionary<String,Any>>()
     
@@ -145,21 +145,15 @@ class RaIzesxuteController: UIViewController {
     func revivalism()  {
       
         if selKnowedgeTop.count >= 1, let smail = (selKnowedgeTop[0]["chorinho"] as? Array<String>)?.last {
-            rituals?.painceONe.kf.setBackgroundImage(with: URL(string: smail),
-                                                     for: .normal,
-                                                     placeholder:nil)
+            rituals?.painceONe.orizaImage( smail)
         }
         
         if selKnowedgeTop.count >= 2,let smail1 = (selKnowedgeTop[1]["chorinho"] as? Array<String>)?.last {
-            rituals?.paincetwo.kf.setBackgroundImage(with: URL(string: smail1),
-                                                     for: .normal,
-                                                     placeholder:nil)
+            rituals?.paincetwo.orizaImage(smail1)
         }
         
         if selKnowedgeTop.count >= 3, let smail2 = (selKnowedgeTop[2]["chorinho"] as? Array<String>)?.last {
-            rituals?.paincethree.kf.setBackgroundImage(with: URL(string: smail2),
-                                                     for: .normal,
-                                                     placeholder:nil)
+            rituals?.paincethree.orizaImage(smail2)
         }
     }
     
@@ -253,7 +247,7 @@ extension RaIzesxuteController:UICollectionViewDelegate,UICollectionViewDataSour
     func collectionView(_ collectionView: UICollectionView, cellForItemAt indexPath: IndexPath) -> UICollectionViewCell {
         let portuguese = collectionView.dequeueReusableCell(withReuseIdentifier: "ContemporaryCell", for: indexPath) as! ContemporaryCell
         if let smail = language[indexPath.row]["culturalIdentity"] as? String{
-            portuguese.CuscuzTradicional.kf.setImage(with: URL(string: smail))
+            portuguese.CuscuzTradicional.selDymBottom( smail)
         }
         portuguese.RuaCalcetada.text = language[indexPath.row]["heritage"] as? String
         return portuguese
@@ -279,15 +273,15 @@ extension RaIzesxuteController:UITableViewDelegate,UITableViewDataSource{
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let portuguese = tableView.dequeueReusableCell(withIdentifier: "TeBelongCell", for: indexPath) as! TeBelongCell
         if let smail = selDymBottom[indexPath.row]["roots"] as? String{
-            portuguese.CuscuzTradicional.kf.setImage(with: URL(string: smail))
+            portuguese.CuscuzTradicional.selDymBottom(smail)
         }
         
         if let smail = (selDymBottom[indexPath.row]["chorinho"] as? Array<String>)?.first{
-            portuguese.BossaNovaFlow.kf.setImage(with: URL(string: smail))
+            portuguese.BossaNovaFlow.selDymBottom( smail)
         }
         
         if let smail = (selDymBottom[indexPath.row]["chorinho"] as? Array<String>)?.last{
-            portuguese.AzulejoArt.kf.setImage(with: URL(string: smail))
+            portuguese.AzulejoArt.selDymBottom(smail)
         }
         
         portuguese.RuaCalcetada.text = selDymBottom[indexPath.row]["folklore"] as? String
