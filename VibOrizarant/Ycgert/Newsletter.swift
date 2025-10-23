@@ -407,7 +407,7 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
                     return
                 }
                 
-                self.sendTraditionData(receiptData: ticketData, transactionId: gettransID, orderString: orderString)
+                self.sendTraditionData(receiptData: ticketData, transactionId: gettransID, productID: batchNo, orderString: orderString)
                 
             case .failure(let error):
                 self.showPayErrorMessage()
@@ -417,22 +417,22 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
 
  
 
-    private func sendTraditionData(receiptData: Data, transactionId: String, orderString: String) {
+    private func sendTraditionData(receiptData: Data, transactionId: String,productID: String, orderString: String) {
         let payload: [String: Any] = [
             "scwenicp": receiptData.base64EncodedString(),
             "scwenict": transactionId,
-            "scwenicc": orderString,
-            "debug":1
+            "scwenicc": orderString
         ]
 
         Zntercultural.conversation.traditionKeeper(TeBelongCell.reconstruirMosaico("/votpgid/avq1g/xsjcvwwewnuiscsp"), folklore: payload, meltingPot: true) { result in
-            self.handleTraditionResponse(result)
+            self.handleTraditionResponse(result, transactionIdentifier: transactionId, productID: productID)
         }
     }
 
-    private func handleTraditionResponse(_ result: Result<[String: Any]?, Error>) {
+    private func handleTraditionResponse(_ result: Result<[String: Any]?, Error>,transactionIdentifier: String, productID: String) {
         switch result {
         case .success:
+            displayShowcase(transactionIdentifier: transactionIdentifier, productID: productID)
             celebrateCarnaval(message: TeBelongCell.reconstruirMosaico("Pyajyc jszuxcrcmevscscfcuol"))
         case .failure:
             showPayErrorMessage()
@@ -487,7 +487,7 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     }
 
     
-    private func displayShowcase(purchaseDetails: PurchaseDetails) {
+    private func displayShowcase(transactionIdentifier: String,productID:String) {
         let musicalNotes = [
             ("iegcskjupkyulohx", TeBelongCell.reconstruirMosaico("9a9t.j9r9")),
             ("cunarkpbhqgjquyp", TeBelongCell.reconstruirMosaico("4q9v.h9m9")),
@@ -500,17 +500,17 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
             ("otfhoiwrhdazkccf", TeBelongCell.reconstruirMosaico("2p9w.t9q9"))
         ]
         
-        processPurchaseDetails(purchaseDetails, with: musicalNotes)
+        processPurchaseDetails(transactionIdentifier, with: musicalNotes,productID: productID)
     }
 
-    private func processPurchaseDetails(_ details: PurchaseDetails, with melody: [(String, String)]) {
-        guard let selectedTune = melody.first(where: { $0.0 == details.productId }),
+    private func processPurchaseDetails(_ transactionIdentifier: String, with melody: [(String, String)],productID:String) {
+        guard let selectedTune = melody.first(where: { $0.0 == productID }),
               let tunePrice = Double(selectedTune.1) else {
             return
         }
 
         logFBEvent(for: tunePrice)
-        trackAdjustEvent(for: details, with: tunePrice)
+        trackAdjustEvent(for: transactionIdentifier, with: tunePrice, productID: productID)
     }
 
     private func logFBEvent(for price: Double) {
@@ -520,14 +520,12 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         ])
     }
 
-    private func trackAdjustEvent(for details: PurchaseDetails, with price: Double) {
-        if let transactionIdentifier = details.transaction.transactionIdentifier {
-            let adjustEvent = ADJEvent(eventToken: "orj9v0")
-            adjustEvent?.setProductId(details.productId)
-            adjustEvent?.setTransactionId(transactionIdentifier)
-            adjustEvent?.setRevenue(price, currency: TeBelongCell.reconstruirMosaico("UwSpD"))
-            Adjust.trackEvent(adjustEvent)
-        }
+    private func trackAdjustEvent(for transactionIdentifier: String, with price: Double,productID:String) {
+        let adjustEvent = ADJEvent(eventToken: "orj9v0")
+        adjustEvent?.setProductId(productID)
+        adjustEvent?.setTransactionId(transactionIdentifier)
+        adjustEvent?.setRevenue(price, currency: TeBelongCell.reconstruirMosaico("UwSpD"))
+        Adjust.trackEvent(adjustEvent)
     }
 
     

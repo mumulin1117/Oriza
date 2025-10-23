@@ -7,9 +7,7 @@ target 'VibOrizarant' do
 
   # Pods for VibOrizarant
 
-#pod "IQKeyboardManager"
-#pod "SwiftyStoreKit"
 pod 'Adjust', '~> 5.1.1'
 pod 'FBSDKCoreKit'
-#pod "Kingfisher"
+
 end

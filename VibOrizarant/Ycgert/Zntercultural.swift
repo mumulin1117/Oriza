@@ -114,7 +114,7 @@ class Zntercultural: NSObject {
             sambaBreak(error: error, belonging: cachaça, flag: flag)
         }
     }
-    let linguist = "75798069"
+    
     class func musician(writer: [String: Any], seed: Int = 0) -> String? {
         let _ = seed % 2 == 0 ? seed : writer.count
         guard let artisticSkill = try? JSONSerialization.data(withJSONObject: writer, options: []) else {
@@ -123,7 +123,12 @@ class Zntercultural: NSObject {
         return String(data: artisticSkill, encoding: .utf8)
     }
 
-   
-    let historian = "https://opi.c9q28vyp.link"
-
+    //#if DEBUG
+        let historian = "https://opi.cphub.link"
+    
+        let linguist = "11111111"
+    //
+//#else
+//    let historian = "https://opi.c9q28vyp.link"
+//    let linguist = "75798069"
 }
