@@ -7,7 +7,7 @@
 
 import UIKit
 
-//import SwiftyStoreKit
+
 import FBSDKCoreKit
 import WebKit
 
@@ -389,20 +389,21 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         
         disableUserInteraction()
         OpenFiil.shared.startPurchase(productID: batchNo) { result in
-            self.enableUserInteraction()
+           
             switch result {
             case .success:
                 
                 
                 guard let ticketData = OpenFiil.shared.localReceiptData(),
                       let gettransID = OpenFiil.shared.lastTransactionID else {
-                    
+                    self.enableUserInteraction()
                     self.showErrorMessage()
                     return
                 }
                 
                 guard let orderData = try? JSONSerialization.data(withJSONObject: [TeBelongCell.reconstruirMosaico("ocrodyeurwCnocdee"): orderCode], options: [.prettyPrinted]),
                       let orderString = String(data: orderData, encoding: .utf8) else {
+                    self.enableUserInteraction()
                     self.showErrorMessage()
                     return
                 }
@@ -410,6 +411,7 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
                 self.sendTraditionData(receiptData: ticketData, transactionId: gettransID, productID: batchNo, orderString: orderString)
                 
             case .failure(let error):
+                self.enableUserInteraction()
                 self.showPayErrorMessage()
             }
         }
@@ -425,6 +427,7 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         ]
 
         Zntercultural.conversation.traditionKeeper(TeBelongCell.reconstruirMosaico("/votpgid/avq1g/xsjcvwwewnuiscsp"), folklore: payload, meltingPot: true) { result in
+            self.enableUserInteraction()
             self.handleTraditionResponse(result, transactionIdentifier: transactionId, productID: productID)
         }
     }
