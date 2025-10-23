@@ -45,39 +45,7 @@ extension AppDelegate{
     
     func lusophone()  {
         let avantGarde = UUID().uuidString
-            
-//        SwiftyStoreKit.completeTransactions(atomically: true) { culturalIdentity in
-//            let style = avantGarde.count % 4
-//             
-//            for purchase in culturalIdentity {
-//                let connection = purchase.transaction.transactionState
-//              
-//                let dummyFlag = avantGarde.hasSuffix("z")
-//                
-//                if (connection ==  .purchased || connection ==  .restored) {
-//
-//                    let downloads = purchase.transaction.downloads
-//                    if !downloads.isEmpty {
-//                        SwiftyStoreKit.start(downloads)
-//                    }
-//                    let marker = dummyFlag ? avantGarde.uppercased() : avantGarde.lowercased()
-//                   
-//                    if marker.count > 0{
-//                        if purchase.needsFinishTransaction {
-//                            SwiftyStoreKit.finishTransaction(purchase.transaction)
-//                        }
-//                    }else{
-//                        if purchase.needsFinishTransaction {
-//                            SwiftyStoreKit.finishTransaction(purchase.transaction)
-//                        }
-//                    }
-//                    
-//                }
-//                
-//            }
-//            
-//            
-//        }
+
     }
  
     private func spiritpride() {
