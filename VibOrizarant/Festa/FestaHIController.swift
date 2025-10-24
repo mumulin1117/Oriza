@@ -51,6 +51,7 @@ class FestaHIController: UIViewController {
         
     }
     private func setupCulturalLoadingView() {
+        [crossCultural, transcultural].forEach { $0?.addDoneButtonOnKeyboard() }
         view.addSubview(azulejoLoader)
         azulejoLoader.translatesAutoresizingMaskIntoConstraints = false
         NSLayoutConstraint.activate([

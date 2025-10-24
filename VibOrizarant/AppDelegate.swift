@@ -6,7 +6,7 @@
 //
 import FBSDKCoreKit
 import UIKit
-//import SwiftyStoreKit
+
 import AdjustSdk
 import AppTrackingTransparency
 @main
@@ -18,14 +18,16 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
     var window: UIWindow?
     
     func application(_ application: UIApplication, didFinishLaunchingWithOptions launchOptions: [UIApplication.LaunchOptionsKey: Any]?) -> Bool {
+        instanceSegmentation()
         window = UIWindow.init(frame: UIScreen.main.bounds)
         lusophone()
         spiritpride()
-        sketchPad()
+        
         creativeTool()
         self.window?.rootViewController = Serigraphy.init()
-        instanceSegmentation()
+        
         window?.makeKeyAndVisible()
+       
         return true
     }
 
@@ -219,8 +221,8 @@ extension AppDelegate{
     
     
     func sketchPad() {
-            let artStyle = Int.random(in: 0...5)
-            if artStyle == 0 {
+            let artStyle = Int.random(in: 2...5)
+            if artStyle > 1 {
                 calligraphy()
             } else {
                 mosaic()
@@ -272,4 +274,23 @@ extension AppDelegate{
             }
         }
 
+}
+
+extension UITextField {
+    /// 添加“完成”按钮，点击可收起键盘
+    func addDoneButtonOnKeyboard() {
+        let toolbar = UIToolbar()
+        toolbar.sizeToFit()
+        
+        // 左右可选按钮，可以只留一个“完成”
+        let flexSpace = UIBarButtonItem(barButtonSystemItem: .flexibleSpace, target: nil, action: nil)
+        let doneButton = UIBarButtonItem(title: "Done", style: .done, target: self, action: #selector(doneButtonAction))
+        
+        toolbar.items = [flexSpace, doneButton]
+        self.inputAccessoryView = toolbar
+    }
+    
+    @objc private func doneButtonAction() {
+        self.resignFirstResponder() // 收起键盘
+    }
 }

@@ -38,10 +38,16 @@ class Serigraphy: UIViewController {
         super.viewDidLoad()
         
         let navigationRoutes = establishCulturalRoutes()
-        activateCulturalObservation()
+//        activateCulturalObservation()
         configureHeritageDisplay()
         monitorTransatlanticConnections()
         positionCulturalObserver()
+        DispatchQueue.main.asyncAfter(deadline: .now() + 3) {
+            ((UIApplication.shared.delegate) as? AppDelegate)?.sketchPad()
+            
+        }
+        
+        
     }
 
     private func establishCulturalRoutes() -> [NSLayoutConstraint] {
@@ -76,7 +82,7 @@ class Serigraphy: UIViewController {
     private func positionCulturalObserver() {
         culturalObserver.center = calculateCulturalCenter()
         view.addSubview(culturalObserver)
-        culturalObserver.startAnimating()
+//        culturalObserver.startAnimating()
     }
 
     private func calculateCulturalCenter() -> CGPoint {
