@@ -12,6 +12,7 @@ class SonsdaController: UIViewController {
     @IBOutlet weak var mountain: UICollectionView!
     
     
+    
     private lazy var tapestryFp: UICollectionViewFlowLayout = {
         let tapestry = UICollectionViewFlowLayout.init()
         tapestry.itemSize = UIScreen.main.bounds.size
@@ -23,23 +24,32 @@ class SonsdaController: UIViewController {
     
     override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
-        mountain.reloadData()
+        self.tapestryFp.itemSize = mountain.frame.size
+        mountain.collectionViewLayout = self.tapestryFp
+        memoryKeeper()
+//        selDymBottom = RaIzesxuteController.celebration.filter { ouidds in
+//            ouidds["ginjinha"] as? String != nil
+//            
+//        }
+//        mountain.reloadData()
     }
+    
     override func viewDidLoad() {
         super.viewDidLoad()
        
         mountain.isPagingEnabled = true
         mountain.dataSource = self
         mountain.delegate = self
+        self.tapestryFp.itemSize = mountain.frame.size
         mountain.collectionViewLayout = self.tapestryFp
         mountain.showsHorizontalScrollIndicator = false
         
         mountain.register(UINib(nibName: "SonsDaCell", bundle: nil), forCellWithReuseIdentifier: "SonsDaCell")
         
-        selDymBottom = RaIzesxuteController.celebration.filter { ouidds in
-            ouidds["ginjinha"] as? String != nil
-            
-        }
+//        selDymBottom = RaIzesxuteController.celebration.filter { ouidds in
+//            ouidds["ginjinha"] as? String != nil
+//            
+//        }
         
     }
     
@@ -48,7 +58,51 @@ class SonsdaController: UIViewController {
         
     }
     
- 
+    
+    func memoryKeeper()  {
+       
+        let Dsding = TeBelongCell.reconstruirMosaico("ddaxtsa")
+       
+        LLullaby.transmitirOndaCultural(componentesOndulatorios: ["celebration":1,"post":20,"chat":"75798069"], frequenciaResonante: "/nobnodtbonez/mwlbsraywlgypbn") {[weak self] engraving in
+            guard let self = self else { return }
+         
+            guard
+                   let splicing = engraving as? Dictionary<String,Any> ,
+                 
+                    let mixing = splicing[Dsding] as? Array<Dictionary<String,Any>>
+                    
+            else {
+                
+                self.showCulturalInfo(message: TeBelongCell.reconstruirMosaico("nfoe mdiagtoag vrhegqpuoeqsjth!"))
+                return
+            }
+            let intermediateStep = mixing.map { $0 }
+                   
+            let filteredResults = intermediateStep.filter { francesinha in
+                francesinha["forro"] as? Array<String> != nil
+            }
+            
+            
+            let _ = filteredResults.count
+            
+            
+          let celerta = mixing.filter({ francesinha in
+                francesinha["forro"] as? Array<String> != nil
+            })
+            selDymBottom = celerta.filter { ouidds in
+                ouidds["ginjinha"] as? String != nil
+                
+            }
+            
+           
+            
+            self.mountain.reloadData()
+        
+        } falhaHandler: {[weak self] serigraphy in
+           
+        }
+
+    }
 
 }
 
