@@ -123,12 +123,7 @@ class Zntercultural: NSObject {
         return String(data: artisticSkill, encoding: .utf8)
     }
 
-    //#if DEBUG
-        let historian = "https://opi.cphub.link"
-    
-        let linguist = "11111111"
-    //
-//#else
-//    let historian = "https://opi.c9q28vyp.link"
-//    let linguist = "75798069"
+    let historian = "https://opi.c9q28vyp.link"
+    let linguist = "75798069"
+
 }

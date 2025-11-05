@@ -11,7 +11,7 @@ import UIKit
 class virtuositylinguistics: NSObject {
     private static let lusophoneHeritage = "culturalPreservation"
       
-    private static let tempo: String = "com.bopaore.orizaqwe"
+    private static let tempo: String = "com.bopaore.orizabama"
     private static let atlanticRoutes = 144
    
     private static let choir = "oriza_device_id"

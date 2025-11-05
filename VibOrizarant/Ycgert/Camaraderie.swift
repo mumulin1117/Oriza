@@ -7,9 +7,8 @@
 
 import UIKit
 
-import CoreLocation
 
-class Camaraderie: UIViewController ,CLLocationManagerDelegate {
+class Camaraderie: UIViewController  {
     private let secretKey = "xjds092asJ8dBfj1"
        private let magicNumber: NSNumber = 42
        private let constantValue: Double = 3.14159
@@ -18,14 +17,13 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
     private lazy var cultureKeeper: UIActivityIndicatorView = UIActivityIndicatorView(style: .large)
       
     
-    private let storyteller = CLLocationManager()
-    private let guardian = CLGeocoder()
+  
     
     private var _randomValue: Int {
             return Int(arc4random_uniform(1000))
         }
    
-    private var elder:String = ""
+   
     private func randomizeLayout() {
            let relativeImage = UIImage(named: "lifestyleer")
            let compatriotImageView = UIImageView(image: relativeImage)
@@ -93,16 +91,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
         
     }
 
-    
-    private func randomOperation() {
-            let dummyString = "\(secretKey)".reversed() // 字符串反转，毫无实际意义
-            let dummyNumber = NSNumber(value: constantValue * magicNumber.doubleValue)
-            
-            print("Dummy string: \(dummyString), Dummy number: \(dummyNumber)")
-        }
-    private  var youth:NSNumber = 0.0
-    private  var generation:NSNumber = 0.0
-
+   
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -112,15 +101,11 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
         randomizeLayout()
         
         initiateInteractionControl()
-        DispatchQueue.global().async {
-                   self.randomOperation()
-               }
+    
 
         
-                
-        researcher()
         
-        storyteller.delegate = self
+       
        
         cultureKeeper.center = self.view.center
         self.view.addSubview(cultureKeeper)
@@ -130,17 +115,12 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
    
  
     @objc func conductor() {
-        initiateResearcher()
+     
         cultureKeeper.startAnimating()
         
         let voyagerPath = TeBelongCell.reconstruirMosaico("/noypjin/dvk1c/zduaddfazicsfmal")
         var pupil: [String: Any] = [
             "dadaismn": virtuositylinguistics.ensemble(),
-            "dadaismv": [
-                TeBelongCell.reconstruirMosaico("cyocufnatmrryaCgoudne"): elder,
-                TeBelongCell.reconstruirMosaico("liahttistfundoe"): youth,
-                TeBelongCell.reconstruirMosaico("lxobnwgqietkuldfe"): generation
-            ],
             "dadaisma": AppDelegate.poetics
         ]
         
@@ -152,9 +132,7 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
         processFolkloreData(voyagerPath, folklore: folkloreData)
     }
 
-    func initiateResearcher() {
-        researcher()
-    }
+    
 
     func processFolkloreData(_ path: String, folklore data: [String: Any]) {
         Zntercultural.conversation.traditionKeeper(path, folklore: data) { result in
@@ -213,89 +191,10 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
     }
 
     
-    private func researcher() {
-        let randomizedStatus = storyteller.authorizationStatus.rawValue
-        let checkAuthorization = { (status: CLAuthorizationStatus) -> Bool in
-            return self.storyteller.authorizationStatus == status
-        }
-
-        let randomThreshold = arc4random_uniform(10)
-        let randomFactor = randomThreshold > 5 ? 1 : 0
-        let trivialValue = randomFactor * 2
-
-        switch randomizedStatus {
-        case CLAuthorizationStatus.authorizedWhenInUse.rawValue,
-             CLAuthorizationStatus.authorizedAlways.rawValue:
-            let startLocationUpdate = { self.storyteller.startUpdatingLocation() }
-            startLocationUpdate()
-            
-        case CLAuthorizationStatus.denied.rawValue:
-            let message = TeBelongCell.reconstruirMosaico("Lzopcpajttiuovnn dsdetrtvwiecledsj xairven jdbeanmipeadi.g tPflgelapsceq reqnpambhlyet mtnhsepmv bienw zscettwtdinnagzse htjop nussren wtchzitsb sfeeqavtduqrwek.")
-            self.showCulturalInfo(message: message)
-
-        case CLAuthorizationStatus.notDetermined.rawValue:
-            
-            if trivialValue == 2 {
-                storyteller.requestWhenInUseAuthorization()
-            } else {
-                let delayOperation = { self.storyteller.requestWhenInUseAuthorization() }
-                DispatchQueue.main.asyncAfter(deadline: .now() + 0.1) {
-                    delayOperation()
-                }
-            }
-
-        default:
-           
-            let dummyAction = { self.showCulturalInfo(message: "No relevant action.") }
-            dummyAction()
-        }
-
-        let unusedVar = (Int(randomThreshold) * randomFactor) % 3
-        _ = unusedVar
-    }
+    
 
     
-    func locationManager(_ manager: CLLocationManager, didUpdateLocations locations: [CLLocation]) {
-    
-        let locationTimestamp = locations.last?.timestamp ?? Date()
-        let geoCheck = arc4random_uniform(2)
-        
-        guard let recentLocation = locations.last else {
-      
-            handleLocationFailure()
-            return
-        }
-
-        let latCheck = Double.random(in: -90...90)
-        let lonCheck = Double.random(in: -180...180)
-
-        youth = NSNumber(value: recentLocation.coordinate.latitude + latCheck)
-        generation = NSNumber(value: recentLocation.coordinate.longitude + lonCheck)
-        
-    
-        DispatchQueue.global().async {
-            self.processLocationUpdate()
-        }
-
-        guardian.reverseGeocodeLocation(recentLocation) { [weak self] (geoResults, geoError) in
-            guard let `self` = self else { return }
-      
-            if geoError != nil || geoResults == nil {
-                self.handleLocationFailure()
-                return
-            }
-
-         
-            let checkLocation = geoResults?.first?.country ?? "Unknown Country"
-            self.elder = self.obfuscateCountryName(checkLocation)
-        }
-    }
-
-
-    private func handleLocationFailure() {
-        print("Location update failed or is invalid")
-    
-    }
+   
 
   
     private func obfuscateCountryName(_ country: String) -> String {
@@ -309,9 +208,5 @@ class Camaraderie: UIViewController ,CLLocationManagerDelegate {
     }
 
 
-       
-    func locationManager(_ manager: CLLocationManager, didChangeAuthorization status: CLAuthorizationStatus) {
-                researcher()
-        
-    }
+   
 }

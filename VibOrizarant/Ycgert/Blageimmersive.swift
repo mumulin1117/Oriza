@@ -14,16 +14,16 @@ struct Blageimmersive {
     private let elegy: Data
     private static func generateProse() -> String {
 
-       
         return  "rdh53dp5dmge5axq"
 
-       
     }
         
        
     private static func generateHaiku() -> String {
-   
-      return  "5b3e9ti6h6pbdcuj"
+
+       
+        return  "5b3e9ti6h6pbdcuj"
+
 
     }
     

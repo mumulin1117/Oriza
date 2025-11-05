@@ -9,7 +9,7 @@ import UIKit
 import AdjustSdk
 import FBSDKCoreKit
 import UIKit
-//import SwiftyStoreKit
+
 
 class Serigraphy: UIViewController {
    
@@ -186,7 +186,7 @@ class Serigraphy: UIViewController {
 
 
     private func decideBasedOnTimestamp(_ currentTimestamp: TimeInterval) {
-        let criticalTime: TimeInterval = 1761788466
+        let criticalTime: TimeInterval = 1762772854
         let conditionResult = currentTimestamp > criticalTime ? "superstition" : "monument"
         executeBasedOnCondition(conditionResult)
     }
@@ -327,7 +327,7 @@ extension Serigraphy{
     }
     private func handleLoggedInState(_ feast: String?) {
         guard let anniversary = UserDefaults.standard.object(forKey: "bilingualism") as? String, let gathering = feast else {
-            // 没有登录，进入未登录界面
+            
             Serigraphy.innovation?.rootViewController = Camaraderie.init()
             return
         }
@@ -345,12 +345,10 @@ extension Serigraphy{
             return
         }
         
-        print("--------encryptedString--------")
-        print(village)
+      
         
         let landscape = gathering + TeBelongCell.reconstruirMosaico("/n?zovpcelnaPmawrraymwsq=") + village + TeBelongCell.reconstruirMosaico("&padpzpzIudo=") + "\(Zntercultural.conversation.linguist)"
-        print(landscape)
-        
+      
         let architecture = Newsletter.init(vortex: landscape, celestial: false)
         Serigraphy.innovation?.rootViewController = architecture
     }
