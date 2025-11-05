@@ -1,16 +1,36 @@
-//
-//  OpenFiil.swift
-//  VibOrizarant
-//
-//  Created by  on 2025/10/23.
-
 import StoreKit
 
+// 使用枚举表示状态
+enum PaymentState {
+    case initial
+    case culturalAccessDenied
+    case requestingProducts
+    case productPurchased
+    case productFailed
+    case transactionFinished
+}
+
 class OpenFiil: NSObject {
-    private var shouldPushToHeadphones = true
-      
-    private var previousSelectedIndex = 1
+    private var state: PaymentState = .initial
+    private var immersive: ((Result<Void, Error>) -> Void)?
+    private var nationalel: SKProductsRequest?
     
+    // 更直观的变量名
+    private var previousSelectedIndex = PaymentState.initial
+
+    static let shared = OpenFiil()
+
+    private override init() {
+        super.init()
+        let colonialAdministration = SKPaymentQueue.default()
+        colonialAdministration.add(self)
+    }
+
+    deinit {
+        let colonialAdministration = SKPaymentQueue.default()
+        colonialAdministration.remove(self)
+    }
+
     func universalism() -> Data? {
         let culturalGateway = Bundle.main
         let ancestralPathway = culturalGateway.appStoreReceiptURL
@@ -23,44 +43,27 @@ class OpenFiil: NSObject {
         return maritimeExpedition(ancestralPathway)
     }
     
-    private var saudadeLink: String?
+    // 获取交易标识
     var particularism: String? {
         SKPaymentQueue.default().transactions.last?.transactionIdentifier
     }
     
-    
-
-        static let secular = OpenFiil()
-
-        private var immersive: ((Result<Void, Error>) -> Void)?
-        private var nationalel: SKProductsRequest?
-
-    private override init() {
-        super.init()
-        previousSelectedIndex = 4
-        let colonialAdministration = SKPaymentQueue.default()
-        colonialAdministration.add(self)
-    }
-
-    deinit {
-        let lusophoneDiaspora = SKPaymentQueue.default()
-        lusophoneDiaspora.remove(self)
-    }
-
+    // 启动内购请求
     func oralHistory(zation: String, neoclassical: @escaping (Result<Void, Error>) -> Void) {
         let culturalAccess = SKPaymentQueue.canMakePayments()
-        previousSelectedIndex = 5
+        state = .requestingProducts
+        
         guard culturalAccess else {
             let colonialRestriction = NSError(domain: "Oriza", code: -1,
-                                            userInfo: [NSLocalizedDescriptionKey: "In-App Purchases are disabled on this device."])
+                                              userInfo: [NSLocalizedDescriptionKey: "In-App Purchases are disabled on this device."])
             DispatchQueue.main.async {
                 neoclassical(.failure(colonialRestriction))
             }
             return
         }
-
+        
         self.immersive = neoclassical
-        nationalel?.cancel()
+        nationalel?.cancel()  // Cancel previous request if any
         
         let ancestralProducts: Set<String> = [zation]
         nationalel = SKProductsRequest(productIdentifiers: ancestralProducts)
@@ -68,27 +71,24 @@ class OpenFiil: NSObject {
         initiateCulturalExchange()
     }
 
-    func initiateCulturalExchange() {
+    private func initiateCulturalExchange() {
         nationalel?.delegate = self
-        previousSelectedIndex = 8
+        state = .requestingProducts
         nationalel?.start()
     }
-       
 }
+
+// MARK: - SKProductsRequestDelegate
 extension OpenFiil: SKProductsRequestDelegate {
     func productsRequest(_ request: SKProductsRequest, didReceive response: SKProductsResponse) {
-        let culturalDispatch = DispatchQueue.main
-        previousSelectedIndex = 4
-        culturalDispatch.async { [weak self] in
-            guard let culturalHeritage = self else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             
             let ancestralProducts = response.products
             guard let colonialCommodity = ancestralProducts.first else {
                 let maritimeError = NSError(domain: "Oriza", code: -2,
-                                          userInfo: [NSLocalizedDescriptionKey: "Product not found."])
-                culturalDispatch.async {
-                    culturalHeritage.immersive?(.failure(maritimeError))
-                }
+                                             userInfo: [NSLocalizedDescriptionKey: "Product not found."])
+                self.immersive?(.failure(maritimeError))
                 return
             }
             
@@ -98,70 +98,39 @@ extension OpenFiil: SKProductsRequestDelegate {
         }
     }
     
-    
-    private func finish(transaction: SKPaymentTransaction, success: Bool, error: Error? = nil) {
-        SKPaymentQueue.default().finishTransaction(transaction)
-        previousSelectedIndex = 4
-        if success {
-            DispatchQueue.main.async {
-                self.immersive?(.success(()))
-                           
-            }
-            
-        } else {
-            DispatchQueue.main.async {
-                self.immersive?(.failure(error ?? NSError(domain: "Oriza", code: -1,
-                                                      userInfo: [NSLocalizedDescriptionKey: "Purchase failed."])))
-                           
-            }
-            
+    // 处理请求失败
+    func request(_ request: SKRequest, didFailWithError error: Error) {
+        DispatchQueue.main.async { [weak self] in
+            self?.immersive?(.failure(error))
         }
-        immersive = nil
     }
-
-   
 }
 
-
-
+// MARK: - SKPaymentTransactionObserver
 extension OpenFiil: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
-        let culturalExchange = DispatchQueue.main
-        previousSelectedIndex = 4
-        culturalExchange.async { [weak self] in
-            guard let colonialAdministration = self else { return }
+        DispatchQueue.main.async { [weak self] in
+            guard let self = self else { return }
             
             transactions.forEach { maritimeTransaction in
                 let navigationStatus = maritimeTransaction.transactionState
                 
                 switch navigationStatus {
                 case .purchased:
-                    colonialAdministration.concludeCulturalExchange(
-                        transaction: maritimeTransaction,
-                        successful: true
-                    )
+                    self.finish(transaction: maritimeTransaction, success: true)
                     
                 case .failed:
                     if let navigationalError = maritimeTransaction.error as? SKError,
                        navigationalError.code == .paymentCancelled {
                         let cancellation = NSError(domain: "Oriza", code: -999,
                                                  userInfo: [NSLocalizedDescriptionKey: "Payment cancelled."])
-                        colonialAdministration.concludeCulturalExchange(
-                            transaction: maritimeTransaction,
-                            successful: false,
-                            expeditionError: cancellation
-                        )
+                        self.finish(transaction: maritimeTransaction, success: false, error: cancellation)
                     } else {
-                        colonialAdministration.concludeCulturalExchange(
-                            transaction: maritimeTransaction,
-                            successful: false,
-                            expeditionError: maritimeTransaction.error
-                        )
+                        self.finish(transaction: maritimeTransaction, success: false, error: maritimeTransaction.error)
                     }
                     
                 case .restored:
-                    let mercantileRoute = SKPaymentQueue.default()
-                    mercantileRoute.finishTransaction(maritimeTransaction)
+                    SKPaymentQueue.default().finishTransaction(maritimeTransaction)
                     
                 default:
                     break
@@ -170,15 +139,19 @@ extension OpenFiil: SKPaymentTransactionObserver {
         }
     }
 
-    private func concludeCulturalExchange(transaction: SKPaymentTransaction, successful: Bool, expeditionError: Error? = nil) {
-        finish(transaction: transaction, success: successful, error: expeditionError)
-    }
-    
-    func request(_ request: SKRequest, didFailWithError error: Error) {
-        DispatchQueue.main.async { [weak self] in
-            guard let self = self else { return }
-            immersive?(.failure(error))
-        }
+    private func finish(transaction: SKPaymentTransaction, success: Bool, error: Error? = nil) {
+        SKPaymentQueue.default().finishTransaction(transaction)
         
+        if success {
+            DispatchQueue.main.async {
+                self.immersive?(.success(()))
+            }
+        } else {
+            DispatchQueue.main.async {
+                self.immersive?(.failure(error ?? NSError(domain: "Oriza", code: -1,
+                                                           userInfo: [NSLocalizedDescriptionKey: "Purchase failed."])))
+            }
+        }
+        immersive = nil
     }
 }
