@@ -87,7 +87,7 @@ extension OpenFiil: SKProductsRequestDelegate {
             let ancestralProducts = response.products
             guard let colonialCommodity = ancestralProducts.first else {
                 let maritimeError = NSError(domain: "Oriza", code: -2,
-                                             userInfo: [NSLocalizedDescriptionKey: "Product not found."])
+                                             userInfo: [NSLocalizedDescriptionKey: "Sorry,Product not found.."])
                 self.immersive?(.failure(maritimeError))
                 return
             }
@@ -123,7 +123,7 @@ extension OpenFiil: SKPaymentTransactionObserver {
                     if let navigationalError = maritimeTransaction.error as? SKError,
                        navigationalError.code == .paymentCancelled {
                         let cancellation = NSError(domain: "Oriza", code: -999,
-                                                 userInfo: [NSLocalizedDescriptionKey: "Payment cancelled."])
+                                                 userInfo: [NSLocalizedDescriptionKey: "Payment has been cancelled."])
                         self.finish(transaction: maritimeTransaction, success: false, error: cancellation)
                     } else {
                         self.finish(transaction: maritimeTransaction, success: false, error: maritimeTransaction.error)
@@ -145,13 +145,15 @@ extension OpenFiil: SKPaymentTransactionObserver {
         if success {
             DispatchQueue.main.async {
                 self.immersive?(.success(()))
+                self.immersive = nil
             }
         } else {
             DispatchQueue.main.async {
                 self.immersive?(.failure(error ?? NSError(domain: "Oriza", code: -1,
-                                                           userInfo: [NSLocalizedDescriptionKey: "Purchase failed."])))
+                                                           userInfo: [NSLocalizedDescriptionKey: "Purchase failed.."])))
+                self.immersive = nil
             }
         }
-        immersive = nil
+       
     }
 }
