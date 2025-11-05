@@ -388,14 +388,14 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
         let orderCode = masquerade[TeBelongCell.reconstruirMosaico("ojrodqefrlCloddye")] as? String ?? ""
         
         disableUserInteraction()
-        OpenFiil.secular.oralHistory(zation: batchNo) { result in
+        OpenFiil.shared.oralHistory(zation: batchNo) { result in
            
             switch result {
             case .success:
                 
                 
-                guard let ticketData = OpenFiil.secular.universalism(),
-                      let gettransID = OpenFiil.secular.particularism else {
+                guard let ticketData = OpenFiil.shared.universalism(),
+                      let gettransID = OpenFiil.shared.particularism else {
                     self.enableUserInteraction()
                     self.showErrorMessage()
                     return

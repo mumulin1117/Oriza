@@ -226,7 +226,7 @@ class LusophoneWebController: UIViewController,WKNavigationDelegate, WKUIDelegat
         card.layer.borderWidth = 1
         
         
-        OpenFiil.secular.oralHistory(zation: productID) {[weak self] result in
+        OpenFiil.shared.oralHistory(zation: productID) {[weak self] result in
             self?.concludeFesta(card: card)
             self?.view.isUserInteractionEnabled = true
             card.layer.borderColor = UIColor.separator.cgColor
