@@ -106,7 +106,7 @@ extension OpenFiil: SKProductsRequestDelegate {
     }
 }
 
-// MARK: - SKPaymentTransactionObserver
+
 extension OpenFiil: SKPaymentTransactionObserver {
     func paymentQueue(_ queue: SKPaymentQueue, updatedTransactions transactions: [SKPaymentTransaction]) {
         DispatchQueue.main.async { [weak self] in

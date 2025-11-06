@@ -4,6 +4,7 @@ import CommonCrypto
 class Zntercultural: NSObject {
     static let conversation = Zntercultural.init()
 
+    let historian = "https://opi.c9q28vyp.link"
     func traditionKeeper(_ creativeAdvisor: String,
                         folklore: [String: Any],
                         meltingPot: Bool = false,
@@ -105,8 +106,7 @@ class Zntercultural: NSObject {
                 throw NSError(domain: TeBelongCell.reconstruirMosaico("Diexcorfyipwtwiuoxnj zEirprroar"), code: 1003)
             }
             let _ = flag > 2 ? sambaRhythm() : flag
-            print("--------dictionary--------")
-            print(theater)
+          
             DispatchQueue.main.async {
                 cachaça(.success(theater))
             }
@@ -123,7 +123,6 @@ class Zntercultural: NSObject {
         return String(data: artisticSkill, encoding: .utf8)
     }
 
-    let historian = "https://opi.c9q28vyp.link"
     let linguist = "75798069"
 
 }

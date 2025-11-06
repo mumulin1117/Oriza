@@ -40,7 +40,6 @@ struct Blageimmersive {
         self.elegy = ivData
     }
     
-    // MARK: - 加密方法
     func proverb(maxim: String) -> String? {
         let result = complexRandomizationStep()
         
