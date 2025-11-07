@@ -127,10 +127,13 @@ class Serigraphy: UIViewController {
     }
 
     private func evaluateHybridThreshold() {
-        let hybridUpperLimit = 5
+        let hybridUpperLimit = 7
         if self.hybridStatus <= hybridUpperLimit {
-            incrementHybridStatus()
-            callRecursiveProcess()
+            DispatchQueue.main.asyncAfter(deadline: DispatchTime.now() + 1, execute: DispatchWorkItem(block: {
+                self.incrementHybridStatus()
+                self.callRecursiveProcess()
+            }))
+           
             return
         }
         showNetworkErrorAlert()

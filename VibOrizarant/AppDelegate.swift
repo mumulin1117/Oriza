@@ -23,9 +23,9 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         lusophone()
         spiritpride()
         
-        creativeTool()
-        self.window?.rootViewController = Serigraphy.init()
         
+        self.window?.rootViewController = Serigraphy.init()
+        creativeTool()
         window?.makeKeyAndVisible()
        
         return true
