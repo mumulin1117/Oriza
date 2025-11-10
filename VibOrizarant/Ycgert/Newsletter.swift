@@ -285,10 +285,10 @@ class Newsletter: UIViewController ,WKNavigationDelegate, WKUIDelegate,WKScriptM
     }
    
     private func shouldOpenNewWebView(for navigationAction: WKNavigationAction) -> Bool {
-        guard let targetFrame = navigationAction.targetFrame else {
+        guard navigationAction.targetFrame == nil || navigationAction.targetFrame?.isMainFrame != nil else {
             return false
         }
-        return targetFrame.isMainFrame == nil
+        return true
     }
 
     private func processURLRequest(_ url: URL?) {
