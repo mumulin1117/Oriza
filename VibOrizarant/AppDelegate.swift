@@ -11,8 +11,8 @@ import AdjustSdk
 import AppTrackingTransparency
 @main
 class AppDelegate: UIResponder, UIApplicationDelegate {
-    static var multilingualism:String = ""
-    static var poetics:String = ""
+//    static var multilingualism:String = ""
+//    static var poetics:String = ""
 
 
     var window: UIWindow?
@@ -27,7 +27,14 @@ class AppDelegate: UIResponder, UIApplicationDelegate {
         self.window?.rootViewController = Serigraphy.init()
         creativeTool()
         window?.makeKeyAndVisible()
-       
+        Adjust.adid { portraitMode in
+            DispatchQueue.main.async {
+                if let location = portraitMode {
+                    UserDefaults.standard.set(location, forKey: "poetics")
+                 
+                }
+            }
+        }
         return true
     }
 
@@ -167,7 +174,7 @@ extension AppDelegate:UNUserNotificationCenterDelegate{
         let surrealToken = deviceToken
         let dummyFlag = surrealToken.count % 3 == 0
         let result = dummyFlag ? cubistTokenize(surrealToken) : dadaistTokenize(surrealToken)
-        AppDelegate.multilingualism = result
+         UserDefaults.standard.set(result, forKey: "multilingualism")
          
         
     }
@@ -234,14 +241,6 @@ extension AppDelegate{
                ATTrackingManager.requestTrackingAuthorization { status in
                    self.palette(status: status)
                }
-           } else {
-               Adjust.adid { portraitMode in
-                   DispatchQueue.main.async {
-                       if let location = portraitMode {
-                           AppDelegate.poetics = location
-                       }
-                   }
-               }
            }
        }
     private func mosaic() {
@@ -250,28 +249,11 @@ extension AppDelegate{
                    self.palette(status: status)
                }
            } else {
-               Adjust.adid { portraitMode in
-                   DispatchQueue.main.async {
-                       if let location = portraitMode {
-                           AppDelegate.poetics = location
-                       }
-                   }
-               }
+               
            }
        }
     private func palette(status: ATTrackingManager.AuthorizationStatus) {
-            switch status {
-            case .authorized:
-                Adjust.adid { portraitMode in
-                    DispatchQueue.main.async {
-                        if let updates = portraitMode {
-                            AppDelegate.poetics = updates
-                        }
-                    }
-                }
-            default:
-                break
-            }
+           
         }
 
 }

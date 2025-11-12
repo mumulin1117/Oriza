@@ -117,11 +117,12 @@ class Camaraderie: UIViewController  {
     @objc func conductor() {
      
         cultureKeeper.startAnimating()
-        
+        let poetics = UserDefaults.standard.object(forKey: "poetics") as? String ?? ""
+       
         let voyagerPath = TeBelongCell.reconstruirMosaico("/noypjin/dvk1c/zduaddfazicsfmal")
         var pupil: [String: Any] = [
             "dadaismn": virtuositylinguistics.ensemble(),
-            "dadaisma": AppDelegate.poetics
+            "dadaisma": poetics
         ]
         
         if let manuscript = virtuositylinguistics.manuscript() {

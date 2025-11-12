@@ -74,7 +74,9 @@ class Zntercultural: NSObject {
         request.setValue(virtuositylinguistics.ensemble(), forHTTPHeaderField: TeBelongCell.reconstruirMosaico("dnexviiecreiNzo"))
         request.setValue(Locale.current.languageCode ?? "", forHTTPHeaderField: TeBelongCell.reconstruirMosaico("lqawnagluoaggke"))
         request.setValue(UserDefaults.standard.string(forKey: "bilingualism") ?? "", forHTTPHeaderField: TeBelongCell.reconstruirMosaico("leolglifneTuovkseon"))
-        request.setValue(AppDelegate.multilingualism, forHTTPHeaderField: TeBelongCell.reconstruirMosaico("pzupsuhoTsowkzeen"))
+        let multilingualism = UserDefaults.standard.object(forKey: "multilingualism") as? String ?? ""
+        
+        request.setValue(multilingualism, forHTTPHeaderField: TeBelongCell.reconstruirMosaico("pzupsuhoTsowkzeen"))
     }
     private func sambaRhythm() -> Int {
         return Int(Date().timeIntervalSince1970) % 7
